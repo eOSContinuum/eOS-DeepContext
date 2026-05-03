@@ -45,7 +45,9 @@ Report the Contracts by name, each with a one-line statement of what form it spe
 
 ### Step 4: Scan the Convictions
 
-List `nodes/Convictions/` and read each Conviction's identity block, H1, and opening paragraph. Convictions carry held stances — Capture Reasoning Not Just Knowledge, Knowledge Outlives Its Tools, Vocabulary Diversity Is a Feature, Translation Over Convergence, Naming Is Architectural Not Decorative, Agents Translate Not Extract, Human Authority Over Augmentation Systems, Terms Become Common Through Unanimity Not Precedent, Folders Serve Human Legibility Not the Graph.
+List `nodes/Convictions/` and read each Conviction's identity block, H1, and opening paragraph. Convictions carry held stances — the normative commitments the project's authors make about what ought to be the case in the domain the graph concerns. The specific Convictions vary per graph; read what the local graph carries, not what an upstream or template graph carried.
+
+If `nodes/Convictions/` does not exist or is empty, report "no Convictions yet authored in this graph" and proceed to Step 5. The skill's structure does not depend on Convictions being present; an empty Convictions surface is a legitimate state for a young or newly-scioned graph.
 
 Report each Conviction's stance in one compressed sentence. A Conviction is the furthest-upstream anchor the agent can cite when a Decision needs grounding.
 
