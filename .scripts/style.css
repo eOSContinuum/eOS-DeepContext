@@ -1,0 +1,135 @@
+:root {
+  --ink: #1a1a1a;
+  --muted: #555;
+  --faint: #888;
+  --bg: #fafaf7;
+  --rule: #e2e0d7;
+  --accent: #2a5d8a;
+  --code-bg: #f2efe6;
+  --max-width: 42rem;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", Palatino, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+body {
+  padding: 1.5rem 1rem 4rem;
+}
+
+main, header, footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+header .crumb {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+header .crumb a { color: var(--muted); }
+
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0.2rem 0 1rem; }
+h2 { font-size: 1.25rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.2rem; }
+h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+h4 { font-size: 1rem; margin: 1.25rem 0 0.5rem; color: var(--muted); }
+
+img { max-width: 100%; height: auto; display: block; margin: 1rem 0; }
+
+p, li { color: var(--ink); }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(42, 93, 138, 0.3); }
+a:hover { border-bottom-color: var(--accent); }
+
+a.wikilink { border-bottom: none; }
+a.wikilink:hover { border-bottom: 1px solid var(--accent); }
+
+ul, ol { padding-left: 1.2rem; }
+li { margin: 0.25rem 0; }
+li > ul, li > ol { margin: 0.25rem 0; }
+
+blockquote {
+  border-left: 3px solid var(--rule);
+  margin: 1rem 0;
+  padding: 0.1rem 1rem;
+  color: var(--muted);
+}
+
+code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--code-bg); }
+
+.ghost-link {
+  color: var(--faint);
+  border-bottom: 1px dashed var(--faint);
+  cursor: help;
+}
+
+.external-ref {
+  color: var(--muted);
+  border-bottom: 1px dotted var(--muted);
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+footer .source-link {
+  color: var(--muted);
+  border-bottom-color: rgba(85, 85, 85, 0.3);
+}
+
+footer .did-link {
+  color: var(--muted);
+  border-bottom-color: rgba(85, 85, 85, 0.3);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8rem;
+}

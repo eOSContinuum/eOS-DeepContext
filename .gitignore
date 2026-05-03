@@ -1,0 +1,24 @@
+# Build output (generated; deployed via Actions, not committed)
+.build/
+
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Obsidian vault defaults are committed; per-user state is ignored.
+# Committed: app.json, community-plugins.json, plugins/<enabled plugins>/.
+# Ignored: workspace layout, graph view, hotkeys, templates config, daily-notes
+# config, frontmatter type inference, appearance, plugin-migration state.
+.obsidian/workspace.json
+.obsidian/graph.json
+.obsidian/hotkeys.json
+.obsidian/templates.json
+.obsidian/daily-notes.json
+.obsidian/types.json
+.obsidian/appearance.json
+.obsidian/core-plugins-migration.json
+.obsidian/core-plugins.json

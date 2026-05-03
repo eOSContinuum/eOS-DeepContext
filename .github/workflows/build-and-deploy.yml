@@ -1,0 +1,87 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify scion identity
+        run: |
+          set -eu
+          if [ ! -f .scion-identity.yml ]; then
+            printf 'Error: .scion-identity.yml not found at repo root.\n' >&2
+            printf 'Every DeepContext scion ships this file at inception. If this clone\n' >&2
+            printf 'is a freshly stood-up scion, run the Scion Bootstrap skill\n' >&2
+            printf '(/scion-bootstrap) before pushing.\n' >&2
+            exit 1
+          fi
+          this_did="$(sed -n 's/^this_did:[[:space:]]*//p' .scion-identity.yml | head -n 1)"
+          expected_sha="${this_did#did:repo:}"
+          if [ -z "$expected_sha" ] || [ "$expected_sha" = "$this_did" ]; then
+            printf 'Error: .scion-identity.yml this_did is missing or malformed:\n' >&2
+            printf '  this_did: %s\n' "${this_did:-(empty)}" >&2
+            printf 'Expected form: did:repo:<40-hex-sha1>. Run the Scion Bootstrap skill\n' >&2
+            printf '(/scion-bootstrap) to populate this file with the scion'"'"'s own DID.\n' >&2
+            exit 1
+          fi
+          actual_sha="$(git rev-list --max-parents=0 HEAD | head -n 1)"
+          if [ "$expected_sha" != "$actual_sha" ]; then
+            printf 'Error: scion identity mismatch.\n' >&2
+            printf '  .scion-identity.yml this_did: did:repo:%s\n' "$expected_sha" >&2
+            printf '  root-commit SHA1:             %s\n' "$actual_sha" >&2
+            printf '\n' >&2
+            printf 'Bootstrap has not been completed for this repository, or the file\n' >&2
+            printf 'has drifted from the inception commit. The footer would publish\n' >&2
+            printf 'the wrong DID, so deployment is blocked.\n' >&2
+            printf '\n' >&2
+            printf 'Run the Scion Bootstrap skill (/scion-bootstrap) on a fresh clone\n' >&2
+            printf 'to re-root with the first steward'"'"'s SSH key and write the matching\n' >&2
+            printf 'this_did into .scion-identity.yml.\n' >&2
+            exit 1
+          fi
+          printf 'Scion identity verified: did:repo:%s\n' "$expected_sha"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Sync dependencies
+        run: uv sync
+
+      - name: Build site
+        run: uv run python .scripts/build.py
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
