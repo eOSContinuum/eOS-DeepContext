@@ -173,10 +173,11 @@ def write_nojekyll(build_dir: Path) -> None:
 
 # Canonical hostname for GitHub Pages custom domain. Set to "" to disable
 # custom-domain routing (GitHub Pages default URL applies).
-# eOS-DeepContext has no custom domain assigned yet; CNAME is intentionally
-# not written. When a domain is chosen, set this constant and the build will
-# emit CNAME on the next deploy.
-CUSTOM_DOMAIN = ""
+# DNS for eoscontinuum.com is configured: @ and www are aliases pointing to
+# eoscontinuum.github.io. The build emits .build/CNAME with this value, which
+# the Pages deploy serves at the site root, telling GitHub Pages to route the
+# custom domain to this project.
+CUSTOM_DOMAIN = "eoscontinuum.com"
 
 
 def write_cname(build_dir: Path) -> None:
