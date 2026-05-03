@@ -133,7 +133,7 @@ and behavior imperatives.
 
 A Deep Context **graph** is a repository carrying typed markdown nodes
 with named-edge predicates. Each graph has its own `did:repo:<sha1>` DID
-derived from its own OI inception commit, its own Pages site, and its
+derived from its own Open Integrity inception commit, its own Pages site, and its
 own content to evolve as its first steward sees fit. A new graph may
 optionally claim **scion-of lineage** from a donor by recording
 `scion_of:` in `.deep-context-identity.yml` -- but most do not, because

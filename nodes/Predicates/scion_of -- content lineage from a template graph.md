@@ -17,7 +17,7 @@ The edge's canonical record lives in the scion's `.deep-context-identity.yml` �
 
 ## Carries
 
-The predicate names a template-to-scion relationship from the scion's perspective. The subject is the scion; the object is the template the scion was instantiated from. The edge carries two specific claims at once: first, that the scion's content shape (conventions, form contracts, pipeline, seed nodes as starting material) came from the template; second, that the scion's cryptographic identity is separate from the template's, because OI inception requires a fresh empty-root commit rather than a shared one. Content is inherited; identity is not.
+The predicate names a template-to-scion relationship from the scion's perspective. The subject is the scion; the object is the template the scion was instantiated from. The edge carries two specific claims at once: first, that the scion's content shape (conventions, form contracts, pipeline, seed nodes as starting material) came from the template; second, that the scion's cryptographic identity is separate from the template's, because Open Integrity inception requires a fresh empty-root commit rather than a shared one. Content is inherited; identity is not.
 
 A reader encountering `S scion_of::T↗` learns that the subject S is a template-derived graph whose content began as a copy of T's, that S has since diverged or will diverge as its authors see fit, and that S's own DID is what makes it addressable as distinct from T. The edge does not carry sync obligation — S is not expected to pull changes from T — and does not carry normative inheritance — S may revise any Convictions, Decisions, or Contracts it inherited, and the revisions are S's to own without reference back to T.
 
@@ -72,7 +72,7 @@ The root template (DeepContext.com) ships the same file with `this_did:` set to 
   - Each predicate answers one question. `scion_of::` answers "what template was this graph instantiated from?" — an axis distinct from substrate dependence (built_on), normative foundation (grounded_in), and content influence (informed_by).
 
 - grounded_in::[[Open Integrity Project (Blockchain Commons, 2025)]]
-  - The specification that makes the subject-and-object-have-distinct-DIDs claim cryptographically load-bearing rather than merely conceptual. Without OI, a scion and its template would share git history and therefore share inception commits; the predicate expresses a distinction that OI is what makes real.
+  - The specification that makes the subject-and-object-have-distinct-DIDs claim cryptographically load-bearing rather than merely conceptual. Without Open Integrity, a scion and its template would share git history and therefore share inception commits; the predicate expresses a distinction that Open Integrity is what makes real.
 
 - composes_with::[[Scion Address -- the compound DID form identifying a specific node within a specific graph]]
   - The compound form the predicate's object takes when referenced at node granularity. A `scion_of::[[did:repo:<sha1>]]↗` edge names the template repo; a Scion Address extends that same DID to `did:repo:<sha1>/<path>` for node-level addressing. The predicate and the Gloss are two scales of the same identifier system.
