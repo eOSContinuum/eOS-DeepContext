@@ -1,8 +1,8 @@
 # AGENTS
 
 Orientation for AI agents working on this graph. Read this first; then open
-the Contracts under `nodes/Contracts/` for the structural rules, and the
-landing page (forthcoming) for the project's framing.
+the Contracts under `nodes/Contracts/` for the structural rules, and
+[`landing.md`](landing.md) for the project's framing.
 
 ## The graph in one paragraph
 
@@ -19,26 +19,37 @@ Contracts, Predicates, and generic graph-operation Skills are inherited.
 
 ## Status
 
-Pre-content. The meta-layer (12 Form Contracts, 11 Predicates, 7 generic
-Skills) is in place under `nodes/`. The static-site build pipeline at
-`.scripts/` ports unmodified from upstream; CI builds via GitHub Actions
-deploy to GitHub Pages on push to `main`.
+In progress. The meta-layer is in place (12 Form Contracts, 11 Predicates,
+7 generic Skills under `nodes/`). [`landing.md`](landing.md) carries the
+project's current public framing. 14 Reference stubs in
+[`nodes/References/`](nodes/References/) capture supporting evidence from
+the recent agentic-runtime literature (Recursive Language Models and its
+successors, ClawVM and the harness-managed-virtual-memory lineage,
+MemGPT-through-MemMachine agent-memory work, the Khattab axis of DSPy
+plus DSPy Agent Skills, the Compound AI Systems framing, plus the Prime
+Intellect endorsement of long-horizon agent-task framing).
 
 What is forthcoming:
 
-- **`landing.md`** -- the project's public framing. Derived from the eOS
-  Continuum project's most current concept briefs (the agentic-runtime
-  concept brief and its slides) integrating supporting evidence from the
-  recent agentic-runtime literature (Recursive Language Models and its
-  successors, ClawVM and the harness-managed-virtual-memory lineage,
-  MemGPT-through-MemMachine agent-memory work, Compound AI Systems framing).
 - **Founding Decision and grounding Convictions** -- the load-bearing
-  architectural commitments this graph rests on. Authored once `landing.md`
-  establishes the framing.
-- **Content nodes** -- Decisions, Convictions, Aspirations, References,
-  Observations, Patterns elaborating the architectural argument. Some will
-  scion from work currently held in the `eos-harness` graph; some will be
-  authored fresh.
+  architectural commitments this graph rests on, including the eight
+  runtime-primitive Convictions named in `landing.md`. Most exist in the
+  `eos-harness` graph and will scion or be authored fresh here. The
+  architectural-hierarchy reordering -- orthogonal persistence as
+  foundational, the other seven `grounded_in::` it -- applies at
+  migration time.
+- **Content nodes** -- Decisions, Aspirations, Observations, and Patterns
+  elaborating the architectural argument. Three customer-pattern Patterns
+  named in `landing.md` (customer-authored automation in a SaaS product,
+  long-running stateful workflows, AI-authored tools and durable agent
+  memory) belong in `nodes/Patterns/` once authored.
+- **Reference stub bodies** -- the 14 Reference stubs are minimal;
+  Adopted / Not adopted detail and per-feature correspondence to substrate
+  primitives is to be expanded.
+
+The static-site build pipeline at `.scripts/` ports unmodified from
+upstream; CI builds via GitHub Actions deploy to GitHub Pages on push to
+`main`. The site is served at [eoscontinuum.com](https://eoscontinuum.com/).
 
 ## Graph conventions (short form)
 
@@ -114,6 +125,56 @@ For an agent entering this graph:
    relation does not fit an existing predicate, use `Predicate Propose` to
    author a backing Predicate node before claiming the edge in a relations
    bullet.
+
+## Contributing changes
+
+The repo is fork-and-PR. To contribute (whether you are a human running an
+agent or working directly):
+
+1. **Fork** to your account or organization. Clone your fork locally.
+2. **Run the `Graph Orient` Skill** to walk this file plus
+   [`landing.md`](landing.md), the form Contracts at identity-block scale,
+   the Convictions when authored, and the Predicate vocabulary -- the
+   cheapest read that produces enough context for the operations that
+   follow.
+3. **Branch** for the change (`feature/<short-name>` or `add-<node>` are
+   reasonable conventions). Atomic, focused branches review faster.
+4. **Author or edit** nodes per the form Contract for the relevant node
+   form -- `Conviction Form Contract`, `Decision Form Contract`, and so
+   on. Each form's Requirements are the authoritative test of what the
+   node must satisfy.
+5. **Run `Node Validate`** on each authored or modified node. The
+   validator catches structural deviations from the form Contract --
+   filename pattern, identity block, body shape, named-edge syntax.
+6. **Check `Predicate Propose`** before introducing typed edges that are
+   not backed by an existing node in `nodes/Predicates/`. The skill walks
+   the proposal: establish the axis the predicate answers, check existing
+   vocabulary, identify near-neighbors, draft a Predicate node before
+   claiming the edge.
+7. **Commit signed**: `git commit -S -s -m "<message>"`. The repository's
+   Open Integrity inception established a signed-commit chain; signed
+   commits keep the chain intact.
+8. **Push** to your fork.
+9. **Open a pull request** against `main` of
+   `eOSContinuum/eOS-DeepContext`. Reference the relevant nodes (existing
+   or newly authored) in the PR description.
+10. **Review and merge** by [@ChristopherA](https://github.com/ChristopherA),
+    who maintains `main`. Larger architectural proposals (new Conviction
+    sets, new Decisions with load-bearing Alternatives, graph-restructure
+    work) may benefit from an open issue or discussion before authoring.
+
+For LLM-driven contributions, point the harness at this file. The
+conventions stated above plus the form Contracts plus the Skills
+(`Graph Orient`, `Node Read`, `Node Create`, `Node Validate`,
+`Predicate Propose`, `Graph Audit`, `Graph Load Audit`) are the operative
+instruction set. The Curate-not-overwrite, Translate-not-normalize,
+Name-features-not-traditions, and Authored-by-not-authoring imperatives
+stated above govern agent behavior. If your harness needs a more
+prescriptive workflow than this section provides, consider authoring a
+`Contribute to eOS-DeepContext` Skill at `nodes/Skills/` that walks the
+fork-branch-author-validate-commit-push-PR sequence with explicit Skill
+invocations between each step; until then, this section is the
+authoritative instruction set.
 
 ## Build and deploy
 
