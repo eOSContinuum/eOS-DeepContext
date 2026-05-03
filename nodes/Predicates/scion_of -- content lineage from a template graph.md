@@ -3,6 +3,7 @@ tagline: Content lineage from a template graph
 ---
 
 - conforms_to::[[Predicate Form Contract]]
+- grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - in_domain::[[Deep Context Architecture]]
 - authored_by::[[Deep Context Community]]
 - has_lifecycle::[[Seed Stage]]

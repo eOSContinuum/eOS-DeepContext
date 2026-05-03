@@ -10,6 +10,7 @@ description: |
 ---
 
 - conforms_to::[[Skill Form Contract]]
+- grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - authored_by::[[Deep Context Community]]
 - has_lifecycle::[[Seed Stage]]
 - has_curation::[[Working Draft]]

@@ -4,6 +4,7 @@ created: 2026-04-25
 ---
 
 - conforms_to::[[Contract Form Contract]]
+- grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
 - authored_by::[[Christopher Allen]]
 - has_lifecycle::[[Seed Stage]]

@@ -3,6 +3,7 @@ tagline: The meta-contract: how a Contract node in this project is named, struct
 ---
 
 - conforms_to::[[Contract Form Contract]]
+- grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
 - authored_by::[[Deep Context Community]]
 - has_lifecycle::[[Seed Stage]]

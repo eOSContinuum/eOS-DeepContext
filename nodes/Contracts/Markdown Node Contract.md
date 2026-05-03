@@ -3,6 +3,7 @@ tagline: The base file-form every node inherits: encoding, filename rules, YAML 
 ---
 
 - conforms_to::[[Contract Form Contract]]
+- grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - authored_by::[[Deep Context Community]]
 - has_lifecycle::[[Seed Stage]]
 - has_curation::[[Working Draft]]
