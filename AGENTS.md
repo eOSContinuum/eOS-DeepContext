@@ -12,10 +12,12 @@ patterns, decisions with their alternatives and revisit conditions,
 observations with their epistemic grounds, convictions with their drift
 recognition. Each node is a plain-markdown file with a block of identity
 predicates above the H1, a body shaped by the node's form contract, and a
-`## Relations` section carrying typed edges to other nodes. The graph is a
-scion of [ChristopherA/DeepContext.com](https://github.com/ChristopherA/DeepContext.com)
-(`scion_of: did:repo:7eac0b30ce47538930800f563ecfb3cec6e3c5ae`); meta-layer
-Contracts, Predicates, and generic graph-operation Skills are inherited.
+`## Relations` section carrying typed edges to other nodes. The graph is
+its own Deep Context graph (not a scion of any other graph); meta-layer
+Contracts, Predicates, and generic graph-operation Skills were **grafted**
+from [ChristopherA/DeepContext.com](https://github.com/ChristopherA/DeepContext.com)
+at instantiation, with per-node graft provenance recorded via the
+`grafted_from::` predicate.
 
 ## Status
 
@@ -34,7 +36,7 @@ What is forthcoming:
 - **Founding Decision and grounding Convictions** -- the load-bearing
   architectural commitments this graph rests on, including the eight
   runtime-primitive Convictions named in `landing.md`. Most exist in the
-  `eos-harness` graph and will scion or be authored fresh here. The
+  `eos-harness` graph and will be grafted or authored fresh here. The
   architectural-hierarchy reordering -- orthogonal persistence as
   foundational, the other seven `grounded_in::` it -- applies at
   migration time.

@@ -31,7 +31,7 @@ What is forthcoming:
 - **Founding Decision and grounding Convictions** -- the load-bearing
   architectural commitments this graph rests on. The eight runtime-
   primitive Convictions named in `landing.md` are currently ghost links
-  (most exist in the `eos-harness` graph and will scion or be authored
+  (most exist in the `eos-harness` graph and will be grafted or authored
   fresh here, with the architectural-hierarchy reordering -- orthogonal
   persistence as foundational, others derived -- applied at migration).
 - **Content nodes** -- Decisions, Aspirations, Observations, Patterns
@@ -47,18 +47,29 @@ CI deploys to GitHub Pages on push to `main`.
 
 ## Lineage
 
-This graph is a scion of [ChristopherA/DeepContext.com](https://github.com/ChristopherA/DeepContext.com).
-Its meta-layer (Contracts, Predicates, generic graph-operation Skills) is
-inherited from the parent template; content nodes will be authored to carry
-the eOS Continuum project's architectural argument.
+eOS-DeepContext is its own Deep Context graph (not a scion of any other
+graph). Its meta-layer (Contracts, Predicates, generic graph-operation
+Skills) was **grafted** from
+[ChristopherA/DeepContext.com](https://github.com/ChristopherA/DeepContext.com)
+at instantiation; content nodes are authored locally to carry the eOS
+Continuum project's architectural argument. Per-node graft provenance is
+recorded via the `grafted_from::` predicate, with DeepContext.com proxied
+by a Reference node in `nodes/References/`.
 
 - `this_did: did:repo:9dc47a293f5b2352dba288b3e2ef9c73c508ca0f`
-- `scion_of: did:repo:7eac0b30ce47538930800f563ecfb3cec6e3c5ae`
+- `scion_of: null` (this graph does not claim scion-of lineage from any
+  donor; it is its own thing, with grafts from DeepContext.com recorded
+  per node)
 
-The `did:repo:<sha1>` form is W3C DID-URL-style identifier where the SHA1
-is the repository's Open Integrity inception commit -- a signed empty root
-commit that cryptographically binds the repository's identity to its
-founding key.
+The `did:repo:<sha1>` form is a W3C DID-URL-style identifier where the
+SHA1 is the repository's Open Integrity inception commit -- a signed
+empty root commit that cryptographically binds the repository's identity
+to its founding key. The distinction between **graph** (any
+self-sovereign Deep Context repository), **graft** (per-node copy from a
+donor), and **scion** (the rare lineage-claim status applied when a graph
+intends to track a donor as upstream) is recorded in DeepContext.com's
+[Adopt Scion Publication Model](https://deepcontext.com/nodes/decisions/adopt-scion-publication-model/)
+Decision.
 
 ## Build
 
@@ -118,18 +129,25 @@ to make changes that fit the graph's conventions, including the
 contributing workflow above with the agent-specific Skill invocations
 and behavior imperatives.
 
-## Scioning
+## Standing up a new graph from this one
 
-A DeepContext **scion** is a repository whose content began as a clone of
-another DeepContext graph and was re-rooted locally with its own Open
-Integrity inception commit. Each scion has its own `did:repo:<sha1>` DID,
-its own Pages site, and its own content to diverge as its first steward
-sees fit.
+A Deep Context **graph** is a repository carrying typed markdown nodes
+with named-edge predicates. Each graph has its own `did:repo:<sha1>` DID
+derived from its own OI inception commit, its own Pages site, and its
+own content to evolve as its first steward sees fit. A new graph may
+optionally claim **scion-of lineage** from a donor by recording
+`scion_of:` in `.deep-context-identity.yml` -- but most do not, because
+scion-of signals upstream-tracking intent (the rare parallel-fork case)
+rather than mere content adoption.
 
-Standing up a scion is a local ceremony. The inception commit must be
-signed by the first steward's own SSH key; no one-click GitHub path works
-because Actions cannot sign as the steward. The template-repository
-setting on this repository is intentionally not enabled.
+Standing up a new graph from a clone of this one is a local ceremony.
+The inception commit must be signed by the first steward's own SSH key;
+no one-click GitHub path works because Actions cannot sign as the
+steward. The template-repository setting on this repository is
+intentionally not enabled. The new graph's content provenance to this
+graph is recorded via per-node `grafted_from::` edges where traceability
+matters; scion-of is reserved for the explicit lineage claim with
+`--claim-scion-of`.
 
 ### Prerequisites
 
