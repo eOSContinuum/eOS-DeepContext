@@ -1,0 +1,20 @@
+# Structural record of this graph's Deep Context identity.
+# Written once at Graph Inception; the file is read by the build pipeline's
+# deploy-gate and (when this graph is the donor for a new graph) by the
+# graph-inception.sh ceremony, which copies this_did into the new graph's
+# scion_of only when the new graph claims scion-of lineage with --claim-scion-of.
+
+# The DID of this repository -- the did:repo:<sha1> derived from this repo's
+# Open Integrity inception commit. Stable for the life of the repository;
+# changes only if the repository is re-rooted.
+this_did: did:repo:9dc47a293f5b2352dba288b3e2ef9c73c508ca0f
+
+# The DID of the donor graph this repository claims scion-of lineage from.
+# null when the graph is not a scion -- which is the common case. eOS-DeepContext
+# is its own Deep Context graph with its own purpose (the eOS Continuum project's
+# architectural argument); it grafted meta-layer content (Form Contracts,
+# Predicates, generic Skills) from ChristopherA/DeepContext.com but does not
+# claim scion-of lineage and does not intend to track DeepContext.com as upstream.
+# Per-node graft provenance is recorded via the grafted_from:: predicate, with
+# the donor proxied by a Reference node in nodes/References/.
+scion_of: null

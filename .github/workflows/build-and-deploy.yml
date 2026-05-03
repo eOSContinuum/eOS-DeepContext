@@ -22,41 +22,41 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Verify scion identity
+      - name: Verify graph identity
         run: |
           set -eu
-          if [ ! -f .scion-identity.yml ]; then
-            printf 'Error: .scion-identity.yml not found at repo root.\n' >&2
-            printf 'Every DeepContext scion ships this file at inception. If this clone\n' >&2
-            printf 'is a freshly stood-up scion, run the Scion Bootstrap skill\n' >&2
-            printf '(/scion-bootstrap) before pushing.\n' >&2
+          if [ ! -f .deep-context-identity.yml ]; then
+            printf 'Error: .deep-context-identity.yml not found at repo root.\n' >&2
+            printf 'Every Deep Context graph ships this file at inception. If this clone\n' >&2
+            printf 'is a freshly stood-up graph, run the Graph Inception skill\n' >&2
+            printf '(/graph-inception) before pushing.\n' >&2
             exit 1
           fi
-          this_did="$(sed -n 's/^this_did:[[:space:]]*//p' .scion-identity.yml | head -n 1)"
+          this_did="$(sed -n 's/^this_did:[[:space:]]*//p' .deep-context-identity.yml | head -n 1)"
           expected_sha="${this_did#did:repo:}"
           if [ -z "$expected_sha" ] || [ "$expected_sha" = "$this_did" ]; then
-            printf 'Error: .scion-identity.yml this_did is missing or malformed:\n' >&2
+            printf 'Error: .deep-context-identity.yml this_did is missing or malformed:\n' >&2
             printf '  this_did: %s\n' "${this_did:-(empty)}" >&2
-            printf 'Expected form: did:repo:<40-hex-sha1>. Run the Scion Bootstrap skill\n' >&2
-            printf '(/scion-bootstrap) to populate this file with the scion'"'"'s own DID.\n' >&2
+            printf 'Expected form: did:repo:<40-hex-sha1>. Run the Graph Inception skill\n' >&2
+            printf '(/graph-inception) to populate this file with the graph'"'"'s own DID.\n' >&2
             exit 1
           fi
           actual_sha="$(git rev-list --max-parents=0 HEAD | head -n 1)"
           if [ "$expected_sha" != "$actual_sha" ]; then
-            printf 'Error: scion identity mismatch.\n' >&2
-            printf '  .scion-identity.yml this_did: did:repo:%s\n' "$expected_sha" >&2
-            printf '  root-commit SHA1:             %s\n' "$actual_sha" >&2
+            printf 'Error: graph identity mismatch.\n' >&2
+            printf '  .deep-context-identity.yml this_did: did:repo:%s\n' "$expected_sha" >&2
+            printf '  root-commit SHA1:                    %s\n' "$actual_sha" >&2
             printf '\n' >&2
-            printf 'Bootstrap has not been completed for this repository, or the file\n' >&2
+            printf 'Inception has not been completed for this repository, or the file\n' >&2
             printf 'has drifted from the inception commit. The footer would publish\n' >&2
             printf 'the wrong DID, so deployment is blocked.\n' >&2
             printf '\n' >&2
-            printf 'Run the Scion Bootstrap skill (/scion-bootstrap) on a fresh clone\n' >&2
+            printf 'Run the Graph Inception skill (/graph-inception) on a fresh clone\n' >&2
             printf 'to re-root with the first steward'"'"'s SSH key and write the matching\n' >&2
-            printf 'this_did into .scion-identity.yml.\n' >&2
+            printf 'this_did into .deep-context-identity.yml.\n' >&2
             exit 1
           fi
-          printf 'Scion identity verified: did:repo:%s\n' "$expected_sha"
+          printf 'Graph identity verified: did:repo:%s\n' "$expected_sha"
 
       - name: Install uv
         uses: astral-sh/setup-uv@v3

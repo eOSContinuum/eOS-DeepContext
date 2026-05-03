@@ -9,6 +9,11 @@ __pycache__/
 # macOS
 .DS_Store
 
+# Graph Inception ceremony partial-resume flag (created by graph-inception.sh
+# at the start of inception, removed after successful completion; signals
+# partial-run state if a previous run did not finish).
+.deep-context-inception-in-progress
+
 # Obsidian vault defaults are committed; per-user state is ignored.
 # Committed: app.json, community-plugins.json, plugins/<enabled plugins>/.
 # Ignored: workspace layout, graph view, hotkeys, templates config, daily-notes

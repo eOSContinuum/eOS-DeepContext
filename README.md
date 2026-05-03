@@ -142,19 +142,23 @@ setting on this repository is intentionally not enabled.
 ### Ceremony
 
 ```sh
-git clone https://github.com/eOSContinuum/eOS-DeepContext my-scion
-cd my-scion
-sh .scripts/scion-bootstrap.sh
+git clone https://github.com/eOSContinuum/eOS-DeepContext my-graph
+cd my-graph
+sh .scripts/graph-inception.sh
 ```
 
-The Scion Bootstrap script removes the cloned `.git`, runs
-`scion-inception.sh` to produce a fresh signed inception commit, updates
-`.scion-identity.yml` so `this_did` carries the new SHA1 and `scion_of`
-carries this template's `this_did`, and stages plus commits the working
-tree as the scion's first content commit.
+The Graph Inception script removes the cloned `.git`, runs
+`oi-inception.sh` to produce a fresh signed inception commit, updates
+`.deep-context-identity.yml` so `this_did` carries the new SHA1 and
+leaves `scion_of: null` (the new graph is its own thing, not a scion of
+this one), and stages plus commits the working tree as the new graph's
+first content commit. Pass `--claim-scion-of` to claim scion-of lineage
+from this graph (the rare parallel-fork-tracking case); otherwise
+`scion_of:` stays null and per-node graft provenance can be recorded
+via `grafted_from::` edges.
 
-After the ceremony, push the scion to its own GitHub repository under the
-first steward's account or organization.
+After the ceremony, push the new graph to its own GitHub repository under
+the first steward's account or organization.
 
 ## Graph conventions
 

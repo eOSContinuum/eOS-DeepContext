@@ -13,9 +13,9 @@
 # and therefore identical did:repo:<sha1> values.
 #
 # Usage:
-#   .scripts/scion-inception.sh                      # creates ./new_open_integrity_repo/
-#   .scripts/scion-inception.sh ./my-scion-dir       # creates at the named path
-#   .scripts/scion-inception.sh --force ./existing   # overwrite check: refuses unless --force
+#   .scripts/oi-inception.sh                      # creates ./new_open_integrity_repo/
+#   .scripts/oi-inception.sh ./my-graph-dir        # creates at the named path
+#   .scripts/oi-inception.sh --force ./existing   # overwrite check: refuses unless --force
 #
 # Prerequisites (checked at runtime):
 #   - git config user.name

@@ -12,7 +12,7 @@ tagline: Content lineage from a template graph
 
 A predicate declaring that the subject is a scion whose content was instantiated from the object, which is a template graph. The object is identified by its `did:repo:<sha1>` DID with an `↗` external marker — the template lives in another graph (a different repository with a different inception commit). The subject carries its own DID derived from its own Open Integrity inception commit; the object's DID is distinct. The edge names content lineage without claiming cryptographic identity inheritance.
 
-The edge's canonical record lives in the scion's `.scion-identity.yml` — a root-level dotfile that Bootstrap writes when the scion is first stood up. The file holds the template's DID under `scion_of:` and the scion's own DID under `this_did:`; graph tools that want to traverse the scion-of edge read the YAML value. The scion may additionally carry the wikilink form (`scion_of::[[did:repo:<template-sha1>]]↗`) in its identity predicate block if traversability via graph-layer queries matters on that scion. The edge is not expected to appear in DeepContext.com itself, which is the root template and has no template of its own to derive from.
+The edge's canonical record lives in the scion's `.deep-context-identity.yml` — a root-level dotfile that Bootstrap writes when the scion is first stood up. The file holds the template's DID under `scion_of:` and the scion's own DID under `this_did:`; graph tools that want to traverse the scion-of edge read the YAML value. The scion may additionally carry the wikilink form (`scion_of::[[did:repo:<template-sha1>]]↗`) in its identity predicate block if traversability via graph-layer queries matters on that scion. The edge is not expected to appear in DeepContext.com itself, which is the root template and has no template of its own to derive from.
 
 ## Carries
 
@@ -40,14 +40,14 @@ A reader encountering `S scion_of::T↗` learns that the subject S is a template
 
 ## Typing
 
-- **Subject:** A scion repository. The canonical record lives in the scion's `.scion-identity.yml` at the repository root; when a graph-layer wikilink form is additionally used, it lands in the scion's identity predicate block on a markdown file the scion designates. The subject is the graph that carries the edge; the graph's own DID is not named by this edge but by the `did:repo:<sha1>` of its own inception commit.
+- **Subject:** A scion repository. The canonical record lives in the scion's `.deep-context-identity.yml` at the repository root; when a graph-layer wikilink form is additionally used, it lands in the scion's identity predicate block on a markdown file the scion designates. The subject is the graph that carries the edge; the graph's own DID is not named by this edge but by the `did:repo:<sha1>` of its own inception commit.
 - **Object:** A template graph, identified by its `did:repo:<sha1>` DID, external marker `↗`. The template lives in a different repository with a different inception commit. Human-facing annotation may accompany the DID to name the template's URL or common name.
 
 ## Instances
 
-No instances exist in this graph. DeepContext.com is the root template, not a scion of anything, and carries no `scion_of::` edges. The predicate is seeded here because every scion instantiated from this template will record the relationship in its own `.scion-identity.yml` (structural record) and may additionally carry the wikilink form in its identity predicate block (graph-traversable record).
+No instances exist in this graph. DeepContext.com is the root template, not a scion of anything, and carries no `scion_of::` edges. The predicate is seeded here because every scion instantiated from this template will record the relationship in its own `.deep-context-identity.yml` (structural record) and may additionally carry the wikilink form in its identity predicate block (graph-traversable record).
 
-A hypothetical scion's `.scion-identity.yml` carries:
+A hypothetical scion's `.deep-context-identity.yml` carries:
 
 ```yaml
 this_did: did:repo:<scion-inception-sha1>                   # the scion's own DID, written by Bootstrap

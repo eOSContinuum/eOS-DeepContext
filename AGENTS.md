@@ -187,6 +187,6 @@ uv run python .scripts/build.py
 
 Output lands in `.build/` (gitignored). CI deploys to GitHub Pages on push
 to `main` via `.github/workflows/build-and-deploy.yml`. The CI workflow
-verifies `.scion-identity.yml`'s `this_did:` matches the repository's root
-commit SHA before deploying, so a freshly-bootstrapped scion cannot
-publish under the parent template's DID by accident.
+verifies `.deep-context-identity.yml`'s `this_did:` matches the repository's
+root commit SHA before deploying, so a freshly-incepted graph cannot
+publish under any donor graph's DID by accident.
