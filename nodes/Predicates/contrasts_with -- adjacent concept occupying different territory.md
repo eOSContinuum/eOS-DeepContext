@@ -4,10 +4,10 @@ tagline: Adjacent concept occupying different territory
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # contrasts_with
 
@@ -43,7 +43,7 @@ Ghost link; `contradicts::` is used in adjacent vocabularies but not seeded as a
 ## Instances
 
 - `prototype/nodes/Contracts/Gloss Form Contract.md` carries `contrasts_with::[[Reference Form Contract]]` — both Contracts define short node forms, but a Gloss defines a term used internally and a Reference points to external authoritative material. The contrast is load-bearing because contributors choosing between the two forms need the distinction to be explicit.
-- `prototype/nodes/Convictions/Translation Over Convergence.md` carries `contrasts_with::[[Adopt Predicate Atomicity]]` — both are vocabulary-discipline commitments operating at different scopes (within a vocabulary vs across vocabularies). The contrast surfaces that the commitments compose rather than conflict.
+- `prototype/nodes/Convictions/Translation Over Convergence.md` carries `contrasts_with::[[Decisions/Adopt Predicate Atomicity]]↗` — both are vocabulary-discipline commitments operating at different scopes (within a vocabulary vs across vocabularies). The contrast surfaces that the commitments compose rather than conflict.
 
 ## Relations
 
@@ -56,5 +56,5 @@ Ghost link; `contradicts::` is used in adjacent vocabularies but not seeded as a
 - contrasts_with::[[contradicts]]
   - Ghost link; target Predicate not seeded. Non-negation vs directional negation.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction this predicate most directly operationalizes. The Predicate Form Contract's Crescent section uses `contrasts_with::` as its structural edge; every predicate that documents an adjacency carries this edge to its near-neighbors.

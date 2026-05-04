@@ -4,10 +4,10 @@ tagline: Compliance with a specification
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # conforms_to
 
@@ -49,5 +49,5 @@ The web of associations the predicate activates is the Form Contract layer of th
 - contrasts_with::[[extends_contract -- strict inheritance between form contracts]]
   - Different layers of the form hierarchy: `extends_contract::` is contract-to-contract inheritance; `conforms_to::` is instance-to-specification compliance.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes the distinction-naming in this Predicate's Crescent sections load-bearing. The `is_a::` vs `conforms_to::` distinction is one the project commits to preserving against the convergence pressure that would flatten them.

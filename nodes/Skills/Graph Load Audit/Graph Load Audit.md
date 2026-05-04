@@ -4,17 +4,17 @@ tagline: Surveys the graph for node integration depth -- which nodes pull weight
 description: |
   Surveys the graph for node integration depth -- which nodes are pulling weight in the graph's reasoning and which are dormant or under-pulling. Counts inbound wikilink references and predicate edge-usage per node, identifies orphan nodes (zero inbound), distinguishes structurally-thin-by-design forms (Aspirations, narrow-grounding Decisions, recently-seeded nodes) from nodes actually under-pulling, decomposes prose-vs-wikilink mentions for meta-category candidates, and surfaces actionable recommendations -- cascade missing reciprocal edges, wikilink-target meta-category candidates, flag low-usage Predicates. Complements Graph Audit (which looks for drift) by asking the orthogonal question (which nodes are integrated and which are latent).
 
-  WHEN: the user asks which nodes are pulling their weight, which are orphaned, which are under-integrated; the user says "load audit", "load-bearing audit", "integration audit", "graph density", "dormant nodes", "what's pulling weight", "/graph-load-audit"; before deciding whether to deprecate, merge, promote, or further-elaborate a node; the convergence-test discipline ([[Convergent Motivation as Load-Bearing Signal]]) wants evidence of inbound motivation count; before a curation pass that needs to know what to spend time on; recently-seeded nodes need a re-evaluation of whether they have earned their integration.
+  WHEN: the user asks which nodes are pulling their weight, which are orphaned, which are under-integrated; the user says "load audit", "load-bearing audit", "integration audit", "graph density", "dormant nodes", "what's pulling weight", "/graph-load-audit"; before deciding whether to deprecate, merge, promote, or further-elaborate a node; the convergence-test discipline ([[Patterns/Convergent Motivation as Load-Bearing Signal]]↗) wants evidence of inbound motivation count; before a curation pass that needs to know what to spend time on; recently-seeded nodes need a re-evaluation of whether they have earned their integration.
 
   WHEN NOT: looking for drift, ghost links, vocabulary inconsistency, or other Graph Audit findings (use Graph Audit instead -- this skill is the orthogonal survey, not a replacement); validating one node against its Form Contract (use Node Validate); the graph is small enough that integration depth is obvious by hand (under ~30 nodes); the user is asking whether the graph is correct rather than whether each node is integrated; periodic re-audit of a graph audited within the same session (re-running burns context without producing new signal).
 ---
 
 - conforms_to::[[Skill Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Graph Load Audit
 
@@ -22,7 +22,7 @@ Surveys the graph at integration-depth scale. The audit answers a different ques
 
 The skill produces a tier-based report. True orphans (zero inbound across both wikilink and prose) sit at the top because they are the clearest signal of misintegration. Wikilink-orphans whose concept is saturated in prose (meta-category candidates) sit next, because their fix is a small wikilinking pass rather than a structural decision. Recently-seeded nodes get their own tier because their latency is by-design rather than misintegration. Low-usage Predicates and structurally-thin-by-design nodes (Aspirations, narrow Decisions) are reported but not flagged as findings.
 
-The audit's purpose is to inform the project's discipline against premature commitment ([[Adopt Minimum-Viable-Architecture Stance]]) and the convergence-evidence test ([[Convergent Motivation as Load-Bearing Signal]]). A node with five inbound references has accumulated independent motivation; a node with zero has not yet earned its place. The audit makes that question answerable.
+The audit's purpose is to inform the project's discipline against premature commitment ([[Decisions/Adopt Minimum-Viable-Architecture Stance]]↗) and the convergence-evidence test ([[Patterns/Convergent Motivation as Load-Bearing Signal]]↗). A node with five inbound references has accumulated independent motivation; a node with zero has not yet earned its place. The audit makes that question answerable.
 
 ## Steps
 
@@ -107,7 +107,7 @@ For Predicate nodes, the load-bearing measure is edge-usage from Step 3, not wik
 - **Edge-usage 3-9** -- the Predicate is exercised but narrowly. Not a finding by itself; depends on whether the Predicate's distinction against adjacent Predicates is load-bearing (the Crescent section's content). If the Crescent does not name a structural distinction the graph commits to, the Predicate may want consolidation.
 - **Edge-usage 10+** -- working as intended; no finding.
 
-Recently-seeded Predicates (e.g., `scion_of` shortly after the Scion Publication Model was adopted) are expected to grow and should be classified per Step 6.
+Recently-seeded Predicates (e.g., `scion_of` shortly after the Self-Sovereign Graph Publication Decision was adopted) are expected to grow and should be classified per Step 6.
 
 ### Step 8: Produce the tier-based report
 
@@ -141,11 +141,11 @@ If the user wants a follow-up action committed in the same session, surface the 
 - composes_with::[[Node Read]]
   - When this skill flags a node as under-pulling, the natural follow-up is to read the node and the nodes it claims to inform, to decide whether the under-pulling reflects a structural gap (cascade missing) or a content gap (the node's claim hasn't been exercised). Node Read is the orientation skill that closes that loop.
 
-- grounded_in::[[Adopt Wikilinks and Named Edges]]
+- grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The spine commitment this skill measures. The audit counts wikilink references and named-edge predicate usage; both metrics rest on the graph being committed to author-declared edges in the first place. Without the substrate Decision, neither metric would be meaningful.
 
-- grounded_in::[[Adopt Minimum-Viable-Architecture Stance]]
-  - The MVA stance defers capabilities until use surfaces them. This skill is the survey that tells the project which seeded nodes have accumulated use and which have not. A node flagged as a true orphan after several sessions is a candidate for the MVA discipline's "is this load-bearing yet?" question.
+- grounded_in::[[Decisions/Adopt Minimum-Viable-Architecture Stance]]↗
+  - The Minimum Viable Architecture stance defers capabilities until use surfaces them. This skill is the survey that tells the project which seeded nodes have accumulated use and which have not. A node flagged as a true orphan after several sessions is a candidate for the Minimum Viable Architecture discipline's "is this load-bearing yet?" question.
 
-- informs_downstream::[[Convergent Motivation as Load-Bearing Signal]]
+- informs_downstream::[[Patterns/Convergent Motivation as Load-Bearing Signal]]↗
   - The Pattern's convergence test asks whether four or more independent motivations have accumulated on a proposed structural commitment. This skill produces the evidence the test consumes -- inbound reference count is one direct measure of motivation accumulation. The Pattern is the discipline; this skill is the measurement that makes the discipline operational at the graph layer.

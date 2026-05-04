@@ -5,10 +5,10 @@ tagline: A held normative stance the project asks contributors to share, carryin
 - conforms_to::[[Contract Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Conviction Form Contract
 
@@ -25,7 +25,7 @@ A Conviction is not an Observation (which records a descriptive claim about what
 
 ### Filename pattern
 
-Enforces [[Require Held-Stance Filename Shape for Convictions]].
+Enforces [[Decisions/Require Held-Stance Filename Shape for Convictions]]↗.
 
 - The filename MUST read as a held stance. Typical shapes: scoped authority claim (`Human Authority Over Augmentation Systems`), value declaration (`Vocabulary Diversity Is a Feature`), directional commitment (`Content Over Container`), bounded stance (`Translation Over Convergence`), or subject-carries-object declarative (`Folders Serve Human Legibility, Not the Graph`).
 - A bare noun phrase MUST NOT be used.
@@ -34,10 +34,10 @@ Enforces [[Require Held-Stance Filename Shape for Convictions]].
 
 ### Identity predicate block
 
-Enforces [[Reserve Predicate Vocabularies to Specific Forms]].
+Enforces [[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗.
 
 - The identity block above the H1 MUST include `conforms_to::[[Conviction Form Contract]]`.
-- The identity block SHOULD include `in_domain::[[<Domain>]]`.
+- The identity block SHOULD include `in_practice_domain::[[<Practice Domain>]]`.
 - The identity block MAY include `authored_by::`, `has_lifecycle::`, and `has_curation::` as for any Markdown Node.
 - A Conviction MUST NOT carry `has_commitment::` or `decided_on::` — those are Decision predicates.
 - A Conviction MUST NOT carry `has_epistemic_status::` — that predicate is Observation-specific.
@@ -59,14 +59,14 @@ Enforces [[Reserve Predicate Vocabularies to Specific Forms]].
 
 ### Body: what it asks
 
-Enforces [[Require What-It-Asks and Drift Recognition in Convictions]].
+Enforces [[Decisions/Require What-It-Asks and Drift Recognition in Convictions]]↗.
 
 - The body MUST describe what taking the stance seriously asks of the project — the observable commitments, mechanisms, boundaries, or practices that follow when contributors hold this conviction.
 - Subsections MAY partition the asks by level of application (e.g., session-level, architectural, knowledge-level) when a conviction's consequences span scales.
 
 ### Body: drift recognition
 
-Enforces [[Require What-It-Asks and Drift Recognition in Convictions]].
+Enforces [[Decisions/Require What-It-Asks and Drift Recognition in Convictions]]↗.
 
 - The body MUST describe how a reader or contributor would recognize drift from the stance — the practices, outputs, or omissions that would indicate the conviction has weakened without being explicitly revoked.
 - Drift recognition differs from a Contract Requirement's violation condition. A Requirement is violated when its structural MUST rule fails; a Conviction drifts when contributors stop acting as though the stance were held. The recognition is cumulative and cultural rather than pointwise and structural.
@@ -87,8 +87,8 @@ Enforces [[Require What-It-Asks and Drift Recognition in Convictions]].
 
 ### Optional scalar metadata
 
-- YAML frontmatter MAY include `created:`, `tagline:`, and `brief_summary:`.
-- YAML is OPTIONAL for Convictions.
+- YAML frontmatter SHOULD include `tagline:` (per Markdown Node Contract — surfaced on the Convictions index page row); MAY include `created:` and `brief_summary:`.
+- Beyond the recommended `tagline:`, YAML is OPTIONAL for Convictions.
 
 ## Relations
 
@@ -107,14 +107,14 @@ Enforces [[Require What-It-Asks and Drift Recognition in Convictions]].
 - contrasts_with::[[Decision Form Contract]]
   - A Decision records a situational choice made at a moment with revisit conditions; a Conviction records a held stance without `has_commitment::` or `decided_on::`. The filename shapes enforce the distinction.
 
-- grounded_in::[[Adopt Wikilinks and Named Edges]]
+- grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The named-edge spine that lets `grounded_in::`, `informed_by::`, `informs_downstream::`, and `contrasts_with::` land as first-class relational edges.
 
-- grounded_in::[[Require Held-Stance Filename Shape for Convictions]]
+- grounded_in::[[Decisions/Require Held-Stance Filename Shape for Convictions]]↗
   - Grounds the Filename pattern Requirement.
 
-- grounded_in::[[Require What-It-Asks and Drift Recognition in Convictions]]
+- grounded_in::[[Decisions/Require What-It-Asks and Drift Recognition in Convictions]]↗
   - Grounds the paired Body-what-it-asks and Body-drift-recognition Requirements. The two sections share an accountability Why and roll back together.
 
-- grounded_in::[[Reserve Predicate Vocabularies to Specific Forms]]
+- grounded_in::[[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗
   - Grounds the prohibitions on `has_commitment::`, `decided_on::`, and `has_epistemic_status::` in the identity predicate block Requirement.

@@ -4,10 +4,10 @@ tagline: Open tension with adjacent concept
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # contends_with
 
@@ -38,8 +38,8 @@ Ghost link; `contradicts::` is used in adjacent vocabularies but not seeded as a
 
 ## Instances
 
-- `Contract Form Contract` carries `contends_with::[[Convention Overhead vs Graph Quality]]` — the Contract's existence raises the cost of authoring a new Contract, and the trade-off between the discipline the Contract enforces and the friction that discipline creates is acknowledged as an unresolved tension rather than resolved by picking a side.
-- `Skill Form Contract` carries `contends_with::[[Convention Overhead vs Graph Quality]]` — same shape, at a different layer: the Skill Form Contract raises the cost of authoring a skill in exchange for structural legibility of skills as graph nodes, and the edge declares the trade-off as open rather than resolved.
+- `Contract Form Contract` carries `contends_with::[[Glosses/Convention Overhead vs Graph Quality]]↗` — the Contract's existence raises the cost of authoring a new Contract, and the trade-off between the discipline the Contract enforces and the friction that discipline creates is acknowledged as an unresolved tension rather than resolved by picking a side.
+- `Skill Form Contract` carries `contends_with::[[Glosses/Convention Overhead vs Graph Quality]]↗` — same shape, at a different layer: the Skill Form Contract raises the cost of authoring a skill in exchange for structural legibility of skills as graph nodes, and the edge declares the trade-off as open rather than resolved.
 
 ## Relations
 
@@ -49,5 +49,5 @@ Ghost link; `contradicts::` is used in adjacent vocabularies but not seeded as a
 - contrasts_with::[[contradicts]]
   - Ghost link; target Predicate not seeded. Held-as-legitimate tension vs directional negation.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes naming tension-vs-contrast-vs-contradiction load-bearing. Each stance toward disagreement is a distinct predicate in this vocabulary, and the distinctions are the content the project commits to preserving.

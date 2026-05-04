@@ -5,10 +5,10 @@ tagline: An agent-invocable workflow as a compound-node graph node, carrying a r
 - conforms_to::[[Contract Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Growth Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Growth Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Skill Form Contract
 
@@ -16,7 +16,7 @@ A Skill is a node that encodes an agent-invocable capability — a named workflo
 
 A Skill is not a Pattern (which names a craft move an author makes by hand) and not a Decision (which records a commitment). What distinguishes a Skill is that it is designed to be executed by an agent on demand — its body is a workflow, not a claim — and its presence at a runtime path lets an agent runtime discover and invoke it by name. The invocation surface is what forces the structural additions in this contract: a runtime-visible scalar name, an Anthropic-style `description` block, and a compound-node layout that can carry scripts alongside the lead file.
 
-The Skill Form Contract was drafted speculatively, ahead of any skill nodes existing, because skills needed a `conforms_to::` target to declare. Six skills were then drafted under it — `graph-orient`, `graph-audit`, `node-create`, `node-read`, `node-validate`, `predicate-propose` — and each was exercised against real work. The exercises surfaced revisions to adjacent Contracts (`Markdown Node Contract`'s Named-edge syntax gained a scalar-valued-predicate clause; `Use Pipe Wikilinks for Display-Target Divergence` had its MUST scoped to prose-flow contexts) but this Contract's own shape held. The `has_lifecycle::[[Growth Stage]]` marking reflects that exercise-driven resolution. See [[Let the Exercise Audit the Contract]] for the Pattern the progression realized.
+The Skill Form Contract was drafted speculatively, ahead of any skill nodes existing, because skills needed a `conforms_to::` target to declare. Six skills were then drafted under it — `graph-orient`, `graph-audit`, `node-create`, `node-read`, `node-validate`, `predicate-propose` — and each was exercised against real work. The exercises surfaced revisions to adjacent Contracts (`Markdown Node Contract`'s Named-edge syntax gained a scalar-valued-predicate clause; `Use Pipe Wikilinks for Display-Target Divergence` had its MUST scoped to prose-flow contexts) but this Contract's own shape held. The `has_lifecycle::[[Glosses/Growth Stage]]↗` marking reflects that exercise-driven resolution. See [[Patterns/Let the Exercise Audit the Contract]]↗ for the Pattern the progression realized.
 
 ## Requirements
 
@@ -52,7 +52,7 @@ The Skill Form Contract was drafted speculatively, ahead of any skill nodes exis
 
 - The body MUST begin with an identity predicate block before the H1 per `Markdown Node Contract`'s Identity predicate block Requirement.
 - The block MUST include `conforms_to::[[Skill Form Contract]]`.
-- The block SHOULD include `authored_by::`, `has_lifecycle::`, `has_curation::`, and `in_domain::`.
+- The block SHOULD include `authored_by::`, `has_lifecycle::`, `has_curation::`, and `in_practice_domain::`.
 
 ### H1
 
@@ -97,19 +97,19 @@ The Skill Form Contract was drafted speculatively, ahead of any skill nodes exis
 - conforms_to::[[Contract Form Contract]]
   - This file is itself a Contract; it conforms to the meta-contract that specifies what Contract nodes look like.
 
-- grounded_in::[[Adopt Wikilinks and Named Edges]]
+- grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The commitment that makes named-edge predicates the structural spine. Skills are graph nodes like any other; their Relations edges let an agent reading one skill discover the Decisions it enforces and the skills it composes with.
 
-- grounded_in::[[Adopt Skills as Graph Nodes]]
+- grounded_in::[[Decisions/Adopt Skills as Graph Nodes]]↗
   - The prior claim that makes this Contract worth writing. The Decision commits to skills being first-class graph nodes rather than auxiliary tooling, user-level-only artifacts, or content hosted in a separate repository; this Contract is the structural specification that commitment implies. Without the Decision, skills would be runtime files and this Contract would have no home in the graph.
 
-- grounded_in::[[Emit Skill Runtime Aliases at Build Time]]
+- grounded_in::[[Decisions/Emit Skill Runtime Aliases at Build Time]]↗
   - The Decision that grounds the Runtime alias emission Requirement. The Decision carries the reasoning (dual-residence resolved by symlinks, source-of-truth in the graph, runtime directory committed rather than gitignored, idempotent regeneration, no hand edits); this Contract carries the compliance rule.
 
-- contends_with::[[Convention Overhead vs Graph Quality]]
+- contends_with::[[Glosses/Convention Overhead vs Graph Quality]]↗
   - Introducing a Contract ahead of the two-or-three-conforming-nodes threshold raised the bar for skill authoring speculatively. The exercise-driven progression from Seed to Growth Stage resolved that tension honestly: six skills drafted and run demonstrated the Contract's shape held; revisions it prompted landed on adjacent Contracts rather than on itself.
 
-- composes_with::[[Let the Exercise Audit the Contract]]
+- composes_with::[[Patterns/Let the Exercise Audit the Contract]]↗
   - The Pattern that names the craft move this Contract's lifecycle progression realized. The Contract was drafted speculatively, exercised against six real skills, and advanced from Seed to Growth through the audit the exercises produced.
 
 - contrasts_with::[[Pattern Form Contract]]

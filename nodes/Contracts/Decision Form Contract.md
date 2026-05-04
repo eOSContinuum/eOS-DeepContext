@@ -5,10 +5,10 @@ tagline: A committed choice with Why, Alternatives Considered, and What Would Ch
 - conforms_to::[[Contract Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Decision Form Contract
 
@@ -25,7 +25,7 @@ A Decision is not a Gloss (which defines a term), not a Reference (which points 
 
 ### Filename pattern
 
-Enforces [[Name Decisions by Action Verb or Role Declarative]].
+Enforces [[Decisions/Name Decisions by Action Verb or Role Declarative]]↗.
 
 - The filename MUST take one of two shapes: an action-verb lead (`Adopt <X>`, `Use <X>`, `Prefer <X>`, `Require <X>`, `Treat <X>`, `No <X>`) or a `<Subject> as <Role>` declarative.
 - Bare noun phrases and shapes beginning with the subject (`<X> Over <Y>`, `<X> Is <Y>`, `<X> Carries <Y>`) MUST NOT be used.
@@ -34,12 +34,12 @@ Enforces [[Name Decisions by Action Verb or Role Declarative]].
 
 ### Identity predicate block
 
-Enforces [[Reserve Predicate Vocabularies to Specific Forms]].
+Enforces [[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗.
 
 - The identity block above the H1 MUST include `conforms_to::[[Decision Form Contract]]`.
-- The identity block MUST include `has_commitment::[[<X>]]` where the value is one of `[[Provisional Commitment]]` (decided but revisitable) or `[[Firm Commitment]]` (decided and expensive to change). Items that would otherwise carry `has_commitment::[[Open Question]]` are Inquiries, not Decisions.
+- The identity block MUST include `has_commitment::[[<X>]]` where the value is one of `[[Glosses/Provisional Commitment]]↗` (decided but revisitable) or `[[Glosses/Firm Commitment]]↗` (decided and expensive to change). Items that would otherwise carry `has_commitment::[[Open Question]]` are Inquiries, not Decisions.
 - The identity block MUST include `decided_on::YYYY-MM-DD` recording the date the commitment was made.
-- The identity block SHOULD include `in_domain::[[<Domain>]]`.
+- The identity block SHOULD include `in_practice_domain::[[<Practice Domain>]]`.
 - The identity block MAY include `authored_by::`, `has_lifecycle::`, and `has_curation::` as for any Markdown Node.
 
 ### H1
@@ -48,7 +48,7 @@ Enforces [[Reserve Predicate Vocabularies to Specific Forms]].
 
 ### Body: Why
 
-Enforces [[Require Prose, Capability-First Why in Decisions]].
+Enforces [[Decisions/Require Prose, Capability-First Why in Decisions]]↗.
 
 - The body MUST contain content that states why the commitment was made.
 - Short decisions MAY use an opening paragraph immediately after the H1. Longer decisions with multiple reasons SHOULD use an explicit `## Why` heading.
@@ -57,7 +57,7 @@ Enforces [[Require Prose, Capability-First Why in Decisions]].
 
 ### Body: Alternatives Considered, Consequences, What Would Change It
 
-Enforces [[Require Alternatives, Consequences, and What Would Change It in Decisions]].
+Enforces [[Decisions/Require Alternatives, Consequences, and What Would Change It in Decisions]]↗.
 
 - A Decision SHOULD include a `## Alternatives Considered` section when the commitment was reached by weighing multiple viable options. Each alternative MUST name the option, state its shape, and state the reason it was rejected, identifying a specific weakness.
 - A Decision SHOULD include a `## Consequences` section when the commitment has been operative long enough to observe its effects. Consequences MUST be factual observations. Both positive and negative consequences SHOULD be named.
@@ -67,7 +67,7 @@ Enforces [[Require Alternatives, Consequences, and What Would Change It in Decis
 
 ### Superseding
 
-Enforces [[Require Supersession Chain for Revised Decisions]].
+Enforces [[Decisions/Require Supersession Chain for Revised Decisions]]↗.
 
 - When a Decision is revised, a new Decision node MUST be created with a new filename reflecting the new commitment.
 - The older Decision's filename MUST NOT change.
@@ -95,8 +95,8 @@ Enforces [[Require Supersession Chain for Revised Decisions]].
 
 ### Optional scalar metadata
 
-- YAML frontmatter MAY include `created:` (ISO date of node file creation, distinct from `decided_on::`), `tagline:`, and `brief_summary:`.
-- YAML is OPTIONAL for Decisions.
+- YAML frontmatter SHOULD include `tagline:` (per Markdown Node Contract — surfaced on the Decisions index page row); MAY include `created:` (ISO date of node file creation, distinct from `decided_on::`) and `brief_summary:`.
+- Beyond the recommended `tagline:`, YAML is OPTIONAL for Decisions.
 
 ## Relations
 
@@ -109,20 +109,20 @@ Enforces [[Require Supersession Chain for Revised Decisions]].
 - contrasts_with::[[Gloss Form Contract]]
   - A Gloss defines a term (filename carries definition, body elaborates); a Decision records a commitment (filename states the choice, body gives rationale and revisit conditions).
 
-- grounded_in::[[Adopt Wikilinks and Named Edges]]
+- grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The commitment that makes named-edge predicates the structural spine.
 
-- grounded_in::[[Name Decisions by Action Verb or Role Declarative]]
+- grounded_in::[[Decisions/Name Decisions by Action Verb or Role Declarative]]↗
   - Grounds the filename pattern Requirement.
 
-- grounded_in::[[Require Prose, Capability-First Why in Decisions]]
+- grounded_in::[[Decisions/Require Prose, Capability-First Why in Decisions]]↗
   - Grounds the paired prose-Why and capability-first framing rules in the Body-Why Requirement. The two rules share one durability Why and reinforce each other.
 
-- grounded_in::[[Require Alternatives, Consequences, and What Would Change It in Decisions]]
+- grounded_in::[[Decisions/Require Alternatives, Consequences, and What Would Change It in Decisions]]↗
   - Grounds the three body-section requirements.
 
-- grounded_in::[[Require Supersession Chain for Revised Decisions]]
+- grounded_in::[[Decisions/Require Supersession Chain for Revised Decisions]]↗
   - Grounds the Superseding Requirement.
 
-- grounded_in::[[Reserve Predicate Vocabularies to Specific Forms]]
+- grounded_in::[[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗
   - Grounds the `has_commitment::` and `decided_on::` reservation in the identity predicate block Requirement.

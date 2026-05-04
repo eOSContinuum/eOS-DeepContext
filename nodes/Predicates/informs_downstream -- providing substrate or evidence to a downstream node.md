@@ -4,10 +4,10 @@ tagline: Providing substrate or evidence to a downstream node
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # informs_downstream
 
@@ -38,7 +38,7 @@ The web of associations the predicate activates is the forward side of provenanc
 
 ### Conviction-to-Decision case: normative substrate
 
-A Conviction MAY use `informs_downstream::[[X Decision]]` when the Conviction is the *normative substrate* the Decision serves — when the stance commits the project to something the Decision is the structural realization of. The direction of authority runs Conviction → Decision: the Conviction generates the Decision, and the Decision would lose its grounding if the Conviction were weakened. Example: [[Human Authority Over Augmentation Systems]] carries `informs_downstream::[[Adopt Wikilinks and Named Edges]]` because the commitment to human authority over augmentation is what generates the requirement that edges be author-declared rather than tool-inferred.
+A Conviction MAY use `informs_downstream::[[X Decision]]` when the Conviction is the *normative substrate* the Decision serves — when the stance commits the project to something the Decision is the structural realization of. The direction of authority runs Conviction → Decision: the Conviction generates the Decision, and the Decision would lose its grounding if the Conviction were weakened. Example: [[Convictions/Human Authority Over Augmentation Systems]]↗ carries `informs_downstream::[[Decisions/Adopt Wikilinks and Named Edges]]↗` because the commitment to human authority over augmentation is what generates the requirement that edges be author-declared rather than tool-inferred.
 
 This case contrasts with the corollary-side relation, where a Conviction is a structural corollary *enabled by* a Decision — that direction uses `grounded_in::` from the Conviction (see [[grounded_in -- normative or structural foundation|grounded_in]] Typing). Both predicates may legitimately connect a Conviction and a Decision; the choice between them encodes whether the Conviction generates the Decision (normative substrate) or the Decision enables the Conviction (structural corollary). Back-edges from the Decision (`informs_downstream::` or `informed_by::` pointing back at the Conviction) are optional and discovered by search, matching minimal-back-edges practice rather than being part of the convention.
 
@@ -55,5 +55,8 @@ This case contrasts with the corollary-side relation, where a Conviction is a st
 - contrasts_with::[[informed_by -- weaker influence than grounded_in]]
   - Same relation, opposite direction (with the weight distinction owned by the dependent side). `informed_by::` on the dependent side, `informs_downstream::` on the substrate side. The substrate-side predicate does not specify the weight; the dependent side does.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes authoring bidirectional provenance edges load-bearing. Leaving the substrate-side visible on its own node (rather than requiring dependents to declare their own draws) preserves navigability that an extraction agent could otherwise flatten.
+
+- contrasts_with::[[frames_lens_on -- frames a reader's lens onto a region of the graph]]
+  - `informs_downstream::` is substrate-side provenance directed at dependent nodes; `frames_lens_on::` is reader-orientation directed at a region of the graph from a Touch Point. The first carries causal/normative influence outward; the second carries a curated way of looking inward.

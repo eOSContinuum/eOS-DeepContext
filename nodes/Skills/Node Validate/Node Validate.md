@@ -11,10 +11,10 @@ description: |
 
 - conforms_to::[[Skill Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Node Validate
 
@@ -66,7 +66,7 @@ For each check that fails, record the Requirement's short name, what was found, 
 
 Apply the form-specific Contract's Requirements. The exact checks vary by form:
 
-- `Decision Form Contract` — action-verb or `<Subject> as <Role>` filename; `has_commitment::[[Provisional Commitment]]` or `[[Firm Commitment]]`; `decided_on::YYYY-MM-DD`; H1 matches filename; Why (prose, capability-first); Alternatives Considered (each with a named weakness); What Would Change It.
+- `Decision Form Contract` — action-verb or `<Subject> as <Role>` filename; `has_commitment::[[Glosses/Provisional Commitment]]↗` or `[[Glosses/Firm Commitment]]↗`; `decided_on::YYYY-MM-DD`; H1 matches filename; Why (prose, capability-first); Alternatives Considered (each with a named weakness); What Would Change It.
 - `Conviction Form Contract` — held-stance filename; Why It Is Held; Drift Recognition; no `has_commitment::`, `decided_on::`, or `has_epistemic_status::`.
 - `Observation Form Contract` — `has_epistemic_status::` matched to Grounds; What Would Revise It.
 - `Pattern Form Contract` — Alexandrian evocation filename; Heart at card scale; Forces; no `has_commitment::` or `decided_on::`.
@@ -123,28 +123,28 @@ Do not edit the node. Do not stage or commit. Validation produces findings; fixi
 - composes_with::[[Node Create]]
   - Node Create's Step 8 delegates its pre-write validation to this skill's logic. Running Node Validate on a just-drafted node reproduces that check; running it on an existing node verifies the draft has not drifted from its claim.
 
-- grounded_in::[[Adopt Wikilinks and Named Edges]]
+- grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The spine commitment this skill enforces at verification time. Every check in Steps 4 through 6 traces back to a named-edge or wikilink Requirement.
 
-- grounded_in::[[Adopt Node Atomicity]]
+- grounded_in::[[Decisions/Adopt Node Atomicity]]↗
   - Step 4's node-atomicity check enforces this Decision. A node whose body splits into two concepts triggers a split recommendation, not a silent pass.
 
-- grounded_in::[[Adopt Predicate Atomicity]]
+- grounded_in::[[Decisions/Adopt Predicate Atomicity]]↗
   - Step 4's predicate-atomicity check and Step 5's form-specific-predicate-reservation check both realize this Decision. A predicate carrying two axes or appearing on the wrong form fails the same discipline from different angles.
 
-- grounded_in::[[Adopt Layered Node Structure]]
+- grounded_in::[[Decisions/Adopt Layered Node Structure]]↗
   - Step 4's layered-structure check enforces this Decision. Identity block above H1, card-scale opening, elaboration body, Relations at the end is the order the Contract specifies and this skill verifies.
 
-- grounded_in::[[Annotate Edges With Why-They-Matter]]
+- grounded_in::[[Decisions/Annotate Edges With Why-They-Matter]]↗
   - Step 6's annotation check enforces this Decision directly. An unannotated edge is a per-edge finding, not a single aggregated one, so the author can see exactly which Relations bullets need the sub-bullet.
 
-- grounded_in::[[No Generic relates_to Predicate]]
+- grounded_in::[[Decisions/No Generic relates_to Predicate]]↗
   - Step 6's `relates_to::` check enforces this Decision. A `relates_to::` edge is always a violation, never a shortfall or signal.
 
-- grounded_in::[[Reserve Predicate Vocabularies to Specific Forms]]
+- grounded_in::[[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗
   - Step 5's form-specific-predicate-reservation check enforces this Decision's cross-form boundaries. `has_commitment::` on non-Decisions, `has_epistemic_status::` on non-Observations, and `serves_as::` on non-References each produce a named violation with the reserving Contract quoted.
 
-- grounded_in::[[Use ASCII Dashes in Filenames]]
+- grounded_in::[[Decisions/Use ASCII Dashes in Filenames]]↗
   - Step 4's filename-dash check enforces this Decision. Em-dashes and en-dashes in filenames are mechanical breaks with a one-line remediation.
 
 - informs_downstream::[[Markdown Node Contract]]

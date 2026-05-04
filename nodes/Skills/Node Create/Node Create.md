@@ -11,10 +11,10 @@ description: |
 
 - conforms_to::[[Skill Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Node Create
 
@@ -64,11 +64,11 @@ Every filename MUST follow `Markdown Node Contract`'s ASCII-dash rule — no em-
 
 ### Step 4: Draft the identity predicate block
 
-Write the identity block as bullets above the H1. Every node carries `conforms_to::[[<Form> Form Contract]]`. Most carry `in_domain::`, `authored_by::`, `has_lifecycle::`, `has_curation::`.
+Write the identity block as bullets above the H1. Every node carries `conforms_to::[[<Form> Form Contract]]`. Most carry `in_practice_domain::`, `authored_by::`, `has_lifecycle::`, `has_curation::`.
 
 Form-specific additions, reserved by `Reserve Predicate Vocabularies to Specific Forms`:
 
-- `Decision` — `has_commitment::[[Provisional Commitment]]` or `[[Firm Commitment]]`, and `decided_on::YYYY-MM-DD`.
+- `Decision` — `has_commitment::[[Glosses/Provisional Commitment]]↗` or `[[Glosses/Firm Commitment]]↗`, and `decided_on::YYYY-MM-DD`.
 - `Observation` — `has_epistemic_status::`.
 - `Reference` — `serves_as::` where applicable, plus `under_license::` and `authored_by::` for the external source.
 
@@ -124,25 +124,25 @@ Write the file at `nodes/<Taxonomy>/<Filename>.md` (or `nodes/Skills/<Folder>/<F
 - conforms_to::[[Skill Form Contract]]
   - This skill is itself a Skill node and declares compliance with the Skill Form Contract's Requirements — YAML frontmatter carrying `runtime_name` and Anthropic `description`, compound-node layout, numbered Steps, Relations grounded in the Decisions the skill enforces.
 
-- grounded_in::[[Adopt Wikilinks and Named Edges]]
+- grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The spine commitment this skill realizes at write time. Every node this skill produces carries identity predicates and annotated Relations edges; the skill exists to make those the default output, not an afterthought.
 
-- grounded_in::[[Adopt Node Atomicity]]
+- grounded_in::[[Decisions/Adopt Node Atomicity]]↗
   - The commitment that one file addresses one concept. Step 1's form-selection interview forces the author to name which one concept the node carries before drafting begins; Step 3's filename drafting reinforces atomicity because the filename names the concept.
 
-- grounded_in::[[Adopt Predicate Atomicity]]
+- grounded_in::[[Decisions/Adopt Predicate Atomicity]]↗
   - The commitment that each predicate answers one axis. Step 4's form-specific-predicate reservation encodes predicate atomicity at the identity-block scale; Step 7's annotation and specificity rules encode it at the Relations scale.
 
-- grounded_in::[[Adopt Layered Node Structure]]
+- grounded_in::[[Decisions/Adopt Layered Node Structure]]↗
   - The commitment to identity-block-above-H1 and progressive-cost-graded layers. Steps 4, 5, 6, and 7 walk the layers in order — identity block, H1 and opening, body, Relations — and Step 5 names `Progressive Summary Before Substance` as the move the opening paragraph realizes.
 
-- grounded_in::[[Annotate Edges With Why-They-Matter]]
+- grounded_in::[[Decisions/Annotate Edges With Why-They-Matter]]↗
   - Step 7's annotation requirement enforces this Decision. Unannotated edges are rejected at the validate-before-write gate in Step 8.
 
-- grounded_in::[[No Generic relates_to Predicate]]
+- grounded_in::[[Decisions/No Generic relates_to Predicate]]↗
   - Step 7's specific-predicate rule enforces this Decision. A node proposing `relates_to::` is routed to Predicate Propose or to the existing vocabulary; the skill does not write `relates_to::`.
 
-- grounded_in::[[Reserve Predicate Vocabularies to Specific Forms]]
+- grounded_in::[[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗
   - Step 4's form-specific-predicate reservation encodes this Decision's cross-form boundaries. The skill does not attach `has_commitment::` to a Conviction, `has_epistemic_status::` to a Decision, or `serves_as::` to a Gloss.
 
 - informs_downstream::[[Markdown Node Contract]]

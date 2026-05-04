@@ -11,10 +11,10 @@ description: |
 
 - conforms_to::[[Skill Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Graph Orient
 
@@ -102,10 +102,10 @@ The skipped surfaces are not unimportant; they are load-on-demand. Naming them s
 - conforms_to::[[Skill Form Contract]]
   - This skill declares compliance with the Skill Form Contract's Requirements. Along with Node Read and Node Create, it forms the first-session triad a scion author walks through before touching the graph.
 
-- grounded_in::[[Adopt Layered Node Structure]]
+- grounded_in::[[Decisions/Adopt Layered Node Structure]]↗
   - The layered-structure Decision is what makes this skill possible. Reading identity blocks and opening paragraphs across many nodes is cheap precisely because those layers are authored to be cheap; a graph without layered structure would force the agent to read full bodies to orient.
 
-- grounded_in::[[Progressive Summary Before Substance]]
+- grounded_in::[[Patterns/Progressive Summary Before Substance]]↗
   - The Pattern this skill realizes at graph scale. Node Read walks the cost-graded layers within one node; Graph Orient walks the cost-graded nodes within the graph. Both realize the same progressive-disclosure stance, at different scales.
 
 - informs_downstream::[[Markdown Node Contract]]

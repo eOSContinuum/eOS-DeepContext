@@ -11,10 +11,10 @@ description: |
 
 - conforms_to::[[Skill Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Predicate Propose
 
@@ -57,7 +57,7 @@ The body requires:
 - **`## Crescent`** — one H3 subsection per near-neighbor, each headed `### Against [[neighbor -- sense]]` using the full-filename bare form per `Markdown Node Contract`'s structural-context refinement. Each subsection states what this predicate carries that the neighbor does not — the distinction the merge would destroy.
 - **`## Typing`** — the subject and object shape. If the predicate expects a specific node form as subject or object, name it. If polymorphism is intentional, state it explicitly.
 - **`## Instances`** (optional) — concrete examples of the predicate in use in the graph.
-- **`## Relations`** — `contrasts_with::[[neighbor -- sense]]` per Crescent subsection (required by `Predicate Form Contract`); `composes_with::` edges for routinely-paired predicates (optional); `grounded_in::[[Vocabulary Diversity Is a Feature]]` when the Crescent is a direct instance of that Conviction.
+- **`## Relations`** — `contrasts_with::[[neighbor -- sense]]` per Crescent subsection (required by `Predicate Form Contract`); `composes_with::` edges for routinely-paired predicates (optional); `grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗` when the Crescent is a direct instance of that Conviction.
 
 ### Step 5: Validate against Predicate Form Contract
 
@@ -104,16 +104,16 @@ Note: committing is not unilateral acceptance. A Predicate node at Seed Stage / 
 - composes_with::[[Graph Audit]]
   - Graph Audit surfaces provisional predicates (in use without a backing Predicate node) as candidates for this skill. Running Graph Audit periodically and then invoking Predicate Propose against each provisional predicate is the cleanup path for vocabulary drift.
 
-- grounded_in::[[Terms Become Common Through Unanimity, Not Precedent]]
+- grounded_in::[[Convictions/Terms Become Common Through Unanimity, Not Precedent]]↗
   - The Conviction that asks new vocabulary to arrive as proposal rather than precedent. This skill realizes that Conviction operationally: silent predicate use across multiple nodes is exactly what the Conviction guards against; walking the proposal is the alternative.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes distinction-preservation load-bearing. A Crescent section is the structural home for distinctions the new predicate carries that its near-neighbors do not; this skill is the write-time workflow that produces those distinctions.
 
-- grounded_in::[[Adopt Predicate Atomicity]]
+- grounded_in::[[Decisions/Adopt Predicate Atomicity]]↗
   - The Decision that requires each predicate to answer one axis. Step 1's axis-naming enforces atomicity at proposal time; a predicate that cannot state its axis in one sentence fails atomicity before drafting begins.
 
-- grounded_in::[[No Generic relates_to Predicate]]
+- grounded_in::[[Decisions/No Generic relates_to Predicate]]↗
   - The Decision that prohibits catch-all predicates. Step 2's vocabulary check against existing predicates enforces this Decision by refusing to let a new predicate be proposed as a synonym when a specific predicate already exists.
 
 - informs_downstream::[[Predicate Form Contract]]

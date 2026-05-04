@@ -11,10 +11,10 @@ description: |
 
 - conforms_to::[[Skill Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Node Read
 
@@ -36,7 +36,7 @@ If the target is a folder rather than a file, the lead file matches the folder n
 
 ### Step 2: Read the identity predicate block
 
-The identity block is the bullet list above the H1. It carries the node's form (`conforms_to::`), its lifecycle (`has_lifecycle::`), curation state (`has_curation::`), domain (`in_domain::`), authorship (`authored_by::`), and any form-specific identity predicates the form owns (`has_commitment::` and `decided_on::` for Decisions, `has_epistemic_status::` for Observations, `serves_as::` for References).
+The identity block is the bullet list above the H1. It carries the node's form (`conforms_to::`), its lifecycle (`has_lifecycle::`), curation state (`has_curation::`), domain (`in_practice_domain::`), authorship (`authored_by::`), and any form-specific identity predicates the form owns (`has_commitment::` and `decided_on::` for Decisions, `has_epistemic_status::` for Observations, `serves_as::` for References).
 
 From the identity block alone, the agent already knows:
 
@@ -109,10 +109,10 @@ When reporting to the user, order the output from cheapest layer to most expensi
 - conforms_to::[[Skill Form Contract]]
   - This skill is itself a Skill node and declares compliance with the Skill Form Contract's Requirements — YAML frontmatter carrying `runtime_name` and Anthropic `description`, compound-node layout, numbered Steps, Relations grounded in the Decisions the skill realizes.
 
-- grounded_in::[[Adopt Layered Node Structure]]
+- grounded_in::[[Decisions/Adopt Layered Node Structure]]↗
   - The Decision this skill realizes on the reading side. The layered structure Requirement specifies the cost-graded arrangement from identity block through Relations; this skill is the agent-side discipline that reads the layers in order and stops when cheaper layers suffice.
 
-- grounded_in::[[Progressive Summary Before Substance]]
+- grounded_in::[[Patterns/Progressive Summary Before Substance]]↗
   - The Pattern that names the move the opening paragraph makes. Step 3's card-scale reading depends on authors having realized this Pattern; Step 5's stop-early decision is justified when they have.
 
 - informs_downstream::[[Markdown Node Contract]]

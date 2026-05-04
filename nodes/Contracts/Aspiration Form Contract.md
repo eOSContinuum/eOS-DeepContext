@@ -5,10 +5,10 @@ tagline: A directional target the project works toward, carrying its acknowledge
 - conforms_to::[[Contract Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Aspiration Form Contract
 
@@ -31,10 +31,10 @@ An Aspiration is not a Conviction (which records a stance the project currently 
 
 ### Identity predicate block
 
-Enforces [[Reserve Predicate Vocabularies to Specific Forms]].
+Enforces [[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗.
 
 - The identity block above the H1 MUST include `conforms_to::[[Aspiration Form Contract]]`.
-- The identity block SHOULD include `in_domain::[[<Domain>]]`.
+- The identity block SHOULD include `in_practice_domain::[[<Practice Domain>]]`.
 - The identity block MAY include `authored_by::`, `has_lifecycle::`, and `has_curation::` as for any Markdown Node.
 - An Aspiration MUST NOT carry `has_commitment::` or `decided_on::` — those are Decision predicates.
 - An Aspiration MUST NOT carry `has_epistemic_status::` — that predicate is Observation-specific.
@@ -56,7 +56,7 @@ Enforces [[Reserve Predicate Vocabularies to Specific Forms]].
 
 ### Body: current gap
 
-Enforces [[Require Gap, Work, and Progress Recognition in Aspirations]].
+Enforces [[Decisions/Require Gap, Work, and Progress Recognition in Aspirations]]↗.
 
 - The body MUST contain a section headed `## Current Gap` (or equivalent) that gives an honest account of where the project currently is relative to the target — what is missing, incomplete, untested, or misaligned.
 - The Gap section is what distinguishes an Aspiration from a Conviction. A Gap section that effectively says "no gap" reveals the node is a Conviction, not an Aspiration; such a node SHOULD be reclassified.
@@ -64,14 +64,14 @@ Enforces [[Require Gap, Work, and Progress Recognition in Aspirations]].
 
 ### Body: work it asks
 
-Enforces [[Require Gap, Work, and Progress Recognition in Aspirations]].
+Enforces [[Decisions/Require Gap, Work, and Progress Recognition in Aspirations]]↗.
 
 - The body MUST describe what taking the aspiration seriously asks — the concrete moves, investments, or commitments the project would make to progress toward the target.
 - The Work SHOULD name moves the project can actually take given its current resources and practices, not a wish list contingent on circumstances the project does not control.
 
 ### Body: progress recognition
 
-Enforces [[Require Gap, Work, and Progress Recognition in Aspirations]].
+Enforces [[Decisions/Require Gap, Work, and Progress Recognition in Aspirations]]↗.
 
 - The body MUST contain a section that names observable markers by which progress toward the target would be recognized.
 - Progress markers MUST be specific enough that a contributor (or a later reviewer) can assess whether the project has moved toward the target since the Aspiration was seeded. Vague markers ("things feel better") are insufficient.
@@ -92,8 +92,8 @@ Enforces [[Require Gap, Work, and Progress Recognition in Aspirations]].
 
 ### Optional scalar metadata
 
-- YAML frontmatter MAY include `created:`, `tagline:`, and `brief_summary:`.
-- YAML is OPTIONAL for Aspirations.
+- YAML frontmatter SHOULD include `tagline:` (per Markdown Node Contract — surfaced on the Aspirations index page row); MAY include `created:` and `brief_summary:`.
+- Beyond the recommended `tagline:`, YAML is OPTIONAL for Aspirations.
 
 ## Relations
 
@@ -109,11 +109,11 @@ Enforces [[Require Gap, Work, and Progress Recognition in Aspirations]].
 - contrasts_with::[[Decision Form Contract]]
   - A Decision is a situational choice made at a moment with revisit conditions; an Aspiration is a directional target pursued over time.
 
-- grounded_in::[[Adopt Wikilinks and Named Edges]]
+- grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The named-edge spine that lets `grounded_in::`, `informed_by::`, `informs_downstream::`, `contrasts_with::`, and `composes_with::` land as first-class relational edges.
 
-- grounded_in::[[Require Gap, Work, and Progress Recognition in Aspirations]]
+- grounded_in::[[Decisions/Require Gap, Work, and Progress Recognition in Aspirations]]↗
   - Grounds the three paired body-section Requirements (Gap, Work, Progress Recognition). The three sections share one accountability Why and roll back together.
 
-- grounded_in::[[Reserve Predicate Vocabularies to Specific Forms]]
+- grounded_in::[[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗
   - Grounds the prohibitions on `has_commitment::`, `decided_on::`, and `has_epistemic_status::` in the identity predicate block Requirement.

@@ -5,10 +5,10 @@ tagline: An interpretive definition whose filename carries the working definitio
 - conforms_to::[[Contract Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Gloss Form Contract
 
@@ -25,7 +25,7 @@ A Gloss is not a Reference (which points to external authoritative source materi
 
 ### Filename pattern
 
-Enforces [[Use Double-Hyphen Separator for Gloss Definitions]].
+Enforces [[Decisions/Use Double-Hyphen Separator for Gloss Definitions]]↗.
 
 - The filename MUST follow `<Concept> -- <one-clause definition>.md`.
 - The separator between concept and definition MUST be ` -- ` (space, double hyphen, space).
@@ -39,7 +39,7 @@ Enforces [[Use Double-Hyphen Separator for Gloss Definitions]].
 
 ### Body shape
 
-Enforces [[Require Body Elaboration Beyond Filename Definition]].
+Enforces [[Decisions/Require Body Elaboration Beyond Filename Definition]]↗.
 
 - The body MAY be a single sentence, a short paragraph, or several paragraphs with H2 subsections. Typical shape is two or three paragraphs: the opening restate-and-elaborate, a paragraph giving concrete elaboration or showing the concept at work, and a paragraph distinguishing the concept from an obvious alternative.
 - The first sentence MUST restate the filename definition and elaborate it by one useful clause or contrast — not a verbatim repeat. A body whose only content is the bare definition is not conforming.
@@ -62,7 +62,7 @@ Enforces [[Require Body Elaboration Beyond Filename Definition]].
 
 ### Optional scalar metadata
 
-- YAML frontmatter MAY include `created:` (ISO date), `tagline:` (a pithy one-liner), and `brief_summary:` (a paragraph-length summary).
+- YAML frontmatter SHOULD include `tagline:` — a pithy one-liner that the build pipeline surfaces on the Glosses index page row (per Markdown Node Contract). MAY include `created:` (ISO date) and `brief_summary:` (a paragraph-length summary, useful when the body's restate-and-elaborate opening is short enough that an additional paragraph adds orientation).
 - All three are scalar metadata, not graph-structural. They support human browsing and build-time rendering.
 
 ## Relations
@@ -73,11 +73,23 @@ Enforces [[Require Body Elaboration Beyond Filename Definition]].
 - conforms_to::[[Contract Form Contract]]
   - This file is itself a Contract, so it conforms to the meta-contract that specifies what Contract nodes look like.
 
-- grounded_in::[[Use Double-Hyphen Separator for Gloss Definitions]]
+- grounded_in::[[Decisions/Use Double-Hyphen Separator for Gloss Definitions]]↗
   - Grounds the filename pattern Requirement.
 
-- grounded_in::[[Require Body Elaboration Beyond Filename Definition]]
+- grounded_in::[[Decisions/Require Body Elaboration Beyond Filename Definition]]↗
   - Grounds the body-shape rule against verbatim repetition of the filename definition.
 
 - contrasts_with::[[Reference Form Contract]]
   - A Gloss defines a term used internally; a Reference points to external authoritative source material. Both may be short, but the purposes are distinct.
+
+- extended_by::[[Predicate Form Contract]]
+  - Predicate Form Contract extends Gloss with the Carries, Crescent, and Typing requirements that turn a Gloss-shaped definition into an edge-vocabulary specification.
+
+- extended_by::[[Touch Point Form Contract]]
+  - Touch Point Form Contract extends Gloss with reader-orientation requirements (Opening Synthesis, Entry Points, Out of Scope) and the required `frames_lens_on::` edge.
+
+- contrasts_with::[[Touch Point Form Contract]]
+  - A Gloss defines a single term, often briefly; a Touch Point frames a reader's lens onto a region of the graph. The forms share filename and body shape; they diverge on whom the body addresses (definition reader vs region newcomer).
+
+- composes_with::[[in_practice_domain -- membership in a Practice Domain]]
+  - The Predicate that takes a Gloss naming a community of practice as object. Glosses serve dual duty as concept definitions and as Practice-Domain anchors; the predicate makes the Practice-Domain role explicit.

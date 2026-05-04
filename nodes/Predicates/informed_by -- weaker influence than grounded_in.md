@@ -4,10 +4,10 @@ tagline: Weaker influence than grounded_in
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # informed_by
 
@@ -38,8 +38,8 @@ The predicate is the graph's default for acknowledging intellectual debts. When 
 
 ## Instances
 
-- [[Vocabulary Diversity Is a Feature]] (Conviction) carries `informed_by::[[Wikilinks and Named Edges Gist (Christopher Allen, 2026)]]` — the gist supplies the argumentative substrate the Conviction compresses (the three-cost analysis of convergence), but the Conviction stands as its own held stance independent of the gist's continued accessibility.
-- [[Translation Over Convergence]] (Conviction) carries `informed_by::[[Consensus Creates Priesthoods]]` — the Observation supplies empirical grounding for one of the convergence costs the Conviction's Why rests on, but the Conviction does not structurally depend on the Observation (the held stance stands even if the empirical grounding weakens).
+- [[Convictions/Vocabulary Diversity Is a Feature]]↗ (Conviction) carries `informed_by::[[References/Wikilinks and Named Edges Gist (Christopher Allen, 2026)]]↗` — the gist supplies the argumentative substrate the Conviction compresses (the three-cost analysis of convergence), but the Conviction stands as its own held stance independent of the gist's continued accessibility.
+- [[Convictions/Translation Over Convergence]]↗ (Conviction) carries `informed_by::[[Observations/Consensus Creates Priesthoods]]↗` — the Observation supplies empirical grounding for one of the convergence costs the Conviction's Why rests on, but the Conviction does not structurally depend on the Observation (the held stance stands even if the empirical grounding weakens).
 
 ## Relations
 
@@ -49,5 +49,8 @@ The predicate is the graph's default for acknowledging intellectual debts. When 
 - contrasts_with::[[responds_to -- direct reply creating a conversation thread]]
   - `informed_by::` is diffuse influence at any temporal distance; `responds_to::` is direct reply within a thread. Both are provenance predicates but they preserve different structures — influence versus conversation.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes the informed_by-vs-grounded_in weight distinction and the informed_by-vs-responds_to conversation distinction load-bearing. Both distinctions encode specific relational kinds the project commits to preserving.
+
+- contrasts_with::[[frames_lens_on -- frames a reader's lens onto a region of the graph]]
+  - `informed_by::` is provenance carrying influence between source and downstream; `frames_lens_on::` is reader-orientation pointing from a Touch Point at a region of the graph. The first answers "what shaped this," the second answers "how should a reader look at this."

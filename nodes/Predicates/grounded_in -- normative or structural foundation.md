@@ -4,10 +4,10 @@ tagline: Normative or structural foundation
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # grounded_in
 
@@ -38,14 +38,14 @@ Ghost link; `derived_from::` is not yet seeded as a Predicate. `derived_from::` 
 
 ### Conviction-to-Decision case: structural corollary
 
-A Conviction MAY use `grounded_in::[[X Decision]]` when the Conviction is a *structural corollary* of the Decision — when the Decision's property is what makes the Conviction's stance possible to hold. The direction of authority in this case runs Decision → Conviction: the Decision enables the Conviction, and the Conviction would lose its basis if the Decision were withdrawn. Example: [[Folders Serve Human Legibility, Not the Graph]] carries `grounded_in::[[Adopt Wikilinks and Named Edges]]` because without wikilinks-by-filename and author-declared edges, folders would have to carry graph semantics, and the folder-independence stance could not be held.
+A Conviction MAY use `grounded_in::[[X Decision]]` when the Conviction is a *structural corollary* of the Decision — when the Decision's property is what makes the Conviction's stance possible to hold. The direction of authority in this case runs Decision → Conviction: the Decision enables the Conviction, and the Conviction would lose its basis if the Decision were withdrawn. Example: [[Convictions/Folders Serve Human Legibility, Not the Graph]]↗ carries `grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗` because without wikilinks-by-filename and author-declared edges, folders would have to carry graph semantics, and the folder-independence stance could not be held.
 
 This case contrasts with the substrate-side relation, where a Conviction is the normative substrate that *generates* a Decision — that direction uses `informs_downstream::` from the Conviction (see [[informs_downstream -- providing substrate or evidence to a downstream node|informs_downstream]] Typing). Both predicates may legitimately connect a Conviction and a Decision; the choice between them encodes which one is the normative source and which is the structural corollary, and the distinction is preserved by writing the edge on the dependent side in each case.
 
 ## Instances
 
-- `prototype/nodes/Contracts/Gloss Form Contract.md` carries `grounded_in::[[Use Double-Hyphen Separator for Gloss Definitions]]` — the Contract's filename-pattern Requirement rests on the Decision's commitment. Removing the Decision from the graph would leave the Requirement without a basis.
-- `prototype/nodes/Convictions/Translation Over Convergence.md` carries `grounded_in::[[Vocabulary Diversity Is a Feature]]` — the specialized Conviction rests on the substrate Conviction. The translation-over-convergence operational rule has no normative basis without the diversity-is-a-feature stance underneath it.
+- `prototype/nodes/Contracts/Gloss Form Contract.md` carries `grounded_in::[[Decisions/Use Double-Hyphen Separator for Gloss Definitions]]↗` — the Contract's filename-pattern Requirement rests on the Decision's commitment. Removing the Decision from the graph would leave the Requirement without a basis.
+- `prototype/nodes/Convictions/Translation Over Convergence.md` carries `grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗` — the specialized Conviction rests on the substrate Conviction. The translation-over-convergence operational rule has no normative basis without the diversity-is-a-feature stance underneath it.
 
 ## Relations
 
@@ -55,5 +55,14 @@ This case contrasts with the substrate-side relation, where a Conviction is the 
 - contrasts_with::[[derived_from]]
   - Ghost link; target Predicate not yet seeded. The Crescent names the distinction between normative/structural foundation (grounded_in) and construction provenance (derived_from).
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes naming the grounded_in-vs-informed_by distinction load-bearing at the predicate layer. The distinction encodes a specific kind of dependence that the project commits to preserving against convergence pressure.
+
+- contrasts_with::[[in_practice_domain -- membership in a Practice Domain]]
+  - `grounded_in::` is normative or structural dependence on a foundation node; `in_practice_domain::` is membership of a concept in a community-of-practice's shared language. Same node may grouned_in:: a Conviction and live in_practice_domain:: a Gloss; the Predicates name different kinds of belonging.
+
+- contrasts_with::[[scion_of -- content lineage from a template graph]]
+  - `grounded_in::` carries a normative or structural relation between graph-internal nodes; `scion_of::` carries graph-level lineage between this graph and a template graph. The first is internal authority, the second is genealogical provenance.
+
+- contrasts_with::[[has_component -- mereological relation where the subject contains the object as a component]]
+  - `grounded_in::` is foundation (object supports subject); `has_component::` is mereology (object is part of subject). Both are structural but the inversion of containment direction is load-bearing.

@@ -5,10 +5,10 @@ tagline: A recurring craft move named from practice, with Heart at card scale, P
 - conforms_to::[[Contract Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Pattern Form Contract
 
@@ -25,7 +25,7 @@ A Pattern is not a Decision (which records a commitment made at a specific momen
 
 ### Filename pattern
 
-Enforces [[Name Patterns by Alexandrian Evocation]].
+Enforces [[Decisions/Name Patterns by Alexandrian Evocation]]↗.
 
 - The filename MUST read as a move the reader can make (or as a recognizable situation the reader can see), not as a topic the node describes. Typical shapes: imperative verb plus object (`Refactor the Predicate's Axes`), timing imperative (`Split Before Ossify`, `Progressive Summary Before Substance`), or named failure-mode claim for anti-patterns (`Informal Edges Poison the Graph`).
 - A bare noun phrase MUST NOT be used; rewrite as a move or a condition.
@@ -34,10 +34,10 @@ Enforces [[Name Patterns by Alexandrian Evocation]].
 
 ### Identity predicate block
 
-Enforces [[Reserve Predicate Vocabularies to Specific Forms]].
+Enforces [[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗.
 
 - The identity block above the H1 MUST include `conforms_to::[[Pattern Form Contract]]`.
-- The identity block SHOULD include `in_domain::[[<Domain>]]`.
+- The identity block SHOULD include `in_practice_domain::[[<Practice Domain>]]`.
 - The identity block MAY include `authored_by::`, `has_lifecycle::`, and `has_curation::` as for any Markdown Node.
 - A Pattern MUST NOT carry `has_commitment::` or `decided_on::` — those are Decision predicates.
 
@@ -47,7 +47,7 @@ Enforces [[Reserve Predicate Vocabularies to Specific Forms]].
 
 ### Body: Heart
 
-Enforces [[Require Heart Section at Pattern Card Scale]].
+Enforces [[Decisions/Require Heart Section at Pattern Card Scale]]↗.
 
 - The body MUST open with a `## Heart` section of two to three prose sentences that stand alone as the pattern at card scale.
 - The Heart is not a summary of the longer body. It is the pattern compressed: the move and the moment of its use carried in just enough sentences to be actionable.
@@ -59,7 +59,7 @@ Enforces [[Require Heart Section at Pattern Card Scale]].
 
 ### Body: Forces
 
-Enforces [[Require Forces Authenticity in Patterns]].
+Enforces [[Decisions/Require Forces Authenticity in Patterns]]↗.
 
 - A `## Forces` section MUST name at least two competing demands or constraints in genuine tension.
 - Each Force SHOULD be named as a noun phrase and elaborated in one or two sentences describing what the Force wants and why it resists the other Forces.
@@ -95,8 +95,8 @@ Enforces [[Require Forces Authenticity in Patterns]].
 
 ### Optional scalar metadata
 
-- YAML frontmatter MAY include `created:`, `tagline:`, and `brief_summary:`.
-- YAML is OPTIONAL for Patterns.
+- YAML frontmatter SHOULD include `tagline:` (per Markdown Node Contract — surfaced on the Patterns index page row); MAY include `created:` and `brief_summary:`.
+- Beyond the recommended `tagline:`, YAML is OPTIONAL for Patterns.
 
 ## Relations
 
@@ -109,20 +109,20 @@ Enforces [[Require Forces Authenticity in Patterns]].
 - contrasts_with::[[Decision Form Contract]]
   - A Decision records a situational commitment with `decided_on::` and `has_commitment::`; a Pattern records a recurring move without those predicates. A Decision may instantiate a Pattern in a specific context; the Pattern names the move the Decision embodies.
 
-- grounded_in::[[Adopt Wikilinks and Named Edges]]
+- grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The named-edge spine that lets a Pattern's `grounded_in::`, `contrasts_with::`, and `composes_with::` edges land as first-class relational claims rather than prose.
 
-- grounded_in::[[Name Patterns by Alexandrian Evocation]]
+- grounded_in::[[Decisions/Name Patterns by Alexandrian Evocation]]↗
   - Grounds the filename pattern Requirement.
 
-- grounded_in::[[Require Heart Section at Pattern Card Scale]]
+- grounded_in::[[Decisions/Require Heart Section at Pattern Card Scale]]↗
   - Grounds the Body-Heart Requirement.
 
-- grounded_in::[[Require Forces Authenticity in Patterns]]
+- grounded_in::[[Decisions/Require Forces Authenticity in Patterns]]↗
   - Grounds the Body-Forces Requirement.
 
-- grounded_in::[[Reserve Predicate Vocabularies to Specific Forms]]
+- grounded_in::[[Decisions/Reserve Predicate Vocabularies to Specific Forms]]↗
   - Grounds the prohibition on `has_commitment::` and `decided_on::` in the identity predicate block Requirement.
 
-- grounded_in::[[A Pattern Language (Christopher Alexander et al., 1977)]]
+- grounded_in::[[References/A Pattern Language (Christopher Alexander et al., 1977)]]↗
   - The Alexandrian tradition's Heart-Problem-Forces-Solution structural shape is the parent vocabulary this contract mirrors. Downstream descendants of the tradition (Coplien's software patterns, Björk and Holopainen's game-design patterns, the Group Works deck's card-scale patterns) inherit the same shape; the local Reference aggregates the tradition rather than singling out any one descendant.

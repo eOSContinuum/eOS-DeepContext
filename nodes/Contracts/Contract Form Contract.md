@@ -5,10 +5,10 @@ tagline: The meta-contract: how a Contract node in this project is named, struct
 - conforms_to::[[Contract Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Contract Form Contract
 
@@ -45,7 +45,7 @@ The Contract Form Contract's self-conformance — its own `conforms_to::[[Contra
 
 ### Requirements section
 
-Enforces [[Use RFC 2119 Keywords in Contract Requirements]].
+Enforces [[Decisions/Use RFC 2119 Keywords in Contract Requirements]]↗.
 
 - The body MUST contain a top-level section headed `## Requirements`.
 - Each requirement MUST be a subsection headed `### <short name>` — a human-readable phrase, not a numeric identifier.
@@ -54,7 +54,7 @@ Enforces [[Use RFC 2119 Keywords in Contract Requirements]].
 
 ### Body precedes Requirements
 
-Enforces [[Require Explanatory Prose Before Contract Requirements]].
+Enforces [[Decisions/Require Explanatory Prose Before Contract Requirements]]↗.
 
 - A Contract MUST include prose body between the H1 and the `## Requirements` section that explains the purpose of the contract and when it is used.
 - The prose body MUST NOT restate the Requirements normatively; it provides orientation, not a second source of truth.
@@ -80,14 +80,14 @@ Enforces [[Require Explanatory Prose Before Contract Requirements]].
 - extends_contract::[[Markdown Node Contract]]
   - A Contract is a Markdown Node with additional structural obligations — notably the parseable `## Requirements` section and the inheritance pattern.
 
-- grounded_in::[[Wikilinks and Named Edges Gist (Christopher Allen, 2026)]]
+- grounded_in::[[References/Wikilinks and Named Edges Gist (Christopher Allen, 2026)]]↗
   - The underlying convention that makes `conforms_to::[[X]]` a first-class classification edge rather than a tag.
 
-- grounded_in::[[Use RFC 2119 Keywords in Contract Requirements]]
+- grounded_in::[[Decisions/Use RFC 2119 Keywords in Contract Requirements]]↗
   - Grounds the RFC 2119 keyword requirement in the Requirements section Requirement.
 
-- grounded_in::[[Require Explanatory Prose Before Contract Requirements]]
+- grounded_in::[[Decisions/Require Explanatory Prose Before Contract Requirements]]↗
   - Grounds the prose-before-Requirements rule in the Body precedes Requirements Requirement.
 
-- contends_with::[[Convention Overhead vs Graph Quality]]
+- contends_with::[[Glosses/Convention Overhead vs Graph Quality]]↗
   - Every contract added raises the bar for contribution. Contracts SHOULD be introduced only when two or three concrete nodes already want the same shape.

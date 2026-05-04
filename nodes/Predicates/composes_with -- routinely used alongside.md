@@ -4,10 +4,10 @@ tagline: Routinely used alongside
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # composes_with
 
@@ -49,5 +49,5 @@ Composition is an authorial observation, not a mechanical correlation. Two nodes
 - contrasts_with::[[has_component -- mereological relation where the subject contains the object as a component]]
   - Adjacency composition vs whole-to-part containment. The `has_component` Predicate absorbed the previously-separate `composed_of` predicate when the mereological axis was consolidated; the contrast this Crescent carries now runs against a single target.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes the composes_with-vs-contrasts_with stance distinction load-bearing. The same geometric adjacency supports two authorial stances; keeping both predicates preserves the difference.

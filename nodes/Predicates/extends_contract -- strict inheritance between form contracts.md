@@ -4,10 +4,10 @@ tagline: Strict inheritance between form contracts
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # extends_contract
 
@@ -49,5 +49,5 @@ Containment is whole-to-part — the subject contains the object as a structural
 - contrasts_with::[[has_component -- mereological relation where the subject contains the object as a component]]
   - The Crescent names the distinction between whole-to-part composition and specialization-to-generalization extension. `has_component` absorbed the previously-separate `composed_of` predicate when the mereological axis was consolidated.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes naming the inheritance-vs-composition distinction load-bearing. Both shapes get their own predicate rather than collapsing to a generic structural-relation term.

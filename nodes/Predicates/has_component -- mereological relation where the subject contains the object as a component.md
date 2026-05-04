@@ -4,10 +4,10 @@ tagline: Mereological relation where the subject contains the object as a compon
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # has_component
 
@@ -51,8 +51,8 @@ A reader encountering `X has_component::Y` learns that Y is part of X's composit
 - contrasts_with::[[grounded_in -- normative or structural foundation]]
   - Composition vs reasoning-dependence. has_component is about what a thing is made of; grounded_in is about what a thing reasons from.
 
-- grounded_in::[[Adopt Predicate Atomicity]]
+- grounded_in::[[Decisions/Adopt Predicate Atomicity]]↗
   - Each predicate answers one question. has_component answers "what is X made of?" at the partial-inclusion scale; the axis deliberately does not carry the exhaustive-constitution sense that would have motivated a separate predicate. The provisional `composed_of::` predicate that had emerged for exhaustive constitution was consolidated into this predicate because the partial/exhaustive distinction was not being worked in practice -- one edge existed, and its sense was expressible by annotating a `has_component::` edge.
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes authoring mereological edges load-bearing. Leaving whole-to-part structure visible on the whole's node rather than requiring readers to infer it from prose preserves navigability at the edge-scanning scale.

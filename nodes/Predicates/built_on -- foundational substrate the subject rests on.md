@@ -4,10 +4,10 @@ tagline: Foundational substrate the subject rests on
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # built_on
 
@@ -50,8 +50,11 @@ A reader encountering `X built_on::Y` learns that X could not stand as itself wi
 - contrasts_with::[[has_component -- mereological relation where the subject contains the object as a component]]
   - Foundation vs constituent part. A substrate can be neither composed of nor exhaustively built-from the dependent; the dependent rests on the substrate without containing it.
 
-- grounded_in::[[Adopt Predicate Atomicity]]
+- grounded_in::[[Decisions/Adopt Predicate Atomicity]]↗
   - Each predicate answers one question. built_on answers "what substrate does X depend on?" -- an axis distinct from part-of-ness (has_component) and from reasoning-grounded-ness (grounded_in).
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes authoring substrate edges load-bearing. Leaving substrate dependence visible as a typed edge rather than as prose preserves the graph's navigability into external traditions (CommonMark, GitHub Pages) that the project builds on without adopting.
+
+- contrasts_with::[[in_practice_domain -- membership in a Practice Domain]]
+  - `built_on::` is substrate-level dependence on something the subject rests on (often external infrastructure or a tradition); `in_practice_domain::` is membership of the subject in a community-of-practice's shared language. The first is what holds the subject up; the second is who the subject speaks among.

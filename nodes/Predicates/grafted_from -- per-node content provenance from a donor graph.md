@@ -4,10 +4,10 @@ tagline: Per-node content provenance from a donor graph
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # grafted_from
 
@@ -59,8 +59,11 @@ A hypothetical graft recorded in a recipient graph would carry on each grafted n
 - composes_with::[[Reference Form Contract]]
   - The object's typing depends on the Reference Form Contract. The Reference proxies the donor graph as an external source; the predicate's wikilink target is local but the donor it proxies is external. Without the Reference Form, this predicate would have no clean place to land its donor metadata.
 
-- grounded_in::[[Adopt Predicate Atomicity]]
+- grounded_in::[[Decisions/Adopt Predicate Atomicity]]↗
   - Each predicate answers one question. grafted_from answers "what donor graph did this node's content come from?" -- distinct from graph lineage (scion_of), influence (informed_by), and substrate dependence (built_on).
 
-- grounded_in::[[Vocabulary Diversity Is a Feature]]
+- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
   - The Conviction that makes per-node provenance load-bearing rather than collapsible into a graph-level claim. Recording the donor of a specific node preserves the recipient's ability to diverge from the donor's vocabulary without losing the trace of where the content originated.
+
+- composes_with::[[Graft -- a node copied from a donor graph into a recipient graph]]
+  - The Gloss that names the act this Predicate records. A Graft is the node-level copy operation; `grafted_from::` is the edge that captures which donor the copy came from. The Predicate is the structural counterpart to the Gloss's vocabulary entry.

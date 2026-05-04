@@ -4,10 +4,10 @@ tagline: Content lineage from a template graph
 
 - conforms_to::[[Predicate Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
-- in_domain::[[Deep Context Architecture]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # scion_of
 
@@ -29,7 +29,7 @@ A reader encountering `S scion_of::T↗` learns that the subject S is a template
 
 ### Against [[grounded_in -- normative or structural foundation]]
 
-`grounded_in::` names dependence on a normative or structural commitment — a Decision, Conviction, or Contract whose reasoning the subject inherits. `scion_of::` is narrower and does not carry normative inheritance automatically. A scion inherits the template's Convictions by default (see `Adopt Scion Publication Model`), but the scion may revise any of them without losing its scion-of relationship. `grounded_in::` asserts that removing the grounding breaks the subject; `scion_of::` asserts only that the subject's content began as an instantiation of the object's.
+`grounded_in::` names dependence on a normative or structural commitment — a Decision, Conviction, or Contract whose reasoning the subject inherits. `scion_of::` is narrower and does not carry normative inheritance automatically. A scion inherits the template's Convictions by default (see `Adopt Self-Sovereign Graph Publication`), but the scion may revise any of them without losing its scion-of relationship. `grounded_in::` asserts that removing the grounding breaks the subject; `scion_of::` asserts only that the subject's content began as an instantiation of the object's.
 
 ### Against [[informed_by -- weaker influence than grounded_in]]
 
@@ -65,17 +65,17 @@ The root template (DeepContext.com) ships the same file with `this_did:` set to 
 - contrasts_with::[[grounded_in -- normative or structural foundation]]
   - Normative inheritance vs instantiation. A scion can revise any inherited commitment without losing its scion-of relationship; a node cannot revise its grounding without the grounded_in edge ceasing to hold.
 
-- grounded_in::[[Adopt Scion Publication Model]]
+- grounded_in::[[Decisions/Adopt Self-Sovereign Graph Publication]]↗
   - The Decision that names the template-plus-scion architecture this predicate operates inside of. Without the scion Decision, this predicate would have no graph-instance layer to edge across. The predicate is the graph-layer mechanism by which the scion Decision's identity-sovereignty commitment is expressed on a specific scion.
 
-- grounded_in::[[Adopt Predicate Atomicity]]
+- grounded_in::[[Decisions/Adopt Predicate Atomicity]]↗
   - Each predicate answers one question. `scion_of::` answers "what template was this graph instantiated from?" — an axis distinct from substrate dependence (built_on), normative foundation (grounded_in), and content influence (informed_by).
 
-- grounded_in::[[Open Integrity Project (Blockchain Commons, 2025)]]
+- grounded_in::[[References/Open Integrity Project (Blockchain Commons, 2025)]]↗
   - The specification that makes the subject-and-object-have-distinct-DIDs claim cryptographically load-bearing rather than merely conceptual. Without Open Integrity, a scion and its template would share git history and therefore share inception commits; the predicate expresses a distinction that Open Integrity is what makes real.
 
-- composes_with::[[Scion Address -- the compound DID form identifying a specific node within a specific graph]]
+- composes_with::[[Glosses/Scion Address -- the compound DID form identifying a specific node within a specific graph]]↗
   - The compound form the predicate's object takes when referenced at node granularity. A `scion_of::[[did:repo:<sha1>]]↗` edge names the template repo; a Scion Address extends that same DID to `did:repo:<sha1>/<path>` for node-level addressing. The predicate and the Gloss are two scales of the same identifier system.
 
-- composes_with::[[External Node -- a node that lives in another graph, referenced without being imported]]
+- composes_with::[[Glosses/External Node -- a node that lives in another graph, referenced without being imported]]↗
   - The predicate's object is always an External Node — a node that lives in another graph and whose DID is necessarily distinct from the subject's. `scion_of::` is the specific predicate that names one kind of relationship to an External Node (content lineage); other edges may name other relationships (citation, contrast, composition) to other External Nodes.
