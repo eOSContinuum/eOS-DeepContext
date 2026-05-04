@@ -68,7 +68,7 @@ to its founding key. The distinction between **graph** (any
 self-sovereign Deep Context repository), **graft** (per-node copy from a
 donor), and **scion** (the rare lineage-claim status applied when a graph
 intends to track a donor as upstream) is recorded in DeepContext.com's
-[Adopt Scion Publication Model](https://deepcontext.com/nodes/decisions/adopt-scion-publication-model/)
+[Adopt Self-Sovereign Graph Publication](https://deepcontext.com/nodes/decisions/adopt-self-sovereign-graph-publication/)
 Decision.
 
 ## Build

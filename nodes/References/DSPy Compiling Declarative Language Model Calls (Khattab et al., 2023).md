@@ -5,10 +5,10 @@ created: 2026-05-03
 
 - conforms_to::[[Reference Form Contract]]
 - serves_as::[[Foundational Framework Naming the Variable-vs-Token-Space Distinction]]
-- in_domain::[[eOS Continuum]]
+- in_practice_domain::[[eOS Continuum]]
 - authored_by::[[Christopher Allen]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # DSPy Compiling Declarative Language Model Calls (Khattab et al., 2023)
 

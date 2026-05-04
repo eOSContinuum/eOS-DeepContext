@@ -5,10 +5,10 @@ created: 2026-05-03
 
 - conforms_to::[[Reference Form Contract]]
 - serves_as::[[Runtime-Shaped Answer to the Compound AI Systems Framing]]
-- in_domain::[[eOS Continuum]]
+- in_practice_domain::[[eOS Continuum]]
 - authored_by::[[Christopher Allen]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # Towards Resource-Efficient Compound AI Systems (Chaudhry et al., 2025)
 

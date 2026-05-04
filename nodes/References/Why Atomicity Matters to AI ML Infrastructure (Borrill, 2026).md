@@ -5,10 +5,10 @@ created: 2026-05-03
 
 - conforms_to::[[Reference Form Contract]]
 - serves_as::[[Tangential Philosophical Companion on Atomicity in AI Infrastructure]]
-- in_domain::[[eOS Continuum]]
+- in_practice_domain::[[eOS Continuum]]
 - authored_by::[[Christopher Allen]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # Why Atomicity Matters to AI ML Infrastructure (Borrill, 2026)
 

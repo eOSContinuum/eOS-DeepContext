@@ -7,15 +7,15 @@ created: 2026-04-25
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Markdown Node Contract]]
 - authored_by::[[Christopher Allen]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
-- in_domain::[[Deep Context Architecture]]
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
 
 # Inquiry Form Contract
 
 An Inquiry is a node that captures a thesis-driven investigation — a research question the graph is working on, the current state of evidence, and the open questions that still need answering. Its core question is "What should we think about X, and how would we find out?" An Inquiry differs from an Observation (which carries an empirically-grounded claim), from a Decision (which records a committed choice), and from an Aspiration (which states a directional target). An Inquiry holds the question open. When the question resolves, the Inquiry produces one of the other forms and links to it.
 
-The Inquiry Form Contract is drafted speculatively, ahead of any Inquiry nodes existing, because the workstream's research phases (#R-1 through #R-3) generate questions the existing form palette has no clean home for. The cloud-server license question — "is `dworkin/cloud-server` AGPL-3 or not?" — is a representative example: a question that lived without a node, was resolved by direct verification of the LICENSE file, and produced a downstream cascade of corrections. Authoring the Contract before the first Inquiry node lets subsequent Inquiries land into a structural home rather than as ad-hoc prose. The lifecycle marker `has_lifecycle::[[Seed Stage]]` reflects that no Inquiry node has yet exercised this Contract; advancement to Growth Stage waits on three or more Inquiries running through the form and the predicate vocabulary settling out of practice.
+The Inquiry Form Contract is drafted speculatively, ahead of any Inquiry nodes existing, because the workstream's research phases (#R-1 through #R-3) generate questions the existing form palette has no clean home for. The cloud-server license question — "is `dworkin/cloud-server` AGPL-3 or not?" — is a representative example: a question that lived without a node, was resolved by direct verification of the LICENSE file, and produced a downstream cascade of corrections. Authoring the Contract before the first Inquiry node lets subsequent Inquiries land into a structural home rather than as ad-hoc prose. The lifecycle marker `has_lifecycle::[[Glosses/Seed Stage]]↗` reflects that no Inquiry node has yet exercised this Contract; advancement to Growth Stage waits on three or more Inquiries running through the form and the predicate vocabulary settling out of practice.
 
 This Contract is intentionally sparse on predicate vocabulary. The obsidian-pkm precursor (`Inquiry Form` in `~/Workspace/obsidian-pkm/garden/forms/`) carries `directed_at::`, `extracted_from::`, and several relational predicates. None are required here. The predicate set is deferred to the first Inquiry nodes — they propose the vocabulary that practice actually demands, and the Contract is revised once two or three Inquiries want the same predicate.
 
@@ -112,5 +112,5 @@ This Contract is intentionally sparse on predicate vocabulary. The obsidian-pkm 
 - contrasts_with::[[Aspiration Form Contract]]
   - An Aspiration states a directional target the project is working toward; an Inquiry asks whether and how a target should be set. An Inquiry whose resolution clarifies that a target is appropriate produces an Aspiration via `resolved_into::`.
 
-- contends_with::[[Convention Overhead vs Graph Quality]]
+- contends_with::[[Glosses/Convention Overhead vs Graph Quality]]↗
   - Introducing a Contract ahead of two or three conforming nodes raises the bar speculatively. Authoring the first Inquiry node into this Contract is expected to surface revisions; the predicate-vocabulary section names that expectation explicitly. The Skill Form Contract's Seed-to-Growth progression is the precedent for this move.

@@ -8,20 +8,20 @@ graft_revision: e8ae680
 
 - conforms_to::[[Reference Form Contract]]
 - serves_as::[[Donor of the Deep Context Meta-Layer]]
-- in_domain::[[eOS Continuum]]
-- authored_by::[[Deep Context Community]]
-- has_lifecycle::[[Seed Stage]]
-- has_curation::[[Working Draft]]
+- in_practice_domain::[[eOS Continuum]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
 
 # DeepContext.com Graph (Allen, 2026)
 
 URL: <https://deepcontext.com/>
 
-DID: `did:repo:7eac0b30ce47538930800f563ecfb3cec6e3c5ae` (the SHA1 of DeepContext.com's Open Integrity inception commit, derived per [[Open Integrity Project (Blockchain Commons, 2025)]]).
+DID: `did:repo:7eac0b30ce47538930800f563ecfb3cec6e3c5ae` (the SHA1 of DeepContext.com's Open Integrity inception commit, derived per [[References/Open Integrity Project (Blockchain Commons, 2025)]]↗).
 
-DeepContext.com is the seed Deep Context graph -- a typed knowledge graph that captures reasoning as plain-markdown nodes connected by named-edge predicates. It is the donor from which eOS-DeepContext grafted the meta-layer at instantiation: the twelve Form Contracts that specify node shapes, the eleven typed-edge Predicates that compose into graph structure, and the seven generic graph-operation Skills (Graph Audit, Graph Load Audit, Graph Orient, Node Create, Node Read, Node Validate, Predicate Propose) that make the graph agent-operable. Two later additions to the donor (the Graft Gloss and the `grafted_from::` Predicate) were grafted at 2026-05-03 alongside this Reference, completing the per-node graft-provenance vocabulary.
+DeepContext.com is the seed Deep Context graph -- a typed knowledge graph that captures reasoning as plain-markdown nodes connected by named-edge predicates. It is the donor from which eOS-DeepContext grafted the meta-layer at instantiation and on subsequent refreshes: the Form Contracts that specify node shapes (including the Touch Point Form Contract added in DeepContext.com's 2026-05-03 push), the typed-edge Predicates that compose into graph structure (`assists_by`, `built_on`, `composes_with`, `conforms_to`, `contends_with`, `contrasts_with`, `extends_contract`, `frames_lens_on`, `grafted_from`, `grounded_in`, `has_component`, `in_practice_domain`, `informed_by`, `informs_downstream`, `responds_to`, `scion_of`, `source_voice`), and the generic graph-operation Skills (Graph Audit, Graph Inception, Graph Load Audit, Graph Orient, Node Create, Node Read, Node Validate, Predicate Propose) that make the graph agent-operable. The Graft Gloss is grafted alongside its `grafted_from::` Predicate, completing the per-node graft-provenance vocabulary.
 
-eOS-DeepContext is **not** a scion of DeepContext.com. eOS-DeepContext has its own Open Integrity inception (`did:repo:9dc47a293f5b2352dba288b3e2ef9c73c508ca0f`), its own purpose (carrying the eOS Continuum project's architectural argument for an image-persistent runtime substrate for agentic AI), and its own evolution. The relationship to DeepContext.com is per-node graft, not graph-level lineage; the corrected framing in DeepContext.com's [[Adopt Scion Publication Model]]↗ Decision distinguishes the two.
+eOS-DeepContext is **not** a scion of DeepContext.com. eOS-DeepContext has its own Open Integrity inception (`did:repo:9dc47a293f5b2352dba288b3e2ef9c73c508ca0f`), its own purpose (carrying the eOS Continuum project's architectural argument for an image-persistent runtime substrate for agentic AI), and its own evolution. The relationship to DeepContext.com is per-node graft, not graph-level lineage; the corrected framing in DeepContext.com's [[Decisions/Adopt Self-Sovereign Graph Publication]]↗ Decision distinguishes the two.
 
 ### Adopted
 
