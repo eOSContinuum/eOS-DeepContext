@@ -27,10 +27,16 @@ from generate_indexes import (  # noqa: E402
 )
 from linkify import linkify_file  # noqa: E402
 from render import render_file  # noqa: E402
-from slugify import TAXONOMIES, build_slug_table  # noqa: E402
+from slugify import TAXONOMIES, build_donor_table, build_slug_table  # noqa: E402
 
 
-def render_nodes(*, root: Path, build_dir: Path, slug_table: dict[str, dict]) -> int:
+def render_nodes(
+    *,
+    root: Path,
+    build_dir: Path,
+    slug_table: dict[str, dict],
+    donors: list,
+) -> int:
     rendered = 0
     seen = set()
     for entry in slug_table.values():
@@ -38,7 +44,7 @@ def render_nodes(*, root: Path, build_dir: Path, slug_table: dict[str, dict]) ->
             continue
         seen.add(entry["path"])
         source = entry["path"]
-        linkified = linkify_file(source, slug_table)
+        linkified = linkify_file(source, slug_table, donors)
         taxonomy_url = f"/nodes/{entry['taxonomy']}/"
         source_rel = str(source.relative_to(root))
         html_text = render_file(
@@ -65,10 +71,17 @@ def build(root: Path) -> None:
     render.INCEPTION_DID = render.compute_inception_did(root)
 
     slug_table = build_slug_table(root)
-    node_count = render_nodes(root=root, build_dir=build_dir, slug_table=slug_table)
+    donors = build_donor_table(root)
+    node_count = render_nodes(
+        root=root, build_dir=build_dir, slug_table=slug_table, donors=donors
+    )
 
-    write_taxonomy_indexes(root=root, build_dir=build_dir, slug_table=slug_table)
-    write_landing_page(root=root, build_dir=build_dir, slug_table=slug_table)
+    write_taxonomy_indexes(
+        root=root, build_dir=build_dir, slug_table=slug_table, donors=donors
+    )
+    write_landing_page(
+        root=root, build_dir=build_dir, slug_table=slug_table, donors=donors
+    )
     copy_style(root=root, build_dir=build_dir)
     copy_attachments(root=root, build_dir=build_dir)
     write_nojekyll(build_dir)

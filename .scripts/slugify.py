@@ -27,6 +27,7 @@ TAXONOMIES = {
     "Glosses": "glosses",
     "References": "references",
     "Skills": "skills",
+    "Touch Points": "touch-points",
 }
 
 # Taxonomies whose nodes are compound-node folders (`<Folder>/<Folder>.md`)
@@ -34,7 +35,7 @@ TAXONOMIES = {
 COMPOUND_NODE_TAXONOMIES = {"Skills"}
 
 
-def _slug_general(name: str) -> str:
+def slug_general(name: str) -> str:
     s = name.strip().lower()
     s = re.sub(r"\s+", "-", s)
     s = re.sub(r"[^a-z0-9\-]", "", s)
@@ -42,12 +43,79 @@ def _slug_general(name: str) -> str:
     return s
 
 
-def _slug_predicate(name: str) -> str:
+def slug_predicate(name: str) -> str:
     s = name.strip().lower()
     s = re.sub(r"\s+", "-", s)
     s = re.sub(r"[^a-z0-9_\-]", "", s)
     s = re.sub(r"-+", "-", s).strip("-")
     return s
+
+
+# Backward-compatible aliases (the underscore-prefixed names were used as
+# private helpers before being needed in linkify.py for external wikilink
+# resolution; the public names are now the canonical entry points).
+_slug_general = slug_general
+_slug_predicate = slug_predicate
+
+
+_FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
+
+
+def _parse_scalar_frontmatter(text: str) -> dict:
+    """Minimal YAML scalar-frontmatter parser.
+
+    Reads only the top-level scalar fields. Sufficient for donor-table
+    detection (`url:`, `this_did:`); does not attempt nested structures
+    or sequences.
+    """
+    m = _FRONTMATTER_RE.match(text)
+    if not m:
+        return {}
+    meta: dict = {}
+    for line in m.group(1).splitlines():
+        if ":" not in line:
+            continue
+        key, _, value = line.partition(":")
+        key = key.strip()
+        value = value.strip()
+        if value.startswith('"') and value.endswith('"'):
+            value = value[1:-1]
+        elif value.startswith("'") and value.endswith("'"):
+            value = value[1:-1]
+        meta[key] = value
+    return meta
+
+
+def build_donor_table(root: Path) -> list:
+    """Walk nodes/References/ and build a list of donor graphs.
+
+    A donor Reference is a Reference node that proxies another Deep Context
+    graph. It is identified by carrying both `this_did:` (the donor graph's
+    `did:repo:<sha1>` DID) and `url:` (the donor graph's site URL) in its
+    YAML frontmatter. Other Reference nodes (papers, gists, websites) carry
+    `url:` but not `this_did:` and are not donors for the purposes of
+    external-wikilink resolution.
+
+    Returns a list of dicts: {"name": str, "url": str, "this_did": str, "path": Path}
+    """
+    references_dir = root / "nodes" / "References"
+    if not references_dir.is_dir():
+        return []
+
+    donors: list = []
+    for md in sorted(references_dir.glob("*.md")):
+        meta = _parse_scalar_frontmatter(md.read_text(encoding="utf-8"))
+        this_did = meta.get("this_did", "").strip()
+        url = meta.get("url", "").strip()
+        if not this_did or not url:
+            continue
+        donors.append({
+            "name": md.stem,
+            "url": url,
+            "this_did": this_did,
+            "path": md,
+        })
+    return donors
 
 
 def _concept_side(filename_stem: str) -> str:

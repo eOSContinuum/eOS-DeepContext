@@ -11,7 +11,7 @@ import shutil
 from pathlib import Path
 
 from linkify import linkify_text
-from render import SITE_NAME, render_html, strip_frontmatter
+from render import render_html, strip_frontmatter, strip_identity_block
 from slugify import TAXONOMIES
 
 TAXONOMY_DESCRIPTIONS: dict[str, str] = {
@@ -25,12 +25,13 @@ TAXONOMY_DESCRIPTIONS: dict[str, str] = {
     "Glosses": "Interpretive definitions that frame concepts through a broader lens.",
     "References": "External sources the graph draws on, with publication metadata.",
     "Skills": "Agent-invocable workflows with numbered steps, grounded in the Decisions they enforce.",
+    "Touch Points": "Guided introductions that frame a reader's lens onto a region of the graph — not summaries.",
 }
 
 
 def _first_clause(text: str) -> str:
     """Return the clause before the first em-dash or double-hyphen separator."""
-    for sep in (" — ", " -- "):
+    for sep in (" \u2014 ", " -- "):
         idx = text.find(sep)
         if idx > 0:
             return text[:idx].rstrip()
@@ -92,8 +93,13 @@ def build_taxonomy_index(
 
 
 def write_taxonomy_indexes(
-    *, root: Path, build_dir: Path, slug_table: dict[str, dict]
+    *,
+    root: Path,
+    build_dir: Path,
+    slug_table: dict[str, dict],
+    donors: list | None = None,
 ) -> None:
+    donors = donors or []
     nodes_dir = root / "nodes"
     for taxonomy_name, taxonomy_slug in TAXONOMIES.items():
         tax_dir = nodes_dir / taxonomy_name
@@ -112,11 +118,11 @@ def write_taxonomy_indexes(
             )
             source_rel = None
 
-        linkified = linkify_text(markdown_source, slug_table)
+        linkified = linkify_text(markdown_source, slug_table, donors)
         _, body = strip_frontmatter(linkified)
         page = render_html(
             body,
-            title=f"{taxonomy_name} - {SITE_NAME}",
+            title=f"{taxonomy_name} - DeepContext",
             taxonomy_name=None,
             taxonomy_url=None,
             source_rel_path=source_rel,
@@ -127,20 +133,58 @@ def write_taxonomy_indexes(
         out.write_text(page, encoding="utf-8")
 
 
+def _find_home_touch_point(root: Path) -> Path | None:
+    """Find the Touch Point node with `is_home: true` in YAML frontmatter.
+
+    Per Touch Point Form Contract: exactly one Touch Point per graph
+    SHOULD carry `is_home: true`; the build pipeline renders it to the
+    site root URL. Multiple homes are an error; zero homes degrades to
+    a fallback (legacy `landing.md` at repo root, if present).
+    """
+    touch_points_dir = root / "nodes" / "Touch Points"
+    if not touch_points_dir.is_dir():
+        return None
+    homes: list[Path] = []
+    for md in sorted(touch_points_dir.glob("*.md")):
+        meta, _ = strip_frontmatter(md.read_text(encoding="utf-8"))
+        is_home = meta.get("is_home", "").strip().lower()
+        if is_home == "true":
+            homes.append(md)
+    if len(homes) > 1:
+        raise SystemExit(
+            "Multiple Touch Points carry is_home: true: "
+            + ", ".join(str(h.relative_to(root)) for h in homes)
+        )
+    return homes[0] if homes else None
+
+
 def write_landing_page(
-    *, root: Path, build_dir: Path, slug_table: dict[str, dict]
+    *,
+    root: Path,
+    build_dir: Path,
+    slug_table: dict[str, dict],
+    donors: list | None = None,
 ) -> None:
-    landing = root / "landing.md"
-    if not landing.exists():
-        return
-    linkified = linkify_text(landing.read_text(encoding="utf-8"), slug_table)
-    _, body = strip_frontmatter(linkified)
+    donors = donors or []
+    # First preference: a Touch Point with is_home: true in frontmatter
+    home = _find_home_touch_point(root)
+    if home is None:
+        # Fallback: legacy landing.md at repo root, retained transitionally
+        # while the home page migration is in progress.
+        legacy = root / "landing.md"
+        if not legacy.exists():
+            return
+        home = legacy
+    linkified = linkify_text(home.read_text(encoding="utf-8"), slug_table, donors)
+    meta, body = strip_frontmatter(linkified)
+    if meta.get("hide_identity_block", "").strip().lower() == "true":
+        body = strip_identity_block(body)
     page = render_html(
         body,
-        title=SITE_NAME,
+        title="DeepContext",
         taxonomy_name=None,
         taxonomy_url=None,
-        source_rel_path=str(landing.relative_to(root)),
+        source_rel_path=str(home.relative_to(root)),
         is_home=True,
     )
     (build_dir / "index.html").write_text(page, encoding="utf-8")
@@ -171,12 +215,8 @@ def write_nojekyll(build_dir: Path) -> None:
     (build_dir / ".nojekyll").write_text("", encoding="utf-8")
 
 
-# Canonical hostname for GitHub Pages custom domain. Set to "" to disable
-# custom-domain routing (GitHub Pages default URL applies).
-# DNS for eoscontinuum.com is configured: @ and www are aliases pointing to
-# eoscontinuum.github.io. The build emits .build/CNAME with this value, which
-# the Pages deploy serves at the site root, telling GitHub Pages to route the
-# custom domain to this project.
+# Canonical hostname for GitHub Pages custom domain. Forks should set this to
+# their own domain or to an empty string to disable custom-domain routing.
 CUSTOM_DOMAIN = "eoscontinuum.com"
 
 

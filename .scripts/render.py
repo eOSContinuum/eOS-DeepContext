@@ -107,6 +107,58 @@ def strip_frontmatter(text: str) -> tuple[dict[str, str], str]:
     return meta, body
 
 
+def strip_identity_block(body: str) -> str:
+    """Strip the leading identity-block bullets from a node body.
+
+    The identity block is the bullet list between the YAML frontmatter and
+    the H1 -- bullets like `- conforms_to::[[X]]`, `- in_practice_domain::[[Y]]`,
+    etc. Reader-facing forms (notably Touch Point) opt to hide these from
+    the rendered output via `hide_identity_block: true` in their frontmatter,
+    so the page reads as orientation prose rather than as a technical
+    predicate dump.
+
+    Strip skips leading blank lines, then drops every consecutive bullet
+    line (starting with `- ` or `* `) until a non-bullet, non-blank line is
+    reached. The H1 (and everything after) is preserved as-is.
+    """
+    lines = body.splitlines(keepends=True)
+    out: list[str] = []
+    in_block = False
+    block_done = False
+    for line in lines:
+        if block_done:
+            out.append(line)
+            continue
+        stripped = line.lstrip()
+        if not in_block:
+            if stripped == "" or stripped.startswith("\n"):
+                # Leading blank line — preserve and keep looking
+                out.append(line)
+                continue
+            if stripped.startswith("- ") or stripped.startswith("* "):
+                in_block = True
+                # Drop the bullet line
+                continue
+            # First non-blank, non-bullet line before any bullets — no
+            # identity block to strip; keep the line and stop looking.
+            block_done = True
+            out.append(line)
+            continue
+        # Inside the block
+        if stripped == "" or stripped.startswith("\n"):
+            # Blank line ends the block
+            block_done = True
+            out.append(line)
+            continue
+        if stripped.startswith("- ") or stripped.startswith("* "):
+            # Continuation of the identity-block bullets — drop
+            continue
+        # Non-bullet, non-blank line ends the block
+        block_done = True
+        out.append(line)
+    return "".join(out)
+
+
 def render_html(
     markdown_body: str,
     *,
@@ -189,7 +241,9 @@ def render_file(
     taxonomy_url: str | None,
     source_rel_path: str | None = None,
 ) -> str:
-    _, body = strip_frontmatter(linkified_text)
+    meta, body = strip_frontmatter(linkified_text)
+    if meta.get("hide_identity_block", "").strip().lower() == "true":
+        body = strip_identity_block(body)
     return render_html(
         body,
         title=title,
