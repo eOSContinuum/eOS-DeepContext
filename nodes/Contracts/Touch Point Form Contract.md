@@ -6,10 +6,10 @@ created: 2026-05-03
 - conforms_to::[[Contract Form Contract]]
 - grafted_from::[[DeepContext.com Graph (Allen, 2026)]]
 - extends_contract::[[Gloss Form Contract]]
-- in_practice_domain::[[Glosses/Deep Context Architecture]]↗
-- authored_by::[[Glosses/Deep Context Community]]↗
-- has_lifecycle::[[Glosses/Seed Stage]]↗
-- has_curation::[[Glosses/Working Draft]]↗
+- in_practice_domain::[[Deep Context Architecture]]
+- authored_by::[[Deep Context Community]]
+- has_lifecycle::[[Seed Stage]]
+- has_curation::[[Working Draft]]
 
 # Touch Point Form Contract
 
@@ -25,13 +25,13 @@ A Touch Point may be designated as the graph's **home page** by carrying `is_hom
 
 ### Inherits Gloss Form Contract
 
-- All requirements of [[Gloss Form Contract]] apply, including the double-hyphen filename pattern, the bare-concept H1, and the restate-and-elaborate body opening.
-- The requirements below are additions for Touch Point instances specifically.
+- The bare-concept H1 and the restate-and-elaborate body opening from [[Gloss Form Contract]] apply. The double-hyphen filename pattern from Gloss does NOT apply — Touch Points override it (see Filename pattern below).
+- The requirements below are additions or overrides for Touch Point instances specifically.
 
 ### Filename pattern
 
-- The filename MUST follow `<Touch Point Name> -- <one-clause sense of the framing>.md`, inherited from Gloss.
-- The concept side names the Touch Point's role for the reader (e.g., "Deep Context Welcome", "Substrate Argument Primer", "Customer Patterns Lens"). Naming heuristic: name what the Touch Point *does* for the reader, not what region it covers — the region is named in the `frames_lens_on::` edge.
+- The filename MUST be `<Touch Point Name>.md` — a single name, no double-hyphen separator, no compressed-definition clause. Touch Points override Gloss's filename pattern because a Touch Point's filename names a *reader-facing role* (Welcome, Primer, Lens) rather than carrying a working definition. The longer framing belongs in the `tagline:` YAML field, not in the filename.
+- The Touch Point Name MUST name what the Touch Point *does* for the reader (e.g., "Deep Context Welcome", "Substrate Argument Primer", "Customer Patterns Lens"). Do not name what region the Touch Point covers — the region is named by the `frames_lens_on::` edge.
 
 ### Identity predicate block
 
@@ -81,7 +81,7 @@ A Touch Point may be designated as the graph's **home page** by carrying `is_hom
 ## Relations
 
 - extends_contract::[[Gloss Form Contract]]
-  - Inherits the double-hyphen filename pattern, the restate-and-elaborate body opening, and the body shape allowances. Adds the Opening Synthesis, Entry Points, Out of Scope sections plus the required `frames_lens_on::` edge and the optional `is_home` frontmatter scalar.
+  - Inherits the bare-concept H1, the restate-and-elaborate body opening, and the body shape allowances. Overrides Gloss's double-hyphen filename pattern with a single-name `<Touch Point Name>.md` form because a Touch Point's filename names a reader-facing role rather than carrying a working definition. Adds the Opening Synthesis, Entry Points, Out of Scope sections plus the required `frames_lens_on::` edge and the optional `is_home` frontmatter scalar.
 
 - conforms_to::[[Contract Form Contract]]
   - This file is itself a Contract; it conforms to the meta-contract specifying what Contract nodes look like.
@@ -95,5 +95,5 @@ A Touch Point may be designated as the graph's **home page** by carrying `is_hom
 - composes_with::[[frames_lens_on -- frames a reader's lens onto a region of the graph]]
   - The Predicate that carries a Touch Point's relation to its target. Every Touch Point MUST include at least one `frames_lens_on::` edge; the Predicate's Typing names the polymorphic object (a Gloss naming a community of practice, a Gloss naming a concept, or another concept-bearing node).
 
-- grounded_in::[[Convictions/Vocabulary Diversity Is a Feature]]↗
+- grounded_in::[[Vocabulary Diversity Is a Feature]]
   - The Conviction that makes Touch Points load-bearing rather than collapsible into the underlying Glosses they target. A Touch Point may frame a lens onto a region of the graph that crosses communities of practice (e.g., a Touch Point on a cross-cutting Gloss that has multiple `appears_in::` edges). Without the diversity stance, the Glosses themselves would suffice; with it, finer-grained reader-orientation is warranted.
