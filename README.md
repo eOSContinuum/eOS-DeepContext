@@ -14,8 +14,8 @@ what you need to read, build, or contribute.
 
 ## Status
 
-In progress. The meta-layer is in place (12 Form Contracts, 11 Predicates,
-7 generic graph-operation Skills under [`nodes/`](nodes/)). [`landing.md`](landing.md)
+In progress. The meta-layer is in place (13 Form Contracts including the eOS-specific Inquiry Form, 18 Predicates, 8 generic graph-operation Skills under [`nodes/`](nodes/)).
+[The home Touch Point](nodes/Touch%20Points/eOS%20Continuum%20Welcome.md)
 carries the project's current public framing -- the substrate-vs-glue
 diagnostic, the eight runtime primitives with orthogonal persistence as
 foundational, the harness-as-tool inversion, five-axis containment for
@@ -30,13 +30,13 @@ What is forthcoming:
 
 - **Founding Decision and grounding Convictions** -- the load-bearing
   architectural commitments this graph rests on. The eight runtime-
-  primitive Convictions named in `landing.md` are currently ghost links
+  primitive Convictions named in the home Touch Point are currently ghost links
   (most exist in the `eos-harness` graph and will be grafted or authored
   fresh here, with the architectural-hierarchy reordering -- orthogonal
   persistence as foundational, others derived -- applied at migration).
 - **Content nodes** -- Decisions, Aspirations, Observations, Patterns
   elaborating the architectural argument. Three customer-pattern Patterns
-  named in `landing.md` belong in `nodes/Patterns/` once authored.
+  named in the home Touch Point belong in `nodes/Patterns/` once authored.
 - **Reference stub bodies** -- the 14 Reference stubs are minimal;
   Adopted / Not adopted detail and per-feature correspondence to substrate
   primitives is to be expanded.
@@ -87,7 +87,7 @@ Output lands in `.build/` (gitignored). The build pipeline:
 3. Renders each node to HTML (`render.py`) with title, taxonomy crumb,
    "Edit on GitHub" link, and DID footer widget.
 4. Generates per-taxonomy index pages (`generate_indexes.py`).
-5. Renders `landing.md` to `index.html` (when present).
+5. Renders the home Touch Point (designated by `is_home: true` in YAML frontmatter) to `index.html`.
 6. Copies `style.css` and `Attachments/` (when present) into the build
    output.
 7. Emits `.agents/skills/<runtime-name>/SKILL.md` and

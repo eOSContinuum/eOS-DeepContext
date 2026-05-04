@@ -2,7 +2,7 @@
 
 Orientation for AI agents working on this graph. Read this first; then open
 the Contracts under `nodes/Contracts/` for the structural rules, and
-[`landing.md`](landing.md) for the project's framing.
+[the home Touch Point](nodes/Touch%20Points/eOS%20Continuum%20Welcome.md) for the project's framing.
 
 ## The graph in one paragraph
 
@@ -21,8 +21,9 @@ at instantiation, with per-node graft provenance recorded via the
 
 ## Status
 
-In progress. The meta-layer is in place (12 Form Contracts, 11 Predicates,
-7 generic Skills under `nodes/`). [`landing.md`](landing.md) carries the
+In progress. The meta-layer is in place (13 Form Contracts including the
+eOS-specific Inquiry Form, 18 Predicates, 8 generic Skills under `nodes/`).
+[The home Touch Point](nodes/Touch%20Points/eOS%20Continuum%20Welcome.md) carries the
 project's current public framing. 14 Reference stubs in
 [`nodes/References/`](nodes/References/) capture supporting evidence from
 the recent agentic-runtime literature (Recursive Language Models and its
@@ -35,14 +36,14 @@ What is forthcoming:
 
 - **Founding Decision and grounding Convictions** -- the load-bearing
   architectural commitments this graph rests on, including the eight
-  runtime-primitive Convictions named in `landing.md`. Most exist in the
+  runtime-primitive Convictions named in the home Touch Point. Most exist in the
   `eos-harness` graph and will be grafted or authored fresh here. The
   architectural-hierarchy reordering -- orthogonal persistence as
   foundational, the other seven `grounded_in::` it -- applies at
   migration time.
 - **Content nodes** -- Decisions, Aspirations, Observations, and Patterns
   elaborating the architectural argument. Three customer-pattern Patterns
-  named in `landing.md` (customer-authored automation in a SaaS product,
+  named in the home Touch Point (customer-authored automation in a SaaS product,
   long-running stateful workflows, AI-authored tools and durable agent
   memory) belong in `nodes/Patterns/` once authored.
 - **Reference stub bodies** -- the 14 Reference stubs are minimal;
@@ -116,7 +117,7 @@ contributors who hold them, not to the assistant that renders them.
 For an agent entering this graph:
 
 1. Run the `Graph Orient` Skill (`nodes/Skills/Graph Orient/`) to walk
-   AGENTS.md, `landing.md` (when present), the Contracts at identity-block
+   AGENTS.md, the home Touch Point, the Contracts at identity-block
    scale, the Convictions, and the Predicate vocabulary in a prescribed
    cheap-read order before any task work.
 2. Read the form Contract for the node form you intend to author or edit
@@ -135,7 +136,7 @@ agent or working directly):
 
 1. **Fork** to your account or organization. Clone your fork locally.
 2. **Run the `Graph Orient` Skill** to walk this file plus
-   [`landing.md`](landing.md), the form Contracts at identity-block scale,
+   [the home Touch Point](nodes/Touch%20Points/eOS%20Continuum%20Welcome.md), the form Contracts at identity-block scale,
    the Convictions when authored, and the Predicate vocabulary -- the
    cheapest read that produces enough context for the operations that
    follow.
