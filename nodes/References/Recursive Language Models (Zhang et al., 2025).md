@@ -51,3 +51,9 @@ The paper does not endorse orthogonal persistence as foundational, single-cohere
 
 - composes_with::[[Meriadoc (ChatTheatre, 2026)]]
   - RLM proves the harness-as-tool inversion at single-recursion scale on Python and names its own limitations -- sub-calls blocking, recursion depth bounded, REPL state evaporates on process death. Meriadoc realizes the same inversion at substrate scale: handlers, tools, and intermediate sub-call results live in the orthogonally persistent state graph, lifting the limitations RLM names. The two References compose -- RLM names the technique; Meriadoc is the substrate-layer realization.
+
+- composes_with::[[Model-Harness-Fit (Bustamante, 2026)]]
+  - The Bustamante thread anatomizes the matched-pair lock-in that conditions LM instincts to a specific harness's tool surface, citation tags, memory ritual, and system-prompt skeleton. RLM is the architectural inversion that makes a different substrate possible -- LM-as-tool inside a code-execution environment with state in named variables, where the LM's instincts matter less because the substrate carries what the matched-pair regime tries to cover with post-training conditioning. The two References together name the problem (matched-pair lock-in) and the architectural shape that decouples from it (RLM-the-paradigm extended to substrate scale).
+
+- informs_downstream::[[Substrate Compounding Overcomes Agent Harness Fit]]
+  - The Conviction's bet -- that substrate-layer compounding outweighs matched-pair compounding on long-horizon stateful workloads -- depends on the harness-as-tool inversion this Reference proves at user-space scale. RLM names the architectural shape; the Conviction extends the shape to the runtime layer where orthogonal persistence and capability separation lift the limitations RLM names (sub-calls blocking, recursion depth bounded, REPL state evaporates on process death).

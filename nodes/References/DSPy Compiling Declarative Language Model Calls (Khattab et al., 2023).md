@@ -45,3 +45,6 @@ DSPy operates as a Python-runtime compilation framework; the substrate underneat
 
 - composes_with::[[Why I Built DSPy Agent Skills (codeandcontext.ai, 2025)]]
   - The post that integrates GEPA optimization, RLM for long context, and procedural workflow as the three pillars of agent-skills authoring.
+
+- composes_with::[[Model-Harness-Fit (Bustamante, 2026)]]
+  - The Khattab axis (DSPy as user-space framework, RLM as inference pattern) is one coherent program inside the matched-pair regime the Bustamante thread anatomizes. The thread's diagnosis of post-training co-evolution applies directly: DSPy compiles down to prompt shapes that the matched model's instincts have been trained against. eOS Continuum extends the architectural shape DSPy/RLM proves at user-space scale into the substrate layer, where the matched-pair coupling stops being load-bearing for the customer's durable infrastructure.
