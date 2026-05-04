@@ -26,7 +26,7 @@ from generate_indexes import (  # noqa: E402
     write_nojekyll,
     write_taxonomy_indexes,
 )
-from linkify import linkify_file  # noqa: E402
+from linkify import add_identity_graft_marker, linkify_file  # noqa: E402
 from render import render_file  # noqa: E402
 from slugify import TAXONOMIES, build_donor_table, build_slug_table  # noqa: E402
 
@@ -46,6 +46,12 @@ def render_nodes(
         seen.add(entry["path"])
         source = entry["path"]
         linkified = linkify_file(source, slug_table, donors)
+        linkified = add_identity_graft_marker(
+            linkified,
+            donors=donors,
+            taxonomy_slug=entry["taxonomy"],
+            node_slug=entry["slug"],
+        )
         taxonomy_url = f"/nodes/{entry['taxonomy']}/"
         source_rel = str(source.relative_to(root))
         html_text = render_file(

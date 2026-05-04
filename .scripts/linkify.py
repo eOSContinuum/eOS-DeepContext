@@ -183,3 +183,54 @@ def linkify_file(
     donors: list | None = None,
 ) -> str:
     return linkify_text(path.read_text(encoding="utf-8"), slug_table, donors)
+
+
+_GRAFT_BULLET_RE = re.compile(
+    r'^- grafted_from::<a class="wikilink" href="[^"]+">\[\[([^\]]+)\]\]</a>',
+    re.MULTILINE,
+)
+
+
+def add_identity_graft_marker(
+    text: str,
+    *,
+    donors: list,
+    taxonomy_slug: str,
+    node_slug: str,
+) -> str:
+    """Append a ⊕ marker to the identity-block grafted_from:: edge.
+
+    Same UX as the global directory's graft markers — a reader of a
+    grafted node sees one click to the donor's source for THIS specific
+    node, not just the donor graph at large. The marker is added to the
+    bullet line in the linkified markdown source; python-markdown carries
+    it through into the rendered <li>.
+
+    Only the line-anchored `- grafted_from::<linkified-wikilink>` form
+    matches; backtick-coded mentions in prose or other-predicate
+    references in Relations annotations are unaffected.
+    """
+    if not donors:
+        return text
+
+    def _replace(match: re.Match) -> str:
+        donor_target = match.group(1).strip()
+        donor_concept = donor_target.split(" -- ", 1)[0].strip()
+        donor_url: str | None = None
+        for d in donors:
+            if (
+                d["name"] == donor_target
+                or d["name"].split(" -- ", 1)[0].strip() == donor_concept
+            ):
+                donor_url = d["url"].rstrip("/")
+                break
+        if not donor_url:
+            return match.group(0)
+        source_url = f"{donor_url}/nodes/{taxonomy_slug}/{node_slug}/"
+        marker = (
+            f' <a class="graft-marker" href="{html.escape(source_url)}"'
+            f' title="Grafted from {html.escape(donor_target)}">⊕</a>'
+        )
+        return match.group(0) + marker
+
+    return _GRAFT_BULLET_RE.sub(_replace, text, count=1)
