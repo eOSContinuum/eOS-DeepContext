@@ -119,6 +119,32 @@ If any check fails, fix the draft before writing. Validation at read time is a w
 
 Write the file at `nodes/<Taxonomy>/<Filename>.md` (or `nodes/Skills/<Folder>/<Folder>.md` for Skills). Report the path to the user. Do not stage or commit — the user authors the commit after reviewing the draft.
 
+### Step 10: Wire reciprocal back-edges on existing targets
+
+After writing the new node, walk its forward edges and check each target. When the target exists as a node file in the graph, the target SHOULD carry a reciprocal back-edge in its own Relations section. Wiring at authoring time keeps the graph mutually-consistent moment-by-moment; Graph Audit's Step 6 sweeps for missing reciprocals at audit time, but doing the work now prevents the audit from surfacing the gap later.
+
+The conventional reciprocal pairs:
+
+| Forward edge on the new node | Reciprocal back-edge on the target |
+|------------------------------|-----------------------------------|
+| `informs_downstream::[[X]]` | `informed_by::` or `grounded_in::` |
+| `grounded_in::[[X]]` | `informs_downstream::` |
+| `informed_by::[[X]]` | `informs_downstream::` |
+| `extends_contract::[[X]]` | `extended_by::` |
+| `supersedes::[[X]]` | `superseded_by::` |
+| `composes_with::[[X]]` | `composes_with::` (symmetric) |
+| `contrasts_with::[[X]]` | `contrasts_with::` (symmetric) |
+
+Skip these cases:
+
+- **Ghost-link targets**: defer the reciprocal — it lands when the target is authored.
+- **Form Contract targets** (`conforms_to::[[<Form> Form Contract]]`): generally no reciprocal; Form Contracts don't enumerate every conformer.
+- **External wikilink targets** (carrying `↗`): the target lives in another graph; per-graph reciprocity is each graph's own concern.
+
+For each existing target needing a reciprocal, edit the target file to add the back-edge in its `## Relations` section with an annotation explaining what the relationship records. Do not stage or commit the target edits — the user reviews and commits both the new node and the reciprocal-target edits together (typical pattern: separate commits for new files versus modifications, per the project's commit-by-provenance discipline).
+
+This step is the authoring-time complement to Graph Audit's Step 6. The two share the same logic at different time-points: this skill keeps reciprocity consistent at write time; Graph Audit catches whatever the writer missed.
+
 ## Relations
 
 - conforms_to::[[Skill Form Contract]]
@@ -150,3 +176,6 @@ Write the file at `nodes/<Taxonomy>/<Filename>.md` (or `nodes/Skills/<Folder>/<F
 
 - composes_with::[[Node Read]]
   - Node Read is the read-side companion: when the author wants to model a new node on an existing neighbor, Node Read orients them to the neighbor first; Node Create drafts the new node. Both skills walk the same layered structure, in opposite directions.
+
+- composes_with::[[Graph Audit]]
+  - Graph Audit's Step 6 sweeps for missing reciprocal back-edges at audit time; this skill's Step 10 wires them at authoring time. Same logic, different time-points: authoring-time keeps the graph consistent moment-by-moment; audit-time catches whatever authoring missed.

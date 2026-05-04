@@ -270,3 +270,6 @@ The follow-up naming lets the scion author route the audit's findings without re
 
 - informs_downstream::[[Markdown Node Contract]]
   - The base Contract specifies the structural shape this skill surveys. Graph Audit's aggregate findings surface where the graph has drifted from the Contract at scale; single-node validation surfaces where one specific node has drifted.
+
+- composes_with::[[Node Create]]
+  - Node Create's Step 10 wires reciprocal back-edges at authoring time; this skill's Step 6 sweeps for missing reciprocals at audit time. Same logic, different time-points: authoring-time keeps the graph consistent moment-by-moment; audit-time catches whatever authoring missed.
