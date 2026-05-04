@@ -1,4 +1,19 @@
-# eOS Continuum
+---
+tagline: A guided introduction to the substrate-vs-glue diagnosis and the eight runtime primitives this graph anchors
+created: 2026-05-04
+is_home: true
+hide_identity_block: true
+---
+
+- conforms_to::[[Touch Point Form Contract]]
+- frames_lens_on::[[Agent Runtimes Require Substrate Primitives, Not External Glue]]
+- frames_lens_on::[[eOS Continuum]]
+- in_practice_domain::[[eOS Continuum]]
+- authored_by::[[Glosses/Deep Context Community]]↗
+- has_lifecycle::[[Glosses/Seed Stage]]↗
+- has_curation::[[Glosses/Working Draft]]↗
+
+# eOS Continuum Welcome
 
 An AI agent should work the way a colleague does: it remembers what it did yesterday, it reaches for tools it has used before, it picks up an interrupted task after a restart, it acts as one continuous identity over time. Today's platforms approximate that by stitching together a database for memory, a queue for durability, a vector store for recall, an identity layer for permissions, and application code that holds the layers in alignment. The approximation works until something fails between the layers.
 
@@ -172,21 +187,18 @@ These commitments reflect a posture: the runtime is infrastructure for builders,
 
 A common reference for the small team and early collaborators. A starting point for the documentation introduction, the technical posts, the conversations with future contributors. The argument is intentionally framed for the small-team / community / audience-of-builders model.
 
-What this site is not:
-
-- **Not a marketing document.** No product naming sales pitch.
-- **Not a fundraising pitch.** A separate document would be required for an investor audience; the argument here is intentionally framed for builders, not capital allocators.
-- **Not a technical specification.** Primitives are described at the level of "what they do and why they matter," not "what the API looks like." Structural rules live in the [[Markdown Node Contract|Form Contracts under nodes/Contracts/]].
-- **Not a product requirements document.** The work being done is architectural-depth-over-feature-breadth; PRDs belong to a downstream phase.
-- **Not a competitive analysis.** No specific platforms named as adversaries. The argument is structural; any platform built on the wrong substrate has the same weaknesses, regardless of branding.
-
-What this site is:
+What this site is, affirmatively:
 
 - A reference for the small team.
 - A starting point for collaboration with the contemporary agent-infrastructure audience.
 - A test of the architectural claim. If a sophisticated builder reads this and the value proposition lands, the architecture is right. If they shrug, either the audience targeting is wrong or the substrate is genuinely not different enough -- and that is information worth getting early.
 
-## Reading paths
+## Entry Points
+
+To browse every node in the graph at once, see the
+[full node directory](/nodes/) — every node grouped by form type and
+listed alphabetically, with grafted nodes marked so the donor's source
+is one click away.
 
 Where to go from here, depending on what brought you:
 
@@ -196,3 +208,27 @@ Where to go from here, depending on what brought you:
 - **Considering contributing.** Read [`AGENTS.md`](AGENTS.md) for the agent-orientation framing and graph conventions, then `nodes/Contracts/` for the structural rules each node form satisfies, then `nodes/Skills/` for the agent-invocable workflows. The active implementation work happens in [[eos-harness Minimum Viable Architecture|eos-harness]]; this graph is the architectural argument that work tests.
 
 The graph is pre-content as of this writing. Most of the wikilinks above are ghost links to forthcoming nodes -- each represents a claim the project is committed to articulating in its own typed-node form. The pace of authoring is set by the work in [[eos-harness Minimum Viable Architecture|eos-harness]] and by the conversations with early collaborators that the small-team-of-builders model depends on.
+
+## Out of Scope
+
+What this Touch Point's lens deliberately does not address:
+
+- **Marketing.** No product naming sales pitch. A separate document would be required for any commercial framing.
+- **Fundraising.** A separate document would be required for an investor audience; the argument here is intentionally framed for builders, not capital allocators.
+- **Technical specification.** Primitives are described at the level of "what they do and why they matter," not "what the API looks like." Structural rules live in the [[Markdown Node Contract|Form Contracts under nodes/Contracts/]].
+- **Product requirements.** The work being done is architectural-depth-over-feature-breadth; product-requirements documents belong to a downstream phase.
+- **Competitive analysis.** No specific platforms are named as adversaries. The argument is structural; any platform built on the wrong substrate has the same weaknesses, regardless of branding.
+
+## Relations
+
+- conforms_to::[[Touch Point Form Contract]]
+  - This Touch Point declares compliance with the Touch Point Form Contract — the form for nodes whose role is to frame a reader's lens onto a region of the graph.
+
+- frames_lens_on::[[Agent Runtimes Require Substrate Primitives, Not External Glue]]
+  - The load-bearing Conviction this graph anchors. Currently a ghost link; the Conviction will be authored as the substrate argument matures from the eos-harness Minimum Viable Architecture work into a typed Conviction node here.
+
+- frames_lens_on::[[eOS Continuum]]
+  - The Practice Domain Gloss this Touch Point orients first-time readers toward. The Gloss is currently a ghost link awaiting authoring; its role is to name the community of practice this graph speaks within.
+
+- composes_with::[[DeepContext.com Graph (Allen, 2026)]]
+  - The donor Reference proxying the meta-layer source. The Form Contract this Touch Point conforms to was grafted from there; concept Glosses, Predicates, and generic Skills referenced in this graph resolve there via external wikilinks. This Touch Point's content is eOS Continuum's own — locally authored, not grafted.
