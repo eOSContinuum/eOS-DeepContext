@@ -22,6 +22,7 @@ from generate_indexes import (  # noqa: E402
     copy_style,
     write_cname,
     write_landing_page,
+    write_node_directory,
     write_nojekyll,
     write_taxonomy_indexes,
 )
@@ -77,6 +78,9 @@ def build(root: Path) -> None:
     )
 
     write_taxonomy_indexes(
+        root=root, build_dir=build_dir, slug_table=slug_table, donors=donors
+    )
+    write_node_directory(
         root=root, build_dir=build_dir, slug_table=slug_table, donors=donors
     )
     write_landing_page(

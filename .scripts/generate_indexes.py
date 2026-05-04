@@ -7,12 +7,16 @@ For each taxonomy folder under nodes/:
 
 from __future__ import annotations
 
+import re
 import shutil
+from collections import defaultdict
 from pathlib import Path
 
 from linkify import linkify_text
-from render import render_html, strip_frontmatter, strip_identity_block
+from render import SITE_NAME, render_html, strip_frontmatter, strip_identity_block
 from slugify import TAXONOMIES
+
+GRAFT_MARKER = "⊕"  # ⊕
 
 TAXONOMY_DESCRIPTIONS: dict[str, str] = {
     "Contracts": "Form specifications — thin compliance rules with RFC 2119 keywords.",
@@ -92,6 +96,163 @@ def build_taxonomy_index(
     return "\n".join(lines) + "\n"
 
 
+_GRAFTED_FROM_RE = re.compile(r"^- grafted_from::\[\[(.+?)\]\]", re.MULTILINE)
+
+
+def _node_donor(path: Path, donors: list) -> tuple[str, str] | None:
+    """Return (donor_name, donor_url) if the node carries a grafted_from:: edge.
+
+    Looks for the first identity-block bullet of shape `- grafted_from::[[<name>]]`,
+    resolves that name against the donor table built from References, and returns
+    the donor's site URL. Returns None when the node is not grafted or the donor
+    cannot be resolved.
+    """
+    if not donors:
+        return None
+    text = path.read_text(encoding="utf-8")
+    m = _GRAFTED_FROM_RE.search(text)
+    if not m:
+        return None
+    target = m.group(1).strip()
+    # Donor table entries have name = filename stem; the wikilink may be the
+    # full stem or the concept side.
+    target_concept = target.split(" -- ", 1)[0].strip()
+    for d in donors:
+        if d["name"] == target or d["name"].split(" -- ", 1)[0].strip() == target_concept:
+            return (d["name"], d["url"].rstrip("/"))
+    return None
+
+
+TAXONOMY_SINGULAR: dict[str, str] = {
+    "Aspirations": "Aspiration",
+    "Contracts": "Contract",
+    "Convictions": "Conviction",
+    "Decisions": "Decision",
+    "Glosses": "Gloss",
+    "Observations": "Observation",
+    "Patterns": "Pattern",
+    "Predicates": "Predicate",
+    "References": "Reference",
+    "Skills": "Skill",
+    "Touch Points": "Touch Point",
+}
+
+
+def build_node_directory(*, slug_table: dict[str, dict], donors: list) -> str:
+    """Build markdown for the global Browse-all-nodes directory.
+
+    Two surfaces, one page:
+    - **By form type** — compact list of taxonomies linking to each
+      taxonomy index page. The "drill into one form" workflow.
+    - **All nodes** — single alphabetical list across the whole graph,
+      each entry showing form chip + tagline. The "find by name" workflow.
+
+    The graft marker (⊕) appears on nodes carrying a grafted_from:: edge,
+    linking to the donor's source URL for that node so the lineage is
+    one click away.
+    """
+    # Collect every unique node, dedup by path.
+    by_tax: dict[str, list[dict]] = defaultdict(list)
+    seen: set[Path] = set()
+    for entry in slug_table.values():
+        if entry["path"] in seen:
+            continue
+        seen.add(entry["path"])
+        by_tax[entry["taxonomy_name"]].append(entry)
+
+    total = sum(len(v) for v in by_tax.values())
+    all_entries: list[dict] = []
+    for tax_entries in by_tax.values():
+        all_entries.extend(tax_entries)
+
+    has_grafts = any(_node_donor(e["path"], donors) for e in all_entries)
+
+    lines = [
+        "# Browse all nodes",
+        "",
+        f"Every node in this graph. {total} nodes across {len(by_tax)} form types.",
+        "",
+    ]
+    if has_grafts:
+        lines.append(
+            f"Entries marked **{GRAFT_MARKER}** were grafted from a donor graph; the marker links to the donor's source for that node."
+        )
+        lines.append("")
+
+    # Section 1: Form types — compact navigation hub.
+    lines.append("## By form type")
+    lines.append("")
+    lines.append(
+        "Each form type has its own index page listing nodes of that form with their summaries. Use this when you want to drill into a specific form."
+    )
+    lines.append("")
+    for tax_name, tax_slug in TAXONOMIES.items():
+        if tax_name not in by_tax:
+            continue
+        count = len(by_tax[tax_name])
+        description = TAXONOMY_DESCRIPTIONS.get(tax_name, "")
+        line = f"- [{tax_name}](/nodes/{tax_slug}/) ({count})"
+        if description:
+            line += f" — {description}"
+        lines.append(line)
+    lines.append("")
+
+    # Section 2: Alphabetical flat list — find-by-name workflow.
+    lines.append(f"## All nodes alphabetically ({total})")
+    lines.append("")
+    lines.append(
+        "Every node in one list, sorted by title. Each entry shows its form type so you can tell what kind of node it is. Use this when you remember a name but not the form, or when you want to scan the whole graph at once."
+    )
+    lines.append("")
+    alphabetical = sorted(all_entries, key=lambda e: e["title"].lower())
+    for entry in alphabetical:
+        label = entry["title"]
+        url = entry["url"]
+        tax_name = entry["taxonomy_name"]
+        tax_slug = TAXONOMIES.get(tax_name, entry["taxonomy"])
+        form_singular = TAXONOMY_SINGULAR.get(tax_name, tax_name)
+        tagline = _entry_summary(entry["path"])
+        graft = ""
+        donor = _node_donor(entry["path"], donors)
+        if donor:
+            donor_name, donor_url = donor
+            donor_node_url = f"{donor_url}/nodes/{tax_slug}/{entry['slug']}/"
+            graft = f' [{GRAFT_MARKER}]({donor_node_url} "Grafted from {donor_name}")'
+        line = f"- [{label}]({url}) — *{form_singular}*"
+        if tagline:
+            line += f" — {tagline}"
+        line += graft
+        lines.append(line)
+    lines.append("")
+
+    return "\n".join(lines) + "\n"
+
+
+def write_node_directory(
+    *,
+    root: Path,
+    build_dir: Path,
+    slug_table: dict[str, dict],
+    donors: list | None = None,
+) -> None:
+    """Emit the global node directory at /nodes/index.html."""
+    donors = donors or []
+    markdown_source = build_node_directory(slug_table=slug_table, donors=donors)
+    linkified = linkify_text(markdown_source, slug_table, donors)
+    _, body = strip_frontmatter(linkified)
+    page = render_html(
+        body,
+        title=f"Browse all nodes - {SITE_NAME}",
+        taxonomy_name=None,
+        taxonomy_url=None,
+        source_rel_path=None,
+        is_browse=True,
+    )
+    out = build_dir / "nodes" / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(page, encoding="utf-8")
+
+
 def write_taxonomy_indexes(
     *,
     root: Path,
@@ -122,7 +283,7 @@ def write_taxonomy_indexes(
         _, body = strip_frontmatter(linkified)
         page = render_html(
             body,
-            title=f"{taxonomy_name} - DeepContext",
+            title=f"{taxonomy_name} - {SITE_NAME}",
             taxonomy_name=None,
             taxonomy_url=None,
             source_rel_path=source_rel,
@@ -181,7 +342,7 @@ def write_landing_page(
         body = strip_identity_block(body)
     page = render_html(
         body,
-        title="DeepContext",
+        title=SITE_NAME,
         taxonomy_name=None,
         taxonomy_url=None,
         source_rel_path=str(home.relative_to(root)),
