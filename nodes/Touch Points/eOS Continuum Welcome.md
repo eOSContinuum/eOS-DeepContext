@@ -116,6 +116,8 @@ To break out, agent code would have to defeat all five mechanisms simultaneously
 | Erlang processes | 2 *(location + supervision-restart)* |
 | This substrate | 5 |
 
+The 5/5 claim is grounded in [[Meriadoc (ChatTheatre, 2026)]], the reference implementation's sandboxed code-load DSL -- a substrate-layer mechanism in continuous production for over twenty-five years, with each axis enforced by a specific source-code mechanism a reviewer can verify directly.
+
 For LLM-generated code specifically, this is the structural safety the workload requires. The runtime contains the mistakes -- not the developer, not the prompt-injection detector, not the human-in-the-loop reviewer.
 
 ## The lineage that quietly carried the answer

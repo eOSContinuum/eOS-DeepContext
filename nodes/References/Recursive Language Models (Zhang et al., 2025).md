@@ -48,3 +48,6 @@ The paper does not endorse orthogonal persistence as foundational, single-cohere
 
 - composes_with::[[DSPy Compiling Declarative Language Model Calls (Khattab et al., 2023)]]
   - Khattab co-authors RLM and created DSPy. The Khattab axis (DSPy as user-space framework; RLM as inference pattern) is one coherent research program whose architectural conclusions arrive at the substrate eOS Continuum names from the opposite direction.
+
+- composes_with::[[Meriadoc (ChatTheatre, 2026)]]
+  - RLM proves the harness-as-tool inversion at single-recursion scale on Python and names its own limitations -- sub-calls blocking, recursion depth bounded, REPL state evaporates on process death. Meriadoc realizes the same inversion at substrate scale: handlers, tools, and intermediate sub-call results live in the orthogonally persistent state graph, lifting the limitations RLM names. The two References compose -- RLM names the technique; Meriadoc is the substrate-layer realization.
