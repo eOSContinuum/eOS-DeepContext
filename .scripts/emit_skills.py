@@ -1,4 +1,4 @@
-"""Emit skill-runtime-alias symlink trees from nodes/Skills/.
+"""Emit skill-runtime-alias trees from nodes/Skills/.
 
 Source of truth is nodes/Skills/<Title Case>/<Title Case>.md (compound-node
 lead file matching its folder per Skill Form Contract). Two agent runtimes
@@ -7,10 +7,15 @@ discover skills under lowercase-hyphenated paths:
   .agents/skills/<name>/SKILL.md   -- Anthropic Agent Skills runtime
   .claude/skills/<name>/SKILL.md   -- Claude Code CLI slash commands
 
-This module emits symlink trees at both paths, each pointing at the single
-source-of-truth lead file. Keeping both trees in the repository means a
-clone or fresh scion has working runtime layouts and CLI autocomplete
-without running build.py locally.
+The emitted SKILL.md is a transformed version of the source. The Skill Form
+Contract permits source-only fields like `tagline` for index-page rendering;
+the Anthropic Agent Skills spec only recognizes a small set of keys (name,
+description, license, allowed-tools, compatibility, metadata) and silently
+rejects skills with descriptions exceeding 1024 characters at slash-command
+discovery time. This module strips source-only keys, validates the spec's
+character cap, and writes a regular SKILL.md (not a symlink) that is
+runtime-loadable. Subdirectories `scripts/` and `references/` remain
+directory symlinks because they carry no frontmatter.
 
 Usage:
     python .scripts/emit_skills.py [repo-root]
@@ -23,13 +28,21 @@ import re
 import shutil
 import sys
 from pathlib import Path
+from typing import Optional
 
 SKILLS_SOURCE_DIR = "nodes/Skills"
 SKILLS_TARGET_DIRS = (".agents/skills", ".claude/skills")
 SKILL_SUBDIRS = ("scripts", "references")
 
+# Anthropic Agent Skills spec frontmatter keys passed through to runtime SKILL.md.
+SPEC_KEYS = ("name", "description", "license", "allowed-tools", "compatibility", "metadata")
+
+# Anthropic Agent Skills runtime cap on `description` length. Descriptions
+# exceeding the cap are silently rejected at slash-command discovery time.
+DESCRIPTION_CAP = 1024
+
 _FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
-_NAME_RE = re.compile(r"^name:\s*(\S+)\s*$", re.MULTILINE)
+_KEY_LINE_RE = re.compile(r"^([a-z][a-z_-]*):\s*(.*)$")
 
 
 def _derive_name(folder_name: str) -> str:
@@ -37,25 +50,105 @@ def _derive_name(folder_name: str) -> str:
     return folder_name.strip().lower().replace(" ", "-")
 
 
-def _read_name(lead_file: Path) -> str | None:
-    """Return the Anthropic Agent Skills `name` from YAML frontmatter, or None if absent.
+def _split_frontmatter(text: str) -> Optional[tuple]:
+    """Return (frontmatter_text, body) or None if no frontmatter."""
+    m = _FRONTMATTER_RE.match(text)
+    if not m:
+        return None
+    return m.group(1), text[m.end():]
 
-    Intentionally small: only the `name` scalar is needed by this module, and
-    adding a YAML dependency for one field is not worth the cost. If the
-    frontmatter format grows, replace this with a proper YAML parser.
+
+def _parse_yaml_simple(fm: str) -> dict:
+    """Parse a subset of YAML sufficient for flat skill frontmatter.
+
+    Handles inline scalars (`key: value`) and block scalars (`key: |` or
+    `key: >`). For block scalars, collects indented continuation lines and
+    preserves their content as a string. Quoted inline values are stripped.
+    Does not handle nested mappings or sequences; skill frontmatter per the
+    Skill Form Contract is flat.
     """
-    text = lead_file.read_text(encoding="utf-8")
-    fm_match = _FRONTMATTER_RE.match(text)
-    if not fm_match:
-        return None
-    name_match = _NAME_RE.search(fm_match.group(1))
-    if not name_match:
-        return None
-    return name_match.group(1)
+    out = {}
+    lines = fm.splitlines()
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if not line.strip() or line.lstrip().startswith("#"):
+            i += 1
+            continue
+        m = _KEY_LINE_RE.match(line)
+        if not m:
+            i += 1
+            continue
+        key, value = m.group(1), m.group(2)
+        if value in ("|", ">"):
+            # Block scalar -- collect indented (or blank) continuation lines.
+            block_lines = []
+            i += 1
+            while i < len(lines):
+                cont = lines[i]
+                if cont.startswith("  "):
+                    block_lines.append(cont[2:])
+                elif not cont.strip():
+                    block_lines.append("")
+                else:
+                    break
+                i += 1
+            # Preserve newlines verbatim; the runtime reads the resulting
+                # string regardless of YAML scalar style.
+            out[key] = "\n".join(block_lines).rstrip("\n")
+            continue
+        # Inline scalar -- strip surrounding quotes.
+        if value.startswith('"') and value.endswith('"'):
+            value = value[1:-1]
+        elif value.startswith("'") and value.endswith("'"):
+            value = value[1:-1]
+        out[key] = value
+        i += 1
+    return out
+
+
+def _format_block_scalar(text: str, indent: str = "  ") -> str:
+    """Format a string as a YAML literal-block-scalar body, indenting
+    each line. Blank lines render with no trailing whitespace.
+    """
+    return "\n".join(indent + line if line else "" for line in text.split("\n"))
+
+
+def _build_runtime_frontmatter(*, name: str, fm: dict) -> str:
+    """Build runtime-spec frontmatter text from source frontmatter.
+
+    Includes only Anthropic Agent Skills spec keys; strips source-only fields
+    like `tagline`. Validates the description character cap. Returns the
+    frontmatter text without the surrounding `---` fences.
+    """
+    description = fm.get("description", "")
+    if len(description) > DESCRIPTION_CAP:
+        raise ValueError(
+            f"description for skill '{name}' is {len(description)} chars "
+            f"(cap is {DESCRIPTION_CAP}). Trim the source description."
+        )
+
+    lines = [f"name: {name}"]
+    if description:
+        lines.append("description: |")
+        lines.append(_format_block_scalar(description))
+    for key in SPEC_KEYS:
+        if key in ("name", "description"):
+            continue
+        if key in fm:
+            lines.append(f"{key}: {fm[key]}")
+    return "\n".join(lines)
+
+
+def _emit_skill_md(*, name: str, fm: dict, body: str, target: Path) -> None:
+    """Write a spec-compliant SKILL.md to target. Body is copied verbatim."""
+    runtime_fm = _build_runtime_frontmatter(name=name, fm=fm)
+    body_text = body if body.startswith("\n") else "\n" + body
+    target.write_text(f"---\n{runtime_fm}\n---{body_text}", encoding="utf-8")
 
 
 def _clear_target(target_dir: Path) -> None:
-    """Remove everything under target_dir; caller is responsible for recreating it."""
+    """Remove everything under target_dir; caller recreates it."""
     if not target_dir.exists():
         return
     for entry in target_dir.iterdir():
@@ -74,9 +167,9 @@ def _link_into(link_path: Path, source_path: Path) -> None:
 
 
 def emit_skill_aliases(*, root: Path) -> int:
-    """Emit symlinks for every compound-node skill under nodes/Skills/ into
-    each of the SKILLS_TARGET_DIRS. Returns the count of skills emitted
-    (same count per target).
+    """Emit transformed SKILL.md files (and directory symlinks for scripts/
+    and references/) for every compound-node skill under nodes/Skills/.
+    Returns the count of skills emitted (same count per target directory).
     """
     source_dir = root / SKILLS_SOURCE_DIR
     if not source_dir.is_dir():
@@ -89,18 +182,24 @@ def emit_skill_aliases(*, root: Path) -> int:
         lead_file = skill_folder / f"{skill_folder.name}.md"
         if not lead_file.is_file():
             continue
-        name = _read_name(lead_file) or _derive_name(skill_folder.name)
-        skills.append((skill_folder, lead_file, name))
+        text = lead_file.read_text(encoding="utf-8")
+        split = _split_frontmatter(text)
+        if split is None:
+            continue
+        fm_text, body = split
+        fm = _parse_yaml_simple(fm_text)
+        name = fm.get("name") or _derive_name(skill_folder.name)
+        skills.append((skill_folder, fm, body, name))
 
     for target_name in SKILLS_TARGET_DIRS:
         target_dir = root / target_name
         target_dir.mkdir(parents=True, exist_ok=True)
         _clear_target(target_dir)
 
-        for skill_folder, lead_file, name in skills:
+        for skill_folder, fm, body, name in skills:
             alias_dir = target_dir / name
             alias_dir.mkdir(parents=True, exist_ok=True)
-            _link_into(alias_dir / "SKILL.md", lead_file)
+            _emit_skill_md(name=name, fm=fm, body=body, target=alias_dir / "SKILL.md")
 
             for subdir_name in SKILL_SUBDIRS:
                 source_sub = skill_folder / subdir_name
