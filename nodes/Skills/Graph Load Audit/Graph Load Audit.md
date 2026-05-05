@@ -1,5 +1,5 @@
 ---
-runtime_name: graph-load-audit
+name: graph-load-audit
 tagline: Surveys the graph for node integration depth -- which nodes pull weight in the graph's reasoning and which are dormant or under-pulling
 description: |
   Surveys the graph for node integration depth -- which nodes are pulling weight in the graph's reasoning and which are dormant or under-pulling. Counts inbound wikilink references and predicate edge-usage per node, identifies orphan nodes (zero inbound), distinguishes structurally-thin-by-design forms (Aspirations, narrow-grounding Decisions, recently-seeded nodes) from nodes actually under-pulling, decomposes prose-vs-wikilink mentions for meta-category candidates, and surfaces actionable recommendations -- cascade missing reciprocal edges, wikilink-target meta-category candidates, flag low-usage Predicates. Complements Graph Audit (which looks for drift) by asking the orthogonal question (which nodes are integrated and which are latent).
@@ -130,7 +130,7 @@ If the user wants a follow-up action committed in the same session, surface the 
 ## Relations
 
 - conforms_to::[[Skill Form Contract]]
-  - This skill declares compliance with the Skill Form Contract's Requirements -- YAML frontmatter carrying `runtime_name` and Anthropic `description`, compound-node layout, numbered Steps, Relations grounded in the Decisions and Convictions the skill realizes.
+  - This skill declares compliance with the Skill Form Contract's Requirements -- YAML frontmatter carrying `name` and Anthropic `description`, compound-node layout, numbered Steps, Relations grounded in the Decisions and Convictions the skill realizes.
 
 - composes_with::[[Graph Audit]]
   - The two skills are graph-scope hygiene audits at orthogonal angles. Graph Audit asks "is the graph correct" (drift, ghosts, vocabulary, orphans, un-annotated edges, forbidden predicates). This skill asks "which nodes are pulling weight." A node can pass Graph Audit and still be dormant; a node can be heavily integrated and still have drift. The two together produce a fuller picture of graph health.

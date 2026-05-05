@@ -1,5 +1,5 @@
 ---
-runtime_name: graph-audit
+name: graph-audit
 tagline: Sweeps the graph for drift across categories (vocabulary, ghost links, orphans, un-annotated edges, forbidden predicates, non-ASCII filenames); aggregates by pattern, not by file
 description: |
   Sweeps the graph (or a scoped subset) looking for drift and violations that Node Validate cannot catch at single-node scope: vocabulary drift, ghost-link inventory, orphan nodes, un-annotated edges, forbidden predicate sightings, and non-ASCII filenames. Aggregates findings across files and reports by category rather than per-node, so the scion author sees patterns of drift instead of drowning in per-file repetition.

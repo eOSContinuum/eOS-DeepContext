@@ -1,5 +1,5 @@
 ---
-runtime_name: graph-inception
+name: graph-inception
 tagline: Performs the local Open Integrity inception ceremony that stands up a new Deep Context graph with its own SSH-signed root commit and DID
 description: |
   Guides a first steward through the local Graph Inception ceremony that re-roots a cloned Deep Context graph (or initializes a fresh one) with a new Open Integrity inception commit signed by the steward's own SSH key, producing the new graph's own `did:repo:<sha1>` DID. Verifies prerequisites, walks a missing-prereq steward through the brew/gh/ssh-keygen install chain, runs `.scripts/graph-inception.sh` for the ceremony proper, and reports next steps for standing up the graph's GitHub repository and Pages site.

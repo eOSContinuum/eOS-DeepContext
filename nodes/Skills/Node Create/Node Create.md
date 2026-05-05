@@ -1,5 +1,5 @@
 ---
-runtime_name: node-create
+name: node-create
 tagline: Authors a new node conforming to the form Contract it claims: filename pattern, identity predicate block, required body sections, annotated Relations edges
 description: |
   Authors a new node conforming to this graph's Markdown Node Contract and the form-specific contract the new node claims. Interviews for form, applies the filename pattern, drafts the identity predicate block above the H1, drafts the required body sections the form specifies, and drafts annotated Relations edges.
@@ -148,7 +148,7 @@ This step is the authoring-time complement to Graph Audit's Step 6. The two shar
 ## Relations
 
 - conforms_to::[[Skill Form Contract]]
-  - This skill is itself a Skill node and declares compliance with the Skill Form Contract's Requirements — YAML frontmatter carrying `runtime_name` and Anthropic `description`, compound-node layout, numbered Steps, Relations grounded in the Decisions the skill enforces.
+  - This skill is itself a Skill node and declares compliance with the Skill Form Contract's Requirements — YAML frontmatter carrying `name` and Anthropic `description`, compound-node layout, numbered Steps, Relations grounded in the Decisions the skill enforces.
 
 - grounded_in::[[Decisions/Adopt Wikilinks and Named Edges]]↗
   - The spine commitment this skill realizes at write time. Every node this skill produces carries identity predicates and annotated Relations edges; the skill exists to make those the default output, not an afterthought.

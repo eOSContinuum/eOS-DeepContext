@@ -1,5 +1,5 @@
 ---
-runtime_name: predicate-propose
+name: predicate-propose
 tagline: Gates additions to the local predicate vocabulary; each new predicate arrives as a proposal with Carries, Crescent per neighbor, and Typing, not as drift discovered after the fact
 description: |
   Gates the addition of a new predicate to the graph's vocabulary. When an author wants to introduce a predicate that does not yet have a backing Predicate node, this skill walks the proposal: establish the axis the predicate answers, check existing vocabulary for fit, identify near-neighbors, draft a Predicate node (Carries / Crescent per neighbor / Typing), and validate against Predicate Form Contract before committing. Prevents silent vocabulary accretion — each new predicate arrives as a proposal the community can accept or refuse, not as drift discovered after the fact.

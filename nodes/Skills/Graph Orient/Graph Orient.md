@@ -1,5 +1,5 @@
 ---
-runtime_name: graph-orient
+name: graph-orient
 tagline: Orients an agent to this graph at first entry by reading AGENTS.md, the landing page, then Contracts, Convictions, and Predicates in a prescribed order
 description: |
   Orients an agent to this graph at first entry. Reads AGENTS.md and the landing page for stance, then the Contracts at identity-block scale to learn what forms nodes take, then the Convictions to learn the stances the graph is committed to, then the Predicates to learn the local typed-edge vocabulary. Reports a compressed orientation covering the graph's forms, vocabulary, founding commitments, and live tensions.

@@ -1,5 +1,5 @@
 ---
-runtime_name: node-validate
+name: node-validate
 tagline: Verifies a single node against the Form Contract it conforms to, walking the inheritance chain and distinguishing mechanical violations from semantic ones
 description: |
   Verifies a single node against the Requirements of the Form Contract it conforms to, walking the inheritance chain from Markdown Node Contract through the form-specific Contract. Reports each violation with a specific remediation, distinguishing mechanical breaks (filename, identity-block presence, ASCII dashes) from semantic ones (missing body sections, form-specific predicate reservations, un-annotated edges).
@@ -75,7 +75,7 @@ Apply the form-specific Contract's Requirements. The exact checks vary by form:
 - `Reference Form Contract` — citation parenthetical filename; URL; Adopted / Not adopted (yet) sections as applicable.
 - `Contract Form Contract` — filename ends with ` Contract.md`; `## Requirements` with `### <short name>` subsections using RFC 2119 keywords; opening prose precedes Requirements; self-conformance if the Contract is itself a Contract.
 - `Aspiration Form Contract` — Gap; Work; Progress Recognition; no `has_commitment::`, `decided_on::`, or `has_epistemic_status::`.
-- `Skill Form Contract` — compound-node folder with lead file matching folder name; YAML frontmatter with `runtime_name` and Anthropic-spec `description`; numbered Steps; Scripts section when `scripts/` present.
+- `Skill Form Contract` — compound-node folder with lead file matching folder name; YAML frontmatter with `name` and Anthropic-spec `description`; numbered Steps; Scripts section when `scripts/` present.
 
 The form-specific predicate reservations come from `Reserve Predicate Vocabularies to Specific Forms`. A `has_commitment::` on a Conviction, a `has_epistemic_status::` on a Decision, or a `serves_as::` on a Gloss is a category error — flag it with the reserving Contract named.
 

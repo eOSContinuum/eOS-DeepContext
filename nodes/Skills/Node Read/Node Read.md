@@ -1,5 +1,5 @@
 ---
-runtime_name: node-read
+name: node-read
 tagline: Reads a node progressively by layer (identity, H1, opening, Relations), letting an agent spend a finite context budget on the layer its task needs
 description: |
   Reads a single node using progressive disclosure: identity predicate block, H1, opening card-scale prose, and annotated Relations section first; the full elaboration body is loaded only when the cheaper layers do not satisfy the agent's reason for reading. Lets an agent spend a finite context budget deliberately on the layers most worth reading.
@@ -107,7 +107,7 @@ When reporting to the user, order the output from cheapest layer to most expensi
 ## Relations
 
 - conforms_to::[[Skill Form Contract]]
-  - This skill is itself a Skill node and declares compliance with the Skill Form Contract's Requirements — YAML frontmatter carrying `runtime_name` and Anthropic `description`, compound-node layout, numbered Steps, Relations grounded in the Decisions the skill realizes.
+  - This skill is itself a Skill node and declares compliance with the Skill Form Contract's Requirements — YAML frontmatter carrying `name` and Anthropic `description`, compound-node layout, numbered Steps, Relations grounded in the Decisions the skill realizes.
 
 - grounded_in::[[Decisions/Adopt Layered Node Structure]]↗
   - The Decision this skill realizes on the reading side. The layered structure Requirement specifies the cost-graded arrangement from identity block through Relations; this skill is the agent-side discipline that reads the layers in order and stops when cheaper layers suffice.
