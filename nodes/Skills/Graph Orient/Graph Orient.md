@@ -2,11 +2,11 @@
 name: graph-orient
 tagline: Orients an agent to this graph at first entry by reading AGENTS.md, the landing page, then Contracts, Convictions, and Predicates in a prescribed order
 description: |
-  Orients an agent to this graph at first entry. Reads AGENTS.md and the landing page for stance, then the Contracts at identity-block scale to learn what forms nodes take, then the Convictions to learn the stances the graph is committed to, then the Predicates to learn the local typed-edge vocabulary. Reports a compressed orientation covering the graph's forms, vocabulary, founding commitments, and live tensions.
+  Orients an agent to this graph at first entry. Reads AGENTS.md and the landing surface for stance, then Contracts at identity-block scale, Convictions, and Predicates. Reports a compressed orientation covering the graph's forms, vocabulary, founding commitments, and live tensions.
 
-  WHEN: the user is new to this graph and has scioned or cloned it locally; the agent has entered the repository for the first time and has not yet read AGENTS.md; the user says "orient me", "what is this graph", "read the repo", "get up to speed", or "where do I start"; at session start before the agent begins a task against the graph.
+  WHEN: agent has entered the repository for the first time and has not yet read AGENTS.md; user says "orient me", "what is this graph", "read the repo", "get up to speed", "where do I start"; at session start before task work.
 
-  WHEN NOT: the agent has already read AGENTS.md and the key Contracts in this session (repeat orientation burns context without adding signal); the task is scoped to a single node (use Node Read); the user wants a deep traversal across many nodes on a specific topic (use Node Research once it exists); the agent is working in a scion and the scion's AGENTS.md already establishes the stance.
+  WHEN NOT: agent has already read AGENTS.md and key Contracts this session (repeat orientation burns context); task is scoped to a single node (use Node Read); deep traversal across many nodes is needed (use Node Research once it exists); working in a scion whose own AGENTS.md establishes the stance.
 ---
 
 - conforms_to::[[Skill Form Contract]]

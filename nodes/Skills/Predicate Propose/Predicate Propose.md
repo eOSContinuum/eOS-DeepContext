@@ -2,11 +2,11 @@
 name: predicate-propose
 tagline: Gates additions to the local predicate vocabulary; each new predicate arrives as a proposal with Carries, Crescent per neighbor, and Typing, not as drift discovered after the fact
 description: |
-  Gates the addition of a new predicate to the graph's vocabulary. When an author wants to introduce a predicate that does not yet have a backing Predicate node, this skill walks the proposal: establish the axis the predicate answers, check existing vocabulary for fit, identify near-neighbors, draft a Predicate node (Carries / Crescent per neighbor / Typing), and validate against Predicate Form Contract before committing. Prevents silent vocabulary accretion — each new predicate arrives as a proposal the community can accept or refuse, not as drift discovered after the fact.
+  Gates adding a new predicate to the graph's vocabulary. Walks the proposal: establish the axis the predicate answers, check existing vocabulary for fit, identify near-neighbors, draft a Predicate node (Carries / Crescent per neighbor / Typing), validate against Predicate Form Contract. Prevents silent vocabulary accretion -- each predicate arrives as a proposal the community can accept or refuse.
 
-  WHEN: the user wants to introduce a new predicate; Node Create's Step 7 hits a relation the existing vocabulary does not cleanly express; Graph Audit flags a provisional predicate (in use without a backing Predicate node) as a candidate for codification; the user says "propose a predicate", "add this predicate to the vocabulary", "define X as a new edge type", or "write a Predicate for X".
+  WHEN: user wants to introduce a new predicate; Node Create Step 7 hits a relation existing vocabulary does not cleanly express; Graph Audit flags a provisional predicate; user says "propose a predicate", "add X to the vocabulary", "define X as a new edge type".
 
-  WHEN NOT: the relation can be expressed by an existing predicate with a backing node (use the existing predicate — inventing a synonym is the primary mechanism of vocabulary drift); the predicate is form-specific and already reserved by a form Contract (e.g., `has_commitment` is a Decision-form predicate governed by the Decision Form Contract; its values are Glosses, authored via Node Create, not new Predicate nodes); the author is consolidating two provisional predicates into one (that is content editing, not predicate proposal); the predicate is a scalar-valued one a form Contract should introduce (use Markdown Node Contract's scalar-predicate Requirement and the relevant form Contract).
+  WHEN NOT: an existing predicate with a backing node fits (inventing a synonym is vocabulary drift); the predicate is form-specific and reserved by a form Contract; the author is consolidating two provisional predicates (content editing); the predicate is a scalar-valued one a form Contract should introduce.
 ---
 
 - conforms_to::[[Skill Form Contract]]

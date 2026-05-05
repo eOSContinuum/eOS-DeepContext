@@ -2,11 +2,11 @@
 name: node-validate
 tagline: Verifies a single node against the Form Contract it conforms to, walking the inheritance chain and distinguishing mechanical violations from semantic ones
 description: |
-  Verifies a single node against the Requirements of the Form Contract it conforms to, walking the inheritance chain from Markdown Node Contract through the form-specific Contract. Reports each violation with a specific remediation, distinguishing mechanical breaks (filename, identity-block presence, ASCII dashes) from semantic ones (missing body sections, form-specific predicate reservations, un-annotated edges).
+  Verifies a single node against the Requirements of the Form Contract it conforms to, walking the inheritance chain from Markdown Node Contract through the form-specific Contract. Reports each violation with a remediation, distinguishing mechanical breaks (filename, identity-block, ASCII dashes) from semantic ones (missing sections, predicate reservations, un-annotated edges).
 
-  WHEN: the user asks to validate a node, check a draft, verify conformance, lint a node, or confirm a node is ready to commit; Node Create's Step 8 delegates here; the user has edited a node and wants to re-check against its contract; the agent is curating an existing node whose lifecycle or curation state is advancing.
+  WHEN: user asks to validate a node, check a draft, verify conformance, lint a node, confirm ready to commit; Node Create's Step 8 delegates here; user has edited a node and wants to re-check; agent is curating a node whose lifecycle is advancing.
 
-  WHEN NOT: sweeping the graph for drift across many nodes (use Graph Audit once it exists); editing the node to fix violations (fix directly with the Edit tool after validation reports them); drafting a new node from scratch (use Node Create, which validates as its penultimate step); validating work in a node whose form is unknown or whose conforms_to target does not yet exist.
+  WHEN NOT: sweeping the graph for drift across many nodes (use Graph Audit); editing to fix violations (use Edit directly after validation reports); drafting a new node (use Node Create, which validates penultimately); validating a node whose form is unknown or whose conforms_to target doesn't exist.
 ---
 
 - conforms_to::[[Skill Form Contract]]

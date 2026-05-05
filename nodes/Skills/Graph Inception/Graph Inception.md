@@ -2,11 +2,11 @@
 name: graph-inception
 tagline: Performs the local Open Integrity inception ceremony that stands up a new Deep Context graph with its own SSH-signed root commit and DID
 description: |
-  Guides a first steward through the local Graph Inception ceremony that re-roots a cloned Deep Context graph (or initializes a fresh one) with a new Open Integrity inception commit signed by the steward's own SSH key, producing the new graph's own `did:repo:<sha1>` DID. Verifies prerequisites, walks a missing-prereq steward through the brew/gh/ssh-keygen install chain, runs `.scripts/graph-inception.sh` for the ceremony proper, and reports next steps for standing up the graph's GitHub repository and Pages site.
+  Guides a first steward through the local Open Integrity inception ceremony that re-roots a cloned Deep Context graph (or initializes a fresh one) with a new SSH-signed inception commit, producing the graph's own `did:repo:<sha1>` DID. Verifies prerequisites, runs `.scripts/graph-inception.sh`, reports next steps for the GitHub repository and Pages site.
 
-  WHEN: the user has cloned a Deep Context graph locally (or initialized a fresh directory) and wants to turn the working directory into a new graph with its own cryptographic identity; the user says "graph inception", "stand up a new graph", "initialize my graph", "/graph-inception"; a fresh working directory contains `.deep-context-identity.yml` with `scion_of: null` and `.git` pointing at the donor's history (or no `.git` at all for a fresh-init case).
+  WHEN: user has cloned a Deep Context graph (or initialized a fresh directory) and wants to turn the working directory into a new graph with its own cryptographic identity; user says "graph inception", "stand up a new graph", "initialize my graph", "/graph-inception".
 
-  WHEN NOT: the repository is DeepContext.com itself or another existing graph (the ceremony is for new graphs, not for the graph being cloned from); the local repository has already completed Inception (the directory's `.deep-context-identity.yml` `this_did` matches the current root-commit SHA1); the user is exploring an existing graph someone else stood up (use Graph Orient for orientation); a contributor is editing content on an existing graph (direct git edits, not re-Inception).
+  WHEN NOT: the repository is the donor itself or another existing graph; Inception is already complete (`this_did` in `.deep-context-identity.yml` matches the root-commit SHA1); user is exploring a graph someone else stood up (use Graph Orient); a contributor is editing content (direct git edits, not re-Inception).
 ---
 
 - conforms_to::[[Skill Form Contract]]

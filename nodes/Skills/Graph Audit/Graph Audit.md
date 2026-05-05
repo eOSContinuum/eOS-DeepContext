@@ -2,11 +2,11 @@
 name: graph-audit
 tagline: Sweeps the graph for drift across categories (vocabulary, ghost links, orphans, un-annotated edges, forbidden predicates, non-ASCII filenames); aggregates by pattern, not by file
 description: |
-  Sweeps the graph (or a scoped subset) looking for drift and violations that Node Validate cannot catch at single-node scope: vocabulary drift, ghost-link inventory, orphan nodes, un-annotated edges, forbidden predicate sightings, and non-ASCII filenames. Aggregates findings across files and reports by category rather than per-node, so the scion author sees patterns of drift instead of drowning in per-file repetition.
+  Sweeps the graph (or a scoped subset) for drift Node Validate cannot catch at single-node scope: vocabulary drift, ghost-link inventory, orphan nodes, un-annotated edges, forbidden predicates, non-ASCII filenames. Aggregates findings across files and reports by category, so the author sees patterns instead of per-file repetition.
 
-  WHEN: the user asks to audit the graph, sweep for drift, check graph hygiene, find ghost links, list orphans, or audit the vocabulary; the graph has grown by enough nodes (roughly 10+) that drift is plausible; the user is preparing for a curation pass or a scion cleanup; a Contract or Decision was recently revised and cross-graph effects need surveying.
+  WHEN: user asks to audit the graph, sweep for drift, check hygiene, find ghost links, list orphans, audit the vocabulary; graph has 10+ nodes and drift is plausible; preparing for a curation pass; a Contract or Decision was recently revised.
 
-  WHEN NOT: a single specific node needs checking (use Node Validate, which walks a full Form Contract inheritance chain at node scope); the graph is small enough that a by-hand survey is faster; the task is writing new content rather than surveying existing content; periodic hygiene on a very recently-audited graph (re-auditing within a session wastes context without producing new signal).
+  WHEN NOT: a single node needs checking (use Node Validate); graph is small enough that by-hand survey is faster; task is writing new content; periodic hygiene on a recently-audited graph (re-auditing wastes context).
 ---
 
 - conforms_to::[[Skill Form Contract]]
