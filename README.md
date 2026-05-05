@@ -41,9 +41,11 @@ What is forthcoming:
   Adopted / Not adopted detail and per-feature correspondence to substrate
   primitives is to be expanded.
 
-The static-site build pipeline at [`.scripts/`](.scripts/) ports unmodified
-from [ChristopherA/DeepContext.com](https://github.com/ChristopherA/DeepContext.com).
-CI deploys to GitHub Pages on push to `main`.
+The static-site build pipeline at [`.scripts/`](.scripts/) is byte-identical
+to the upstream version at
+[ChristopherA/DeepContext.com](https://github.com/ChristopherA/DeepContext.com);
+per-graph configuration lives in `.scripts/site_config.py`. CI deploys to
+GitHub Pages on push to `main`.
 
 ## Lineage
 

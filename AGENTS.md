@@ -50,9 +50,12 @@ What is forthcoming:
   Adopted / Not adopted detail and per-feature correspondence to substrate
   primitives is to be expanded.
 
-The static-site build pipeline at `.scripts/` ports unmodified from
-upstream; CI builds via GitHub Actions deploy to GitHub Pages on push to
-`main`. The site is served at [eoscontinuum.com](https://eoscontinuum.com/).
+The static-site build pipeline at `.scripts/` is byte-identical to the
+upstream version (DeepContext.com); per-graph configuration lives in
+`.scripts/site_config.py`. Non-config drift in `.scripts/` between peer
+graphs is drift to reconcile, not divergence to maintain. CI builds via
+GitHub Actions deploy to GitHub Pages on push to `main`. The site is
+served at [eoscontinuum.com](https://eoscontinuum.com/).
 
 ## Graph conventions (short form)
 
