@@ -32,11 +32,13 @@ If the agent is working on a scion whose `AGENTS.md` differs from the template's
 
 Report the stance imperatives in one compressed paragraph. The agent will not re-read this file later in the session; the compression is the reference.
 
-### Step 2: Read landing.md
+### Step 2: Read the landing surface
 
-Read `landing.md`. It carries the project's public framing — what the graph is for at card scale, the founding Decision it rests on, the Convictions that ground the founding Decision, and the first-reader entry points.
+Read the project's landing surface. The landing surface is one of two shapes: a `landing.md` file at the repository root (older graphs), or a Touch Point node carrying `is_home: true` in its YAML frontmatter (newer graphs that adopted the Touch Point Form Contract). Check for `landing.md` first; if absent, search `nodes/Touch Points/` for the home Touch Point.
 
-Report the founding Decision and its grounding Convictions by name. These are the load-bearing commitments; every Decision downstream either composes with them or argues against them.
+The landing surface carries the project's public framing — what the graph is for at card scale, the founding Decision it rests on, the Convictions that ground the founding Decision, and the first-reader entry points.
+
+Report the founding Decision and its grounding Convictions by name. These are the load-bearing commitments; every Decision downstream either composes with them or argues against them. If the landing surface names them as ghost wikilinks rather than resolved internal links, report them as ghost-linked-and-unauthored — a young graph framing its commitments before authoring the load-bearing nodes is a legitimate state, the same way an empty Convictions surface is in Step 4.
 
 ### Step 3: Scan the Contracts
 
