@@ -21,10 +21,10 @@ at instantiation, with per-node graft provenance recorded via the
 
 ## Status
 
-In progress. The meta-layer is in place (13 Form Contracts including the
-eOS-specific Inquiry Form, 18 Predicates, 8 generic Skills under `nodes/`).
+In progress. The meta-layer is in place (Form Contracts including the
+eOS-specific Inquiry Form, Predicates, and generic Skills under `nodes/`).
 [The home Touch Point](nodes/Touch%20Points/eOS%20Continuum%20Welcome.md) carries the
-project's current public framing. 14 Reference stubs in
+project's current public framing. Reference stubs in
 [`nodes/References/`](nodes/References/) capture supporting evidence from
 the recent agentic-runtime literature (Recursive Language Models and its
 successors, ClawVM and the harness-managed-virtual-memory lineage,
@@ -46,7 +46,7 @@ What is forthcoming:
   named in the home Touch Point (customer-authored automation in a SaaS product,
   long-running stateful workflows, AI-authored tools and durable agent
   memory) belong in `nodes/Patterns/` once authored.
-- **Reference stub bodies** -- the 14 Reference stubs are minimal;
+- **Reference stub bodies** -- the Reference stubs are minimal;
   Adopted / Not adopted detail and per-feature correspondence to substrate
   primitives is to be expanded.
 
