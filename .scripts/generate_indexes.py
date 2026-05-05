@@ -48,19 +48,27 @@ def _entry_summary(path: Path) -> str:
 
     Use the tagline's first clause (before an em-dash or double-hyphen break);
     fall back to brief_summary when no tagline is present.
+
+    Angle brackets in the result are HTML-escaped — taglines often contain
+    placeholder-style `<Title Case>` or `<lowercase-hyphenated>` notation
+    that python-markdown would otherwise pass through as raw HTML, breaking
+    page layout from the offending entry onward. Escaping at the source
+    keeps the rendered output verbatim while protecting downstream markdown.
     """
+    import html as _html
+
     meta, _ = strip_frontmatter(path.read_text(encoding="utf-8"))
     tagline = meta.get("tagline", "").strip()
     if tagline:
         clause = _first_clause(tagline)
-        if len(clause) <= 180:
-            return clause
-        return clause[:177].rstrip() + "..."
+        if len(clause) > 180:
+            clause = clause[:177].rstrip() + "..."
+        return _html.escape(clause, quote=False)
 
     brief = meta.get("brief_summary", "").strip()
     if len(brief) > 180:
-        return brief[:177].rstrip() + "..."
-    return brief
+        brief = brief[:177].rstrip() + "..."
+    return _html.escape(brief, quote=False)
 
 
 def build_taxonomy_index(
