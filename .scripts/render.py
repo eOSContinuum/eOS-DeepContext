@@ -10,19 +10,14 @@ from urllib.parse import quote
 
 import markdown
 
+from site_config import GITHUB_REPO_URL, SITE_NAME
+
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 
 MD_EXTENSIONS = ["tables", "fenced_code", "attr_list", "sane_lists"]
 
 BULLET_RE = re.compile(r"^( {0,4})([*+\-]|\d+[.)]) ")
 
-# Site brand displayed in crumb and footer. Forks should set this to their
-# own name.
-SITE_NAME = "eOS-DeepContext"
-
-# GitHub source link for the "Edit on GitHub" footer widget. Scions should set
-# GITHUB_REPO_URL to their own repo or to an empty string to suppress the link.
-GITHUB_REPO_URL = "https://github.com/eOSContinuum/eOS-DeepContext"
 GITHUB_BRANCH = "main"
 
 # OI inception DID for this repo, of the form did:repo:<sha1-of-root-commit>.

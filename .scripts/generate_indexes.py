@@ -13,7 +13,8 @@ from collections import defaultdict
 from pathlib import Path
 
 from linkify import linkify_text
-from render import SITE_NAME, render_html, strip_frontmatter, strip_identity_block
+from render import render_html, strip_frontmatter, strip_identity_block
+from site_config import CUSTOM_DOMAIN, SITE_NAME
 from slugify import TAXONOMIES
 
 GRAFT_MARKER = "⊕"  # ⊕
@@ -374,11 +375,6 @@ def copy_attachments(*, root: Path, build_dir: Path) -> None:
 
 def write_nojekyll(build_dir: Path) -> None:
     (build_dir / ".nojekyll").write_text("", encoding="utf-8")
-
-
-# Canonical hostname for GitHub Pages custom domain. Forks should set this to
-# their own domain or to an empty string to disable custom-domain routing.
-CUSTOM_DOMAIN = "eoscontinuum.com"
 
 
 def write_cname(build_dir: Path) -> None:
