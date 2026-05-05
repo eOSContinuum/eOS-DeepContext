@@ -2,6 +2,8 @@
 name = "eos-deepcontext-site"
 version = "0.1.0"
 description = "Static site generator for the eOS-DeepContext knowledge graph"
+license = "BSD-2-Clause-Patent"
+license-files = ["LICENSE"]
 requires-python = ">=3.11"
 dependencies = [
     "markdown>=3.6",

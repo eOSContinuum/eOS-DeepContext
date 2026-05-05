@@ -189,7 +189,7 @@ structural rules for each node form; the Predicate Glosses under
 
 ## License
 
-License posture is to be declared. The
-[eOS Continuum](https://github.com/eOSContinuum) project's preferred
-direction is BSD-2-Clause-Patent at the application layer; eOS-DeepContext's
-declaration is pending alongside the founding-Decision authoring work.
+See [`LICENSE`](LICENSE). Licensed under
+[BSD-2-Clause-Patent](https://spdx.org/licenses/BSD-2-Clause-Patent.html),
+the [eOS Continuum](https://github.com/eOSContinuum) project's preferred
+license at the application layer.
